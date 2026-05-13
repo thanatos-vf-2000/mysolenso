@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mysolenso"
+version = "0.0.1.a"
+authors = [
+  { name="franck VANHOUCKE", email="vanhoucke.franck@free.fr" },
+]
+description = "Library to interface Solenso site monitor.solenso.net."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = [
+  "requests>=2.31.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/thanatos-vf-2000/mysolenso"
+Issues = "https://github.com/thanatos-vf-2000/mysolenso"
+Documents = "https://thanatos-vf-2000.github.io/mysolenso/"

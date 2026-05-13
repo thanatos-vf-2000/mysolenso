@@ -1,0 +1,13 @@
+help
+src/__pycache__
+src/mysolenso.egg-info
+test/__pycache__
+*.pyc
+docs/_build
+docs/_static
+docs/_templates
+old/
+dist/
+.venv/
+.pytest_cache/
+.pypirc
