@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mysolenso.services.stationdata &mdash; mysolenso 0.0.1b documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=bb72147e"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            mysolenso
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#connect-with-a-password">Connect with a password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#connect-with-an-existing-token">Connect with an existing token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#switch-the-active-station">Switch the active station</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/mysolenso.html">mysolenso — Main Facade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso"><code class="docutils literal notranslate"><span class="pre">MySolenso</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.username"><code class="docutils literal notranslate"><span class="pre">MySolenso.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.password"><code class="docutils literal notranslate"><span class="pre">MySolenso.password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.token"><code class="docutils literal notranslate"><span class="pre">MySolenso.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.auth"><code class="docutils literal notranslate"><span class="pre">MySolenso.auth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.me"><code class="docutils literal notranslate"><span class="pre">MySolenso.me</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.station"><code class="docutils literal notranslate"><span class="pre">MySolenso.station</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/auth.html">mysolenso.auth — Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.username"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.token"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.token_language"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token_language</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.isConnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.isConnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_solenso"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_solenso()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_hoymiles"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_hoymiles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.disconnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.disconnect()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/post.html">mysolenso.post — HTTP Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost"><code class="docutils literal notranslate"><span class="pre">MySolensoPost</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.timeout"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.headers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.raw_payload</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.set_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.remove_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.remove_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.set_headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_headers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.set_raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_raw_payload()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.post"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.post()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/services_me.html">mysolenso.services.me — User Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe"><code class="docutils literal notranslate"><span class="pre">MySolensoMe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.username"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.phone"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.phone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.email"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.role_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.role_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.roles_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.roles_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.group_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.group_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.all_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/services_station.html">mysolenso.services.station — PV Stations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation"><code class="docutils literal notranslate"><span class="pre">MySolensoStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.refresh_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.refresh_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_total"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_total</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.stations"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.stations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.city_code"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.city_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.status"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.create_at"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.create_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.tz_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.tz_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.capacitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.install_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.install_power</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.org_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.org_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.warn_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.warn_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.ak"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.ak</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/services_stationdata.html">mysolenso.services.stationdata — Station Detail Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.set_station_find"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.set_station_find()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.name"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.create_at"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.create_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.capacitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.config"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.is_stars"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.is_stars</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.money_unit"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.money_unit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.electricity_price"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.electricity_price</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.timezone"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.timezone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.local_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.local_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.install_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.install_power</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/exceptions.html">mysolenso.exceptions — Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/exceptions.html#mysolenso.exceptions.MySolensoException"><code class="docutils literal notranslate"><span class="pre">MySolensoException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/exceptions.html#mysolenso.exceptions.MySolensoConnectionException"><code class="docutils literal notranslate"><span class="pre">MySolensoConnectionException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/exceptions.html#mysolenso.exceptions.MySolensoAuthenticationException"><code class="docutils literal notranslate"><span class="pre">MySolensoAuthenticationException</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/const.html">mysolenso.const — Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_AUTH_LOGIN"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_USER_ME"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_STATION_FIND"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id0"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id1"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id2"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id3"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id4"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id5"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mysolenso</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">mysolenso.services.stationdata</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for mysolenso.services.stationdata</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;MySolenso detailed PV station data service.</span>
+
+<span class="sd">Provides the :class:`MySolensoStationData` class, which queries the</span>
+<span class="sd">``/station_find`` endpoint and exposes extended configuration and runtime</span>
+<span class="sd">data for a specific photovoltaic station.</span>
+
+<span class="sd">Unlike :class:`~mysolenso.services.station.MySolensoStation`, which returns</span>
+<span class="sd">a paginated list of stations, this service fetches the **full detail record**</span>
+<span class="sd">of a single station (pricing, timezone, config, local time, etc.).</span>
+
+<span class="sd">This module is intended to be instantiated by :class:`~mysolenso.MySolenso`</span>
+<span class="sd">and accessed via ``client.station_data``.</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        client = MySolenso(username=&quot;jdoe&quot;, token=&quot;tok&quot;)</span>
+
+<span class="sd">        # Detailed data for the currently active station</span>
+<span class="sd">        print(client.station_data.station_id)</span>
+<span class="sd">        print(client.station_data.name)</span>
+<span class="sd">        print(client.station_data.electricity_price)</span>
+<span class="sd">        print(client.station_data.local_time)</span>
+<span class="sd">        print(client.station_data.timezone)</span>
+
+<span class="sd">        # Switch to a different station by its ID</span>
+<span class="sd">        client.station_data.set_station_find(43)</span>
+<span class="sd">        print(client.station_data.install_power)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..post</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoPost</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..const</span><span class="w"> </span><span class="kn">import</span> <span class="n">API_STATION_FIND</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoException</span>
+
+<span class="n">_LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MySolensoStationData">
+<a class="viewcode-back" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MySolensoStationData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Detailed configuration and runtime data for a single PV station.</span>
+
+<span class="sd">    Queries the ``/station_find`` endpoint with a station ID and exposes the</span>
+<span class="sd">    full detail record as Python properties. The active station defaults to</span>
+<span class="sd">    the one currently selected in the parent&#39;s</span>
+<span class="sd">    :class:`~mysolenso.services.station.MySolensoStation` sub-module.</span>
+
+<span class="sd">    Use :meth:`set_station_find` to switch to any station that belongs to</span>
+<span class="sd">    the account (validated against the station list).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parent: Instance of :class:`~mysolenso.MySolenso` providing access</span>
+<span class="sd">            to the ``auth`` and ``station`` sub-modules.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        MySolensoException: If ``parent.station.station_id`` is ``None``</span>
+<span class="sd">            (no active station set), or if the API response is invalid.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        parent: Reference to the parent :class:`~mysolenso.MySolenso` object.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        Every call to :meth:`set_station_find` triggers a new network</span>
+<span class="sd">        request to refresh all properties.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            client = MySolenso(username=&quot;jdoe&quot;, token=&quot;tok&quot;)</span>
+<span class="sd">            sd = client.station_data</span>
+
+<span class="sd">            print(sd.station_id)          # active station ID</span>
+<span class="sd">            print(sd.name)                # &quot;My Solar Roof&quot;</span>
+<span class="sd">            print(sd.electricity_price)   # 0.1740</span>
+<span class="sd">            print(sd.money_unit)          # &quot;EUR&quot;</span>
+<span class="sd">            print(sd.local_time)          # &quot;2026-05-14 10:32:00&quot;</span>
+<span class="sd">            sd.set_station_find(43)       # switch and reload</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+
+        <span class="c1"># Guard: station_id must be resolved before instantiation</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> - MySolensoStationData station_id is None.&quot;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="s2">&quot;MySolensoStationData station_id is None.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_station_find</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span>
+
+        <span class="c1"># Initial data fetch for the active station</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_station_find</span><span class="p">()</span>
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Station selection</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="MySolensoStationData.set_station_find">
+<a class="viewcode-back" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.set_station_find">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_station_find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch the active station and reload all properties from the API.</span>
+
+<span class="sd">        The provided ``id`` is validated against the station list returned by</span>
+<span class="sd">        :attr:`~mysolenso.services.station.MySolensoStation.stations` to</span>
+<span class="sd">        prevent requests for stations that do not belong to the account.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            id (int): Station ID to activate. Must exist in the account&#39;s</span>
+<span class="sd">                station list.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            MySolensoException: If ``id`` is not found in the account&#39;s</span>
+<span class="sd">                station list, or if the subsequent API call fails.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                client.station_data.set_station_find(999999)</span>
+<span class="sd">                print(client.station_data.name)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">stations</span>
+        <span class="n">exists</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">station</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span> <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">stations</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_station_find: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;station </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2"> not found.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_station_find</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_station_find</span><span class="p">()</span></div>
+
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Data retrieval</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_station_find</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query the API and refresh all station detail attributes.</span>
+
+<span class="sd">        Sends a POST request to :data:`~mysolenso.const.API_STATION_FIND`</span>
+<span class="sd">        with the current station ID, then maps every field of the response</span>
+<span class="sd">        onto the instance&#39;s private attributes.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            MySolensoException: If the request fails, times out, or returns</span>
+<span class="sd">                a malformed JSON response.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">MySolensoPost</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_headers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_auth_headers_solenso</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_raw_payload</span><span class="p">({</span>
+                <span class="s2">&quot;ERROR_BACK&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_station_find</span><span class="p">},</span>
+                <span class="s2">&quot;WAITING_PROMISE&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="p">})</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_STATION_FIND</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span> <span class="o">=</span> <span class="n">response</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>              <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create_at</span>         <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;create_at&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_capacitor</span>         <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;capacitor&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_address</span>           <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;address&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span>            <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_is_stars</span>          <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;is_stars&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_money_unit</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;money_unit&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_electricity_price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;electricity_price&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span>          <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;timezone&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_local_time</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;local_time&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_install_power</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span>
+                <span class="s2">&quot;Invalid or corrupted JSON response.&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Internal data access</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a field from the cached station detail response.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): Field name to read from the raw response dict.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Union[int, float, str, dict, None]: Field value, or ``None``</span>
+<span class="sd">            if the key is absent.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Public properties</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Full raw response returned by the ``/station_find`` endpoint.</span>
+
+<span class="sd">        Useful for accessing fields not exposed by the other properties.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            {</span>
+<span class="sd">                &quot;id&quot;: 9999999,</span>
+<span class="sd">                &quot;gid&quot;: 123456,</span>
+<span class="sd">                &quot;name&quot;: &quot;DOE JOHN&quot;,</span>
+<span class="sd">                &quot;type&quot;: 1,</span>
+<span class="sd">                &quot;tz_id&quot;: 42,</span>
+<span class="sd">                &quot;city_code&quot;: &quot;FR13005000000000&quot;,</span>
+<span class="sd">                &quot;status&quot;: 40,</span>
+<span class="sd">                &quot;create_by&quot;: 293382,</span>
+<span class="sd">                &quot;create_at&quot;: &quot;2025-11-08 10:44:51&quot;,</span>
+<span class="sd">                &quot;classify&quot;: 1,</span>
+<span class="sd">                &quot;tz_name&quot;: &quot;UTC+01&quot;,</span>
+<span class="sd">                &quot;pic_path&quot;: &quot;&quot;,</span>
+<span class="sd">                &quot;capacitor&quot;: &quot;5&quot;,</span>
+<span class="sd">                &quot;address&quot;: &quot;95 Moon Road, 99999 Galaxy, World&quot;,</span>
+<span class="sd">                &quot;layout_step&quot;: 2,</span>
+<span class="sd">                &quot;is_balance&quot;: 0,</span>
+<span class="sd">                &quot;is_reflux&quot;: 0,</span>
+<span class="sd">                &quot;remarks&quot;: &quot;&quot;,</span>
+<span class="sd">                &quot;config&quot;: {</span>
+<span class="sd">                    &quot;sun_spec_num&quot;: 0,</span>
+<span class="sd">                    &quot;power_limit&quot;: &quot;&quot;,</span>
+<span class="sd">                    &quot;power_limit_pf&quot;: &quot;&quot;,</span>
+<span class="sd">                    &quot;power_limit_re&quot;: &quot;&quot;,</span>
+<span class="sd">                    &quot;module_max_power&quot;: 0,</span>
+<span class="sd">                    &quot;owner_is_show_layout&quot;: 1,</span>
+<span class="sd">                    &quot;owner_is_modify_dev&quot;: 0,</span>
+<span class="sd">                    &quot;third_party_user&quot;: [],</span>
+<span class="sd">                    &quot;billing_type&quot;: 0,</span>
+<span class="sd">                    &quot;billing_start&quot;: &quot;&quot;,</span>
+<span class="sd">                    &quot;billing_every&quot;: 0,</span>
+<span class="sd">                    &quot;client_type&quot;: 100,</span>
+<span class="sd">                    &quot;layout_show&quot;: 1,</span>
+<span class="sd">                    &quot;fcs&quot;: 0,</span>
+<span class="sd">                    &quot;ess_cfg_edit&quot;: 0,</span>
+<span class="sd">                    &quot;grid_type&quot;: 0,</span>
+<span class="sd">                    &quot;diy&quot;: 0,</span>
+<span class="sd">                    &quot;weather&quot;: 0,</span>
+<span class="sd">                    &quot;au&quot;: 0,</span>
+<span class="sd">                    &quot;cr&quot;: 0,</span>
+<span class="sd">                    &quot;split_power&quot;: 0,</span>
+<span class="sd">                    &quot;dw&quot;: 0,</span>
+<span class="sd">                    &quot;eps&quot;: 0</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;is_stars&quot;: 0,</span>
+<span class="sd">                &quot;money_unit&quot;: &quot;EUR&quot;,</span>
+<span class="sd">                &quot;electricity_price&quot;: 0.25,</span>
+<span class="sd">                &quot;in_price&quot;: 0,</span>
+<span class="sd">                &quot;usd&quot;: &quot;&quot;,</span>
+<span class="sd">                &quot;nk_name&quot;: null,</span>
+<span class="sd">                &quot;int5m&quot;: 0,</span>
+<span class="sd">                &quot;is_3rd&quot;: 0,</span>
+<span class="sd">                &quot;dc&quot;: 0,</span>
+<span class="sd">                &quot;et&quot;: 0,</span>
+<span class="sd">                &quot;city_id&quot;: 41641,</span>
+<span class="sd">                &quot;weather_of_cid&quot;: 0,</span>
+<span class="sd">                &quot;timezone&quot;: {</span>
+<span class="sd">                    &quot;id&quot;: 42,</span>
+<span class="sd">                    &quot;dis_name&quot;: &quot;(UTC+01:00) Windhoek&quot;,</span>
+<span class="sd">                    &quot;name&quot;: &quot;Africa/Windhoek&quot;,</span>
+<span class="sd">                    &quot;tz_name&quot;: &quot;UTC+01&quot;,</span>
+<span class="sd">                    &quot;offset&quot;: 7200000</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;local_time&quot;: &quot;2026-05-12 14:39:07&quot;,</span>
+<span class="sd">                &quot;parent_city&quot;: [</span>
+<span class="sd">                    {</span>
+<span class="sd">                        &quot;id&quot;: 69,</span>
+<span class="sd">                        &quot;pid&quot;: 0,</span>
+<span class="sd">                        &quot;code&quot;: &quot;FR00000000000000&quot;,</span>
+<span class="sd">                        &quot;weather_of_cid&quot;: 0,</span>
+<span class="sd">                        &quot;city_name&quot;: &quot;World&quot;,</span>
+<span class="sd">                        &quot;country_code&quot;: &quot;FR&quot;,</span>
+<span class="sd">                        &quot;level&quot;: 1</span>
+<span class="sd">                    },</span>
+<span class="sd">                    {</span>
+<span class="sd">                        &quot;id&quot;: 41636,</span>
+<span class="sd">                        &quot;pid&quot;: 69,</span>
+<span class="sd">                        &quot;code&quot;: &quot;FR13000000000000&quot;,</span>
+<span class="sd">                        &quot;weather_of_cid&quot;: 0,</span>
+<span class="sd">                        &quot;city_name&quot;: &quot;Galaxy&quot;,</span>
+<span class="sd">                        &quot;country_code&quot;: &quot;FR&quot;,</span>
+<span class="sd">                        &quot;level&quot;: 2</span>
+<span class="sd">                    },</span>
+<span class="sd">                    {</span>
+<span class="sd">                        &quot;id&quot;: 41641,</span>
+<span class="sd">                        &quot;pid&quot;: 41636,</span>
+<span class="sd">                        &quot;code&quot;: &quot;FR13005000000000&quot;,</span>
+<span class="sd">                        &quot;weather_of_cid&quot;: 0,</span>
+<span class="sd">                        &quot;city_name&quot;: &quot;Moon&quot;,</span>
+<span class="sd">                        &quot;country_code&quot;: &quot;FR&quot;,</span>
+<span class="sd">                        &quot;level&quot;: 3</span>
+<span class="sd">                    }</span>
+<span class="sd">                ],</span>
+<span class="sd">                &quot;latitude&quot;: &quot;39.10884652257048&quot;,</span>
+<span class="sd">                &quot;longitude&quot;: &quot;-76.77128918829347&quot;,</span>
+<span class="sd">                &quot;meter_location&quot;: 0,</span>
+<span class="sd">                &quot;owner_list&quot;: [</span>
+<span class="sd">                    {</span>
+<span class="sd">                        &quot;uid&quot;: 111111,</span>
+<span class="sd">                        &quot;name&quot;: &quot;John DOE&quot;,</span>
+<span class="sd">                        &quot;user_name&quot;: &quot;JDOE&quot;</span>
+<span class="sd">                    }</span>
+<span class="sd">                ],</span>
+<span class="sd">                &quot;group&quot;: {</span>
+<span class="sd">                    &quot;id&quot;: 123456,</span>
+<span class="sd">                    &quot;name&quot;: &quot;Install Solenso&quot;,</span>
+<span class="sd">                    &quot;pid&quot;: 111139,</span>
+<span class="sd">                    &quot;type&quot;: 4,</span>
+<span class="sd">                    &quot;contact&quot;: &quot;John Solenso&quot;,</span>
+<span class="sd">                    &quot;phone&quot;: &quot;+33700000000&quot;,</span>
+<span class="sd">                    &quot;area&quot;: &quot;&quot;,</span>
+<span class="sd">                    &quot;icon&quot;: &quot;&quot;</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;money_data&quot;: {</span>
+<span class="sd">                    &quot;code&quot;: &quot;EUR&quot;,</span>
+<span class="sd">                    &quot;unit&quot;: &quot;€&quot;</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;warn_data&quot;: {</span>
+<span class="sd">                    &quot;s_uoff&quot;: false,</span>
+<span class="sd">                    &quot;s_ustable&quot;: false,</span>
+<span class="sd">                    &quot;s_uid&quot;: false,</span>
+<span class="sd">                    &quot;l3_warn&quot;: false,</span>
+<span class="sd">                    &quot;g_warn&quot;: false,</span>
+<span class="sd">                    &quot;me_warn&quot;: false,</span>
+<span class="sd">                    &quot;dl&quot;: null,</span>
+<span class="sd">                    &quot;pw_off&quot;: false</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;bms_capacitor&quot;: &quot;0&quot;,</span>
+<span class="sd">                &quot;inv_mode&quot;: 0,</span>
+<span class="sd">                &quot;create_by_name&quot;: &quot;SOLENSO_ADMIN&quot;,</span>
+<span class="sd">                &quot;lack&quot;: 0,</span>
+<span class="sd">                &quot;ak&quot;: &quot;aP7xQnLk9vTe41dR2mHyCuJ8zsKb&quot;,</span>
+<span class="sd">                &quot;flag_map&quot;: {</span>
+<span class="sd">                    &quot;gfi&quot;: 1</span>
+<span class="sd">                }</span>
+<span class="sd">            }</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Complete dictionary from the ``data`` field of the response.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">station_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identifier of the station currently loaded.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: Station ID used for the last ``/station_find`` API call.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_station_find</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Name of the photovoltaic installation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: ``name`` field of the station detail record.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_at</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Date the station was registered on the platform.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: ``create_at`` field (ISO 8601 format or similar).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_at</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">capacitor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Solar panel capacity of the station (kVA).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: ``capacitor`` field of the station detail record.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacitor</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">address</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Full geographic address of the station.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: ``address`` field of the station detail record.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_address</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Station configuration object returned by the API.</span>
+
+<span class="sd">        Contains hardware and software settings specific to the installation.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            {</span>
+<span class="sd">                &quot;sun_spec_num&quot;: 0,</span>
+<span class="sd">                &quot;power_limit&quot;: &quot;&quot;,</span>
+<span class="sd">                &quot;power_limit_pf&quot;: &quot;&quot;,</span>
+<span class="sd">                &quot;power_limit_re&quot;: &quot;&quot;,</span>
+<span class="sd">                &quot;module_max_power&quot;: 0,</span>
+<span class="sd">                &quot;owner_is_show_layout&quot;: 1,</span>
+<span class="sd">                &quot;owner_is_modify_dev&quot;: 0,</span>
+<span class="sd">                &quot;third_party_user&quot;: [],</span>
+<span class="sd">                &quot;billing_type&quot;: 0,</span>
+<span class="sd">                &quot;billing_start&quot;: &quot;&quot;,</span>
+<span class="sd">                &quot;billing_every&quot;: 0,</span>
+<span class="sd">                &quot;client_type&quot;: 100,</span>
+<span class="sd">                &quot;layout_show&quot;: 1,</span>
+<span class="sd">                &quot;fcs&quot;: 0,</span>
+<span class="sd">                &quot;ess_cfg_edit&quot;: 0,</span>
+<span class="sd">                &quot;grid_type&quot;: 0,</span>
+<span class="sd">                &quot;diy&quot;: 0,</span>
+<span class="sd">                &quot;weather&quot;: 0,</span>
+<span class="sd">                &quot;au&quot;: 0,</span>
+<span class="sd">                &quot;cr&quot;: 0,</span>
+<span class="sd">                &quot;split_power&quot;: 0,</span>
+<span class="sd">                &quot;dw&quot;: 0,</span>
+<span class="sd">                &quot;eps&quot;: 0</span>
+<span class="sd">            }</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: ``config`` field of the station detail record.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_stars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Indicates whether the station is marked as a favourite (&quot;starred&quot;).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: ``is_stars`` field.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_stars</span>  <span class="c1"># fix: was returning self.is_stars (infinite recursion)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">money_unit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Currency code used for financial calculations on this station.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: ``money_unit`` field (e.g. ``&quot;EUR&quot;``, ``&quot;USD&quot;``).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_money_unit</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">electricity_price</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Electricity sale/buy price configured for this station.</span>
+
+<span class="sd">        Used by the platform to estimate revenue or savings from solar</span>
+<span class="sd">        production.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            float: ``electricity_price`` field (unit depends on</span>
+<span class="sd">            :attr:`money_unit`).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_electricity_price</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Timezone information object for the station&#39;s location.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            {</span>
+<span class="sd">                &quot;id&quot;: 42,</span>
+<span class="sd">                &quot;dis_name&quot;: &quot;(UTC+01:00) Windhoek&quot;,</span>
+<span class="sd">                &quot;name&quot;: &quot;Africa/Windhoek&quot;,</span>
+<span class="sd">                &quot;tz_name&quot;: &quot;UTC+01&quot;,</span>
+<span class="sd">                &quot;offset&quot;: 7200000</span>
+<span class="sd">            }</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: ``timezone`` field, typically containing an IANA timezone</span>
+<span class="sd">            identifier and UTC offset.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">local_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current local time at the station&#39;s location.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: ``local_time`` field as returned by the API</span>
+<span class="sd">            (format: ``&quot;YYYY-MM-DD HH:MM:SS&quot;`` or similar).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_local_time</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">install_power</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Installed peak power of the station (in Wp or kWp).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: ``install_power`` field of the station detail record.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_install_power</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Franck VANHOUCKE.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
