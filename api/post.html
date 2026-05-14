@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.post — HTTP Client &mdash; mysolenso 0.0.1b documentation</title>
+  <title>mysolenso.post — HTTP Client &mdash; mysolenso 0.0.1c0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=bb72147e"></script>
+      <script src="../_static/documentation_options.js?v=a8f7b636"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
@@ -88,6 +88,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#mysolenso.post.MySolensoPost.set_headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_headers()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mysolenso.post.MySolensoPost.set_raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_raw_payload()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mysolenso.post.MySolensoPost.post"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.post.MySolensoPost.poststr"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.poststr()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -206,7 +207,7 @@
 <span id="mysolenso-post-http-client"></span><h1>mysolenso.post — HTTP Client<a class="headerlink" href="#module-mysolenso.post" title="Link to this heading"></a></h1>
 <p>Generic HTTP POST module for MySolenso requests.</p>
 <p>Provides the <a class="reference internal" href="#mysolenso.post.MySolensoPost" title="mysolenso.post.MySolensoPost"><code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoPost</span></code></a> class, a lightweight and configurable
-HTTP client that wraps a <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#module-requests" title="(in Requests v2.34.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">requests</span></code></a> session with header management,
+HTTP client that wraps a <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#module-requests" title="(in Requests v2.34.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">requests</span></code></a> session with header management,
 JSON payload handling, and response validation.</p>
 <p>This module is used internally by the services
 (<a class="reference internal" href="services_me.html#module-mysolenso.services.me" title="mysolenso.services.me"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mysolenso.services.me</span></code></a> and <a class="reference internal" href="services_station.html#module-mysolenso.services.station" title="mysolenso.services.station"><code class="xref py py-mod docutils literal notranslate"><span class="pre">mysolenso.services.station</span></code></a>)
@@ -227,7 +228,7 @@ to avoid code duplication.</p>
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">mysolenso.post.</span></span><span class="sig-name descname"><span class="pre">MySolensoPost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/post.html#MySolensoPost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.post.MySolensoPost" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>HTTP POST client with header management and JSON response validation.</p>
-<p>Wraps a persistent <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.34.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> and provides methods to
+<p>Wraps a persistent <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.34.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> and provides methods to
 configure headers, define a default JSON payload, and execute POST
 requests with automatic validation of the Solenso API response
 (<code class="docutils literal notranslate"><span class="pre">status</span></code> and <code class="docutils literal notranslate"><span class="pre">message</span></code> fields).</p>
@@ -402,6 +403,16 @@ If <code class="docutils literal notranslate"><span class="pre">None</span></cod
 </pre></div>
 </div>
 </div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mysolenso.post.MySolensoPost.poststr">
+<span class="sig-name descname"><span class="pre">poststr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/post.html#MySolensoPost.poststr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.post.MySolensoPost.poststr" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a></span></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

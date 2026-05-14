@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.mysolenso &mdash; mysolenso 0.0.1b documentation</title>
+  <title>mysolenso.mysolenso &mdash; mysolenso 0.0.1c0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=bb72147e"></script>
+      <script src="../../_static/documentation_options.js?v=a8f7b636"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -85,6 +85,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../api/post.html#mysolenso.post.MySolensoPost.set_headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_headers()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/post.html#mysolenso.post.MySolensoPost.set_raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_raw_payload()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/post.html#mysolenso.post.MySolensoPost.post"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/post.html#mysolenso.post.MySolensoPost.poststr"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.poststr()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -245,6 +246,9 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">.services.me</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoMe</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.services.station</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoStation</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.services.stationdata</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoStationData</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.services.stationcount</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoStationCount</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.services.powerbyday</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoPowerByDay</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.services.dayofyeay</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoCountByDayOfYeay</span>
 
 <span class="n">_LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -322,7 +326,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">station</span> <span class="o">=</span> <span class="n">MySolensoStation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         
         <span class="c1"># 4. Stations data (requires a valid token; raises if no station found)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">stationdata</span> <span class="o">=</span> <span class="n">MySolensoStationData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stationdata</span> <span class="o">=</span> <span class="n">MySolensoStationData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">stationcount</span> <span class="o">=</span> <span class="n">MySolensoStationCount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">powerbyday</span> <span class="o">=</span> <span class="n">MySolensoPowerByDay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">countbydayofyear</span> <span class="o">=</span> <span class="n">MySolensoCountByDayOfYeay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 </pre></div>
 
