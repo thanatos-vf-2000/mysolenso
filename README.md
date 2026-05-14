@@ -1,5 +1,12 @@
 # mysolenso library
 
+![PyPI](https://img.shields.io/pypi/v/mysolenso) ![TestPyPI](https://img.shields.io/badge/dynamic/json?label=TestPyPI&url=https%3A%2F%2Ftest.pypi.org%2Fpypi%2Fmysolenso%2Fjson&query=$.info.version) ![License](https://img.shields.io/pypi/l/mysolenso) 
+
+[![Docs](https://img.shields.io/badge/docs-online-brightgreen)](https://thanatos-vf-2000.github.io/mysolenso/) [![Workflow Status](https://github.com/thanatos-vf-2000/mysolenso/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/thanatos-vf-2000/mysolenso/actions)
+
+![Python Versions](https://img.shields.io/pypi/pyversions/mysolenso)
+![Downloads](https://img.shields.io/pypi/dm/mysolenso)
+
 
 MySolenso library for Python 3. The library was created to call api from your https://monitor.solenso.net/platform/.
 

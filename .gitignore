@@ -4,7 +4,6 @@ src/mysolenso.egg-info
 test/__pycache__
 *.pyc
 docs/build
-old/
 dist/
 .venv/
 .pytest_cache/
