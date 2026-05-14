@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.mysolenso &mdash; mysolenso 0.0.1a documentation</title>
+  <title>mysolenso.mysolenso &mdash; mysolenso 0.0.1b documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=8c8a9e14"></script>
+      <script src="../../_static/documentation_options.js?v=bb72147e"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -183,7 +183,8 @@
 
 <span class="sd">- :attr:`MySolenso.auth` — session management and token handling</span>
 <span class="sd">- :attr:`MySolenso.me` — user account information</span>
-<span class="sd">- :attr:`MySolenso.station` — photovoltaic station data</span>
+<span class="sd">- :attr:`MySolenso.station` — photovoltaic station information</span>
+<span class="sd">- :attr:`MySolenso.stationdata` — photovoltaic station data</span>
 
 <span class="sd">This is the only class that most users need to import.</span>
 
@@ -220,6 +221,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">.auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoAuth</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.services.me</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoMe</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.services.station</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoStation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.services.stationdata</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoStationData</span>
 
 <span class="n">_LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -294,7 +296,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">me</span> <span class="o">=</span> <span class="n">MySolensoMe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
         <span class="c1"># 3. PV stations (requires a valid token; raises if no station found)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">station</span> <span class="o">=</span> <span class="n">MySolensoStation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">station</span> <span class="o">=</span> <span class="n">MySolensoStation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        
+        <span class="c1"># 4. Stations data (requires a valid token; raises if no station found)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stationdata</span> <span class="o">=</span> <span class="n">MySolensoStationData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 </pre></div>
 
