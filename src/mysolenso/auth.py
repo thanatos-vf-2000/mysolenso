@@ -210,7 +210,7 @@ class MySolensoAuth:
         if not self.isConnect():
             raise MySolensoAuthenticationException("No tokens available.")
 
-        return {"Authorization": f"Bearer {self._token}"}
+        return {"Authorization": f"{self._token}"}
 
     def disconnect(self) -> None:
         """Remove the session token from memory.

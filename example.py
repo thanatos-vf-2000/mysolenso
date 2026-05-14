@@ -163,6 +163,16 @@ async def main() -> None:
         print("stationdata - id                :", client.stationdata.station_id)
         print("stationdata - money_unit        :", client.stationdata.money_unit)
         print("stationdata - electricity_price :", client.stationdata.electricity_price)
+        print("===================================")
+        print("stationcount - capacitor :", client.stationcount.capacitor)
+        print("stationcount - today_eq :", client.stationcount.today_eq)
+        print("stationcount - month_eq :", client.stationcount.month_eq)
+        print("===================================")
+        print("powerbyday - get_data :", client.powerbyday.get_data)
+        client.powerbyday.set_day("2025-05-12")
+        print("powerbyday - get_data :", client.powerbyday.get_data)
+        print("===================================")
+        print("countbydayofyear - get_data :", client.countbydayofyear.get_data)
         _LOG.info("End MySolenso.")
 
     except MySolensoAuthenticationException as err:

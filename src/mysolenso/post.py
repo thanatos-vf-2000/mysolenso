@@ -214,6 +214,30 @@ class MySolensoPost:
 
         except RequestException as exc:
             raise MySolensoException(f"HTTP request error: {exc}") from exc
+        
+    def poststr(
+        self,
+        url: str,
+        payload: Optional[Dict[str, Any]] = None,
+    ) -> bytes:
+
+        final_payload = payload if payload is not None else self._raw_payload
+
+        try:
+            response = self._session.post(
+                url,
+                headers=self._headers,
+                json=final_payload,
+                timeout=self.timeout,
+            )
+            response.raise_for_status()
+            return response.content
+
+        except Timeout as exc:
+            raise MySolensoException("HTTP request timeout.") from exc
+
+        except RequestException as exc:
+            raise MySolensoException(f"HTTP request error: {exc}") from exc
 
     # ------------------------------------------------------------------
     # Private methods

@@ -44,6 +44,9 @@ from .auth import MySolensoAuth
 from .services.me import MySolensoMe
 from .services.station import MySolensoStation
 from .services.stationdata import MySolensoStationData
+from .services.stationcount import MySolensoStationCount
+from .services.powerbyday import MySolensoPowerByDay
+from .services.dayofyeay import MySolensoCountByDayOfYeay
 
 _LOG = logging.getLogger(__name__)
 
@@ -120,3 +123,7 @@ class MySolenso:
         
         # 4. Stations data (requires a valid token; raises if no station found)
         self.stationdata = MySolensoStationData(self)
+        
+        self.stationcount = MySolensoStationCount(self)
+        self.powerbyday = MySolensoPowerByDay(self)
+        self.countbydayofyear = MySolensoCountByDayOfYeay(self)

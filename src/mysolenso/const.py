@@ -31,6 +31,8 @@ DEFAULT_TIMEOUT: int = 10
 BASE_URL_SOLENSO: str = "https://monitor.solenso.net/platform/"
 """Root URL of the Solenso monitoring platform."""
 
+BASE_URL_HOYMILES: str = "https://neapi.hoymiles.com/pvm-data/api/"
+
 # --- Authentication endpoints ---
 
 API_AUTH_LOGIN: str = BASE_URL_SOLENSO + "api/gateway/iam/auth_login"
@@ -48,3 +50,9 @@ API_STATION_ME: str = BASE_URL_SOLENSO + "api/gateway/pvm/station_select_by_page
 
 API_STATION_FIND: str = BASE_URL_SOLENSO + "api/gateway/pvm/station_find"
 """POST endpoint to retrieve the full detail record of a single PV station."""
+
+API_STATION_COUNT: str = BASE_URL_SOLENSO + "api/gateway/pvm-data/data_count_station_real_data"
+
+API_POWER_BY_DAY: str = BASE_URL_HOYMILES + "0/station/data/count_power_by_day"
+
+API_POWER_DAY_OF_YEAR: str = BASE_URL_HOYMILES + "0/station/data/count_eq_by_day_of_year"
