@@ -159,6 +159,10 @@ async def main() -> None:
         print("===================================")
         print("station - id :", client.station.station_id)
         print("station - ak :", client.station.ak)
+        print("===================================")
+        print("stationdata - id                :", client.stationdata.station_id)
+        print("stationdata - money_unit        :", client.stationdata.money_unit)
+        print("stationdata - electricity_price :", client.stationdata.electricity_price)
         _LOG.info("End MySolenso.")
 
     except MySolensoAuthenticationException as err:

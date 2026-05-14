@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mysolenso"
-version = "0.0.1.a"
+version = "0.0.1.b"
 authors = [
   { name="franck VANHOUCKE", email="vanhoucke.franck@free.fr" },
 ]

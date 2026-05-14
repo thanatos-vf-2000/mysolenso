@@ -5,7 +5,8 @@ three library sub-modules:
 
 - :attr:`MySolenso.auth` — session management and token handling
 - :attr:`MySolenso.me` — user account information
-- :attr:`MySolenso.station` — photovoltaic station data
+- :attr:`MySolenso.station` — photovoltaic station information
+- :attr:`MySolenso.stationdata` — photovoltaic station data
 
 This is the only class that most users need to import.
 
@@ -42,6 +43,7 @@ from typing import Optional
 from .auth import MySolensoAuth
 from .services.me import MySolensoMe
 from .services.station import MySolensoStation
+from .services.stationdata import MySolensoStationData
 
 _LOG = logging.getLogger(__name__)
 
@@ -115,3 +117,6 @@ class MySolenso:
 
         # 3. PV stations (requires a valid token; raises if no station found)
         self.station = MySolensoStation(self)
+        
+        # 4. Stations data (requires a valid token; raises if no station found)
+        self.stationdata = MySolensoStationData(self)

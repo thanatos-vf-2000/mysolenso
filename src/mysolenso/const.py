@@ -43,3 +43,5 @@ API_USER_ME: str = BASE_URL_SOLENSO + "api/gateway/iam/fun_api_1_user_me"
 
 API_STATION_ME: str = BASE_URL_SOLENSO + "api/gateway/pvm/station_select_by_page"
 """POST endpoint for paginated retrieval of the user's PV stations."""
+
+API_STATION_FIND: str = BASE_URL_SOLENSO + "api/gateway/pvm/station_find"
