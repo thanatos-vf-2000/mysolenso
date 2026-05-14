@@ -15,6 +15,8 @@ Attributes:
         information (name, email, role, group…).
     API_STATION_ME (str): User PV station list endpoint. Returns a paginated
         response with ``total`` and ``list``.
+    API_STATION_FIND (str): station data list endpoint. Returns a paginated
+        response with all data.
 
 Example:
     Direct use of constants (internal usage)::
@@ -45,3 +47,4 @@ API_STATION_ME: str = BASE_URL_SOLENSO + "api/gateway/pvm/station_select_by_page
 """POST endpoint for paginated retrieval of the user's PV stations."""
 
 API_STATION_FIND: str = BASE_URL_SOLENSO + "api/gateway/pvm/station_find"
+"""POST endpoint to retrieve the full detail record of a single PV station."""

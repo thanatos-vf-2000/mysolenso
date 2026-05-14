@@ -238,7 +238,7 @@ class MySolensoStation:
                     "pic_path": "",
                     "capacitor": "5",
                     "install_power": "0",
-                    "address": "95 Moon Road, 99999 Galaxy, France",
+                    "address": "95 Moon Road, 99999 Galaxy, World",
                     "owner_name": "John Doe",
                     "gid": 123456,
                     "org_name": "Install Solenso",

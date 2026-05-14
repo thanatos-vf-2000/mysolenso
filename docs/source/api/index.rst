@@ -9,5 +9,6 @@ API Reference
    post
    services_me
    services_station
+   services_stationdata
    exceptions
    const
