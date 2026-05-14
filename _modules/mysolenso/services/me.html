@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mysolenso.services.me &mdash; mysolenso 0.0.1a documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=8c8a9e14"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            mysolenso
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#connect-with-a-password">Connect with a password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#connect-with-an-existing-token">Connect with an existing token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../quickstart.html#switch-the-active-station">Switch the active station</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/mysolenso.html">mysolenso — Main Facade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso"><code class="docutils literal notranslate"><span class="pre">MySolenso</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.username"><code class="docutils literal notranslate"><span class="pre">MySolenso.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.password"><code class="docutils literal notranslate"><span class="pre">MySolenso.password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.token"><code class="docutils literal notranslate"><span class="pre">MySolenso.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.auth"><code class="docutils literal notranslate"><span class="pre">MySolenso.auth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.me"><code class="docutils literal notranslate"><span class="pre">MySolenso.me</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.station"><code class="docutils literal notranslate"><span class="pre">MySolenso.station</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/auth.html">mysolenso.auth — Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.username"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.token"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.token_language"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token_language</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.isConnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.isConnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_solenso"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_solenso()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_hoymiles"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_hoymiles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/auth.html#mysolenso.auth.MySolensoAuth.disconnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.disconnect()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/post.html">mysolenso.post — HTTP Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost"><code class="docutils literal notranslate"><span class="pre">MySolensoPost</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.timeout"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.headers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.raw_payload</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.set_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.remove_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.remove_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.set_headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_headers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.set_raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_raw_payload()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/post.html#mysolenso.post.MySolensoPost.post"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.post()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/services_me.html">mysolenso.services.me — User Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe"><code class="docutils literal notranslate"><span class="pre">MySolensoMe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.username"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.phone"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.phone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.email"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.role_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.role_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.roles_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.roles_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.group_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.group_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.all_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/services_station.html">mysolenso.services.station — PV Stations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation"><code class="docutils literal notranslate"><span class="pre">MySolensoStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.refresh_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.refresh_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_total"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_total</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.stations"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.stations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.city_code"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.city_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.status"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.create_at"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.create_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.tz_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.tz_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.capacitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.install_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.install_power</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.org_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.org_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.warn_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.warn_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/services_station.html#mysolenso.services.station.MySolensoStation.ak"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.ak</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/exceptions.html">mysolenso.exceptions — Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/exceptions.html#mysolenso.exceptions.MySolensoException"><code class="docutils literal notranslate"><span class="pre">MySolensoException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/exceptions.html#mysolenso.exceptions.MySolensoConnectionException"><code class="docutils literal notranslate"><span class="pre">MySolensoConnectionException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/exceptions.html#mysolenso.exceptions.MySolensoAuthenticationException"><code class="docutils literal notranslate"><span class="pre">MySolensoAuthenticationException</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/const.html">mysolenso.const — Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_AUTH_LOGIN"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_USER_ME"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id0"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id1"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id2"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id3"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#id4"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mysolenso</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">mysolenso.services.me</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for mysolenso.services.me</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;MySolenso user profile service.</span>
+
+<span class="sd">Provides the :class:`MySolensoMe` class, which queries the</span>
+<span class="sd">``/fun_api_1_user_me`` endpoint and exposes the connected account&#39;s</span>
+<span class="sd">information as Python properties.</span>
+
+<span class="sd">This module is instantiated automatically by :class:`~mysolenso.MySolenso`</span>
+<span class="sd">and accessible via ``client.me``.</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        client = MySolenso(username=&quot;jdoe&quot;, token=&quot;tok&quot;)</span>
+<span class="sd">        print(client.me.name)</span>
+<span class="sd">        print(client.me.email)</span>
+<span class="sd">        print(client.me.group_name)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..post</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoPost</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..const</span><span class="w"> </span><span class="kn">import</span> <span class="n">API_USER_ME</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoException</span>
+
+<span class="n">_LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MySolensoMe">
+<a class="viewcode-back" href="../../../api/services_me.html#mysolenso.services.me.MySolensoMe">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MySolensoMe</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Access to the connected Solenso user account information.</span>
+
+<span class="sd">    Queries the API once at instantiation and caches the profile data.</span>
+<span class="sd">    Properties are then available without any additional network call.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parent: Instance of :class:`~mysolenso.MySolenso` providing</span>
+<span class="sd">            access to the ``auth`` sub-module (for session headers).</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        MySolensoException: If the API response is invalid or if a network</span>
+<span class="sd">            error occurs during initialisation.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        parent: Reference to the parent :class:`~mysolenso.MySolenso` object.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            client = MySolenso(username=&quot;jdoe&quot;, token=&quot;tok&quot;)</span>
+<span class="sd">            me = client.me</span>
+
+<span class="sd">            print(me.username)    # &quot;jdoe&quot;</span>
+<span class="sd">            print(me.name)        # &quot;John DOE&quot;</span>
+<span class="sd">            print(me.email)       # &quot;jdoe@jdoe.com&quot;</span>
+<span class="sd">            print(me.phone)       # &quot;+33600000000&quot;</span>
+<span class="sd">            print(me.role_ids)    # &quot;1&quot;</span>
+<span class="sd">            print(me.roles_name)  # &quot;Administrator&quot;</span>
+<span class="sd">            print(me.group_name)  # &quot;Install Solenso&quot;</span>
+<span class="sd">            print(me.all_data)    # full dict returned by the API </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_user_me</span><span class="p">()</span>
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Data retrieval</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_user_me</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query the API to retrieve the connected user&#39;s profile.</span>
+
+<span class="sd">        Creates a :class:`~mysolenso.post.MySolensoPost` client, injects</span>
+<span class="sd">        the Solenso session headers, and maps the JSON response fields onto</span>
+<span class="sd">        the instance&#39;s private attributes.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            MySolensoException: If the request fails or the response is</span>
+<span class="sd">                malformed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">MySolensoPost</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_headers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_auth_headers_solenso</span><span class="p">())</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_USER_ME</span><span class="p">)</span>
+
+            <span class="c1"># Extract and normalise profile fields</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_username</span>   <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user_name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>       <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_phone</span>      <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;phone&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_email</span>      <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_role_ids</span>   <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;role_ids&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="c1"># First role from the list (format: [{&quot;name&quot;: &quot;...&quot;}])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_roles_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
+                <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;roles&quot;</span><span class="p">,</span> <span class="p">[{}])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="c1"># User group name (format: {&quot;name&quot;: &quot;...&quot;})</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_group_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span>
+                <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span> <span class="o">=</span> <span class="n">response</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span>
+                <span class="s2">&quot;Invalid or corrupted JSON response.&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Properties</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">username</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Login identifier (email address or username).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Value of the ``user_name`` field returned by the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_username</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Full name of the user.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Value of the ``name`` field returned by the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">phone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Phone number associated with the account.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Value of the ``phone`` field returned by the API, or an</span>
+<span class="sd">            empty string if not set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phone</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">email</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Email address of the account.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Value of the ``email`` field returned by the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_email</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">role_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Raw role identifier(s) assigned to the user.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Value of the ``role_ids`` field returned by the API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_role_ids</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">roles_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Name of the first role assigned to the user.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Value of the ``name`` field from the first element of</span>
+<span class="sd">            ``roles``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_roles_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">group_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Name of the group the user belongs to.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: Value of the ``name`` field from the ``group`` object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Full raw data returned by the API.</span>
+
+<span class="sd">        Useful for accessing fields not exposed by the other properties.</span>
+<span class="sd">        </span>
+<span class="sd">        Example:</span>
+<span class="sd">            {</span>
+<span class="sd">                &quot;id&quot;: 123456,</span>
+<span class="sd">                &quot;user_name&quot;: &quot;JDOE&quot;,</span>
+<span class="sd">                &quot;type&quot;: 3,</span>
+<span class="sd">                &quot;gid&quot;: 234567,</span>
+<span class="sd">                &quot;name&quot;: &quot;John Doe&quot;,</span>
+<span class="sd">                &quot;phone&quot;: &quot;+33600000000&quot;,</span>
+<span class="sd">                &quot;email&quot;: &quot;jdoe@jdoe.com&quot;,</span>
+<span class="sd">                &quot;role_ids&quot;: [90],</span>
+<span class="sd">                &quot;identity&quot;: 0,</span>
+<span class="sd">                &quot;src&quot;: 0,</span>
+<span class="sd">                &quot;tid&quot;: 197,</span>
+<span class="sd">                &quot;gpath&quot;: &quot;100267.100269.111139.136448&quot;,</span>
+<span class="sd">                &quot;dc&quot;: 0,</span>
+<span class="sd">                &quot;roles&quot;: [</span>
+<span class="sd">                    {</span>
+<span class="sd">                        &quot;name&quot;: &quot;Propriétaire&quot;,</span>
+<span class="sd">                        &quot;id&quot;: 90,</span>
+<span class="sd">                        &quot;v&quot;: 0</span>
+<span class="sd">                    }</span>
+<span class="sd">                ],</span>
+<span class="sd">                &quot;group&quot;: {</span>
+<span class="sd">                    &quot;id&quot;: 987654,</span>
+<span class="sd">                    &quot;name&quot;: &quot;Install Solenso&quot;,</span>
+<span class="sd">                    &quot;type&quot;: 4</span>
+<span class="sd">                },</span>
+<span class="sd">                &quot;services&quot;: [</span>
+<span class="sd">                    {</span>
+<span class="sd">                        &quot;gdpr&quot;: 0</span>
+<span class="sd">                    }</span>
+<span class="sd">                ]</span>
+<span class="sd">            }</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Complete dictionary from the ``data`` field of the response.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Franck VANHOUCKE.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

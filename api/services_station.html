@@ -1,0 +1,622 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mysolenso.services.station — PV Stations &mdash; mysolenso 0.0.1a documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8c8a9e14"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mysolenso.exceptions — Exceptions" href="exceptions.html" />
+    <link rel="prev" title="mysolenso.services.me — User Profile" href="services_me.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mysolenso
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#connect-with-a-password">Connect with a password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#connect-with-an-existing-token">Connect with an existing token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#switch-the-active-station">Switch the active station</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mysolenso.html">mysolenso — Main Facade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso"><code class="docutils literal notranslate"><span class="pre">MySolenso</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.username"><code class="docutils literal notranslate"><span class="pre">MySolenso.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.password"><code class="docutils literal notranslate"><span class="pre">MySolenso.password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.token"><code class="docutils literal notranslate"><span class="pre">MySolenso.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.auth"><code class="docutils literal notranslate"><span class="pre">MySolenso.auth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.me"><code class="docutils literal notranslate"><span class="pre">MySolenso.me</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.station"><code class="docutils literal notranslate"><span class="pre">MySolenso.station</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auth.html">mysolenso.auth — Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.username"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.token"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.token_language"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token_language</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.isConnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.isConnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_solenso"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_solenso()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_hoymiles"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_hoymiles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.disconnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.disconnect()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="post.html">mysolenso.post — HTTP Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost"><code class="docutils literal notranslate"><span class="pre">MySolensoPost</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.timeout"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.headers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.raw_payload</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.set_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.remove_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.remove_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.set_headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_headers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.set_raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_raw_payload()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.post"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.post()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_me.html">mysolenso.services.me — User Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe"><code class="docutils literal notranslate"><span class="pre">MySolensoMe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.username"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.phone"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.phone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.email"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.role_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.role_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.roles_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.roles_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.group_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.group_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.all_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mysolenso.services.station — PV Stations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation"><code class="docutils literal notranslate"><span class="pre">MySolensoStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.refresh_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.refresh_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.station_total"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_total</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.station_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.stations"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.stations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.city_code"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.city_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.status"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.create_at"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.create_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.tz_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.tz_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.capacitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.install_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.install_power</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.org_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.org_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.warn_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.warn_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.station.MySolensoStation.ak"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.ak</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">mysolenso.exceptions — Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException"><code class="docutils literal notranslate"><span class="pre">MySolensoException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoConnectionException"><code class="docutils literal notranslate"><span class="pre">MySolensoConnectionException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoAuthenticationException"><code class="docutils literal notranslate"><span class="pre">MySolensoAuthenticationException</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="const.html">mysolenso.const — Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_AUTH_LOGIN"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_USER_ME"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id0"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id1"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id2"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id3"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id4"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mysolenso</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">mysolenso.services.station — PV Stations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/services_station.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-mysolenso.services.station">
+<span id="mysolenso-services-station-pv-stations"></span><h1>mysolenso.services.station — PV Stations<a class="headerlink" href="#module-mysolenso.services.station" title="Link to this heading"></a></h1>
+<p>MySolenso PV station service.</p>
+<p>Provides the <a class="reference internal" href="#mysolenso.services.station.MySolensoStation" title="mysolenso.services.station.MySolensoStation"><code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoStation</span></code></a> class, which queries the
+<code class="docutils literal notranslate"><span class="pre">/station_select_by_page</span></code> endpoint and exposes the user’s photovoltaic
+installation data.</p>
+<p>When an account has multiple stations, the class selects the first one by
+default. Use <a class="reference internal" href="#mysolenso.services.station.MySolensoStation.set_station" title="mysolenso.services.station.MySolensoStation.set_station"><code class="xref py py-meth docutils literal notranslate"><span class="pre">MySolensoStation.set_station()</span></code></a> to switch the active station.</p>
+<p>This module is instantiated automatically by <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolenso</span></code>
+and accessible via <code class="docutils literal notranslate"><span class="pre">client.station</span></code>.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">&quot;tok&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_total</span><span class="p">)</span>   <span class="c1"># total number of stations</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span><span class="p">)</span>      <span class="c1"># ID of the active station</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>            <span class="c1"># installation name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">install_power</span><span class="p">)</span>   <span class="c1"># installed power</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">stations</span><span class="p">)</span>        <span class="c1"># list of [{id, ak}, ...]</span>
+</pre></div>
+</div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">mysolenso.services.station.</span></span><span class="sig-name descname"><span class="pre">MySolensoStation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/station.html#MySolensoStation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.station.MySolensoStation" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Access to the Solenso user’s photovoltaic stations.</p>
+<p>Queries the API at instantiation to retrieve the complete list of
+stations. The active station index (1-based) can be changed with
+<a class="reference internal" href="#mysolenso.services.station.MySolensoStation.set_station" title="mysolenso.services.station.MySolensoStation.set_station"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_station()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – Instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolenso</span></code> providing
+access to the <code class="docutils literal notranslate"><span class="pre">auth</span></code> sub-module.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException" title="mysolenso.exceptions.MySolensoException"><strong>MySolensoException</strong></a> – If no station is found (<code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">==</span> <span class="pre">0</span></code>), or if
+    the API response is invalid.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The station index is <strong>1-based</strong>: the first station is
+<code class="docutils literal notranslate"><span class="pre">station</span> <span class="pre">=</span> <span class="pre">1</span></code>, the second is <code class="docutils literal notranslate"><span class="pre">station</span> <span class="pre">=</span> <span class="pre">2</span></code>, and so on.</p>
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">&quot;tok&quot;</span><span class="p">)</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">station</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">station_total</span><span class="p">)</span>   <span class="c1"># 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">station_id</span><span class="p">)</span>      <span class="c1"># ID of station 1</span>
+<span class="n">st</span><span class="o">.</span><span class="n">set_station</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>         <span class="c1"># switch to station 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">station_id</span><span class="p">)</span>      <span class="c1"># ID of station 2</span>
+</pre></div>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.set_station">
+<span class="sig-name descname"><span class="pre">set_station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/station.html#MySolensoStation.set_station"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.set_station" title="Link to this definition"></a></dt>
+<dd><p>Select the active station by its 1-based index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Index of the station to activate. Must be between
+<code class="docutils literal notranslate"><span class="pre">1</span></code> and <a class="reference internal" href="#mysolenso.services.station.MySolensoStation.station_total" title="mysolenso.services.station.MySolensoStation.station_total"><code class="xref py py-attr docutils literal notranslate"><span class="pre">station_total</span></code></a> inclusive.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException" title="mysolenso.exceptions.MySolensoException"><strong>MySolensoException</strong></a> – If <code class="docutils literal notranslate"><span class="pre">id</span></code> is out of the valid range.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">set_station</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># activate the 2nd station</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.refresh_station">
+<span class="sig-name descname"><span class="pre">refresh_station</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/station.html#MySolensoStation.refresh_station"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.refresh_station" title="Link to this definition"></a></dt>
+<dd><p>Reload all attributes from the cached data.</p>
+<p>Useful after changing the station index via <a class="reference internal" href="#mysolenso.services.station.MySolensoStation.set_station" title="mysolenso.services.station.MySolensoStation.set_station"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_station()</span></code></a>,
+or to synchronise properties following an update to <a class="reference internal" href="#mysolenso.services.station.MySolensoStation.all_data" title="mysolenso.services.station.MySolensoStation.all_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">all_data</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method does not make a network call. To refresh data from
+the API, re-instantiate the class or call <code class="xref py py-meth docutils literal notranslate"><span class="pre">_get_station_me()</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.all_data">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">all_data</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.all_data" title="Link to this definition"></a></dt>
+<dd><p>Full raw list of all stations returned by the API.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<dl>
+<dt>[</dt><dd><blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“id”: 9999999,
+“name”: “JOHN DOE”,
+“city_code”: “FR13005000000000”,
+“parent_city”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“id”: 69,
+“pid”: 0,
+“code”: “FR00000000000000”,
+“weather_of_cid”: 0,
+“city_name”: “France”,
+“country_code”: “FR”,
+“level”: 1</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“status”: 40,
+“classify”: 1,
+“create_by”: 293382,
+“create_by_name”: “JDOE”,
+“create_at”: “2025-11-08 10:44:51”,
+“tz_name”: “UTC+01”,
+“pic_path”: “”,
+“capacitor”: “5”,
+“install_power”: “0”,
+“address”: “95 Moon Road, 99999 Galaxy, France”,
+“owner_name”: “John Doe”,
+“gid”: 123456,
+“org_name”: “Install Solenso”,
+“is_stars”: 0,
+“is_balance”: 0,
+“is_reflux”: 0,
+“warn_data”: {</p>
+<blockquote>
+<div><p>“s_uoff”: false,
+“s_ustable”: false,
+“s_uid”: false,
+“l3_warn”: false,
+“g_warn”: false,
+“me_warn”: false,
+“dl”: null,
+“pw_off”: false</p>
+</div></blockquote>
+<p>},
+“nk_name”: “”,
+“is_3rd”: 0,
+“dc”: 0,
+“cr”: 0,
+“ak”: “aP7xQnLk9vTe41dR2mHyCuJ8zsKb”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of dicts (one per station).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.station_total">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">station_total</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.station_total" title="Link to this definition"></a></dt>
+<dd><p>Total number of stations available for this account.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Value of the <code class="docutils literal notranslate"><span class="pre">total</span></code> field returned by the API.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.station_ids">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">station_ids</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.station_ids" title="Link to this definition"></a></dt>
+<dd><p>List of identifiers for all stations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of <code class="docutils literal notranslate"><span class="pre">id</span></code> fields from each station.
+Malformed entries are silently ignored.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a>]</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_ids</span><span class="p">)</span>  <span class="c1"># [42, 43]</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.stations">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">stations</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.stations" title="Link to this definition"></a></dt>
+<dd><p>Summary list of all stations (id + AK key).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of <code class="docutils literal notranslate"><span class="pre">{&quot;id&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;ak&quot;:</span> <span class="pre">...}</span></code> dicts for each
+station. Malformed entries are silently ignored.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)">dict</a>]</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">stations</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;ak&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.station_id">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">station_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.station_id" title="Link to this definition"></a></dt>
+<dd><p>Unique identifier of the active station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">id</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the active photovoltaic installation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">name</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.city_code">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">city_code</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.city_code" title="Link to this definition"></a></dt>
+<dd><p>City code where the station is located.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">city_code</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.status">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">status</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.status" title="Link to this definition"></a></dt>
+<dd><p>Operational status of the station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">status</span></code> field of the current station
+(<code class="docutils literal notranslate"><span class="pre">1</span></code> = online, other values = offline or alarm).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.create_at">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">create_at</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.create_at" title="Link to this definition"></a></dt>
+<dd><p>Date the station was registered on the platform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">create_at</span></code> field (ISO 8601 format or similar).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.tz_name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">tz_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.tz_name" title="Link to this definition"></a></dt>
+<dd><p>Timezone of the station (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;UTC+01&quot;</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">tz_name</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.capacitor">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">capacitor</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.capacitor" title="Link to this definition"></a></dt>
+<dd><p>Solar panel capacity associated with the station (kVA).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">capacitor</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.install_power">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">install_power</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.install_power" title="Link to this definition"></a></dt>
+<dd><p>Installed power of the station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">install_power</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.address">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">address</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.address" title="Link to this definition"></a></dt>
+<dd><p>Full geographic address of the station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">address</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.org_name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">org_name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.org_name" title="Link to this definition"></a></dt>
+<dd><p>Name of the organisation that owns the station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">org_name</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.warn_data">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">warn_data</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.warn_data" title="Link to this definition"></a></dt>
+<dd><p>Alarm/warning data for the station.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">warn_data</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.station.MySolensoStation.ak">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ak</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#mysolenso.services.station.MySolensoStation.ak" title="Link to this definition"></a></dt>
+<dd><p>Access key (API Key) specific to this station.</p>
+<p>Used for calls to the associated Hoymiles API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">ak</span></code> field of the current station.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="services_me.html" class="btn btn-neutral float-left" title="mysolenso.services.me — User Profile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="mysolenso.exceptions — Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Franck VANHOUCKE.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
