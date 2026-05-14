@@ -3,9 +3,7 @@ src/__pycache__
 src/mysolenso.egg-info
 test/__pycache__
 *.pyc
-docs/_build
-docs/_static
-docs/_templates
+docs/build
 old/
 dist/
 .venv/

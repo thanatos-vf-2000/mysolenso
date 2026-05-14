@@ -1,0 +1,46 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches:
+      - master  # ou 'master' selon ton projet
+      
+permissions:
+  contents: write      # push, release
+  actions: read        # lire les actions
+  checks: write        # statut des checks CI
+  packages: write      # publier des packages
+  pull-requests: write # commenter les PR
+
+jobs:
+  build-deploy:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies Sphinx
+        run: |
+          pip install sphinx sphinx_rtd_theme sphinx-autodoc-typehints
+          
+      - name: Install project dependencies (pyproject.toml)
+        run: |
+          pip install -e .
+
+      - name: Build documentation
+        run: |
+          sphinx-build -b html docs/source docs/build/html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/build/html
