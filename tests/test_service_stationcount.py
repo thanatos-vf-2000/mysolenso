@@ -144,7 +144,26 @@ def test_set_station_count_invalid_raises():
     with pytest.raises(MySolensoException):
         sd.set_station_count(999)
 
+# ---------------------------------------------------------------------------
+# get_station_refresh
+# ---------------------------------------------------------------------------
 
+def test_get_station_refresh():
+    """get_station_refresh refresh data."""
+    parent = MagicMock()
+    parent.auth.get_auth_headers_solenso.return_value = {"Cookie": "tok"}
+    parent.station.station_id = 42
+
+    with patch("mysolenso.services.stationcount.MySolensoPost") as MockPost:
+        MockPost.return_value.post.return_value = STATION_DETAIL
+        sd = MySolensoStationCount(parent)
+
+        # Change Data
+        MockPost.return_value.post.return_value = {**STATION_DETAIL, "today_eq": "834.0"}
+        sd.get_station_refresh()
+
+    assert sd.today_eq == "834.0"
+    
 # ---------------------------------------------------------------------------
 # API error handling
 # ---------------------------------------------------------------------------

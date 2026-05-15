@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master  # ou 'master' selon ton projet
+    tags:
+      - '*'
 
 permissions:
   contents: read
@@ -94,6 +96,7 @@ jobs:
 
   publish-to-testpypi:
     name: Publish Python 🐍 distribution 📦 to TestPyPI
+    if: github.ref == 'refs/heads/master'
     needs:
     - build
     runs-on: ubuntu-latest

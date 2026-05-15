@@ -160,6 +160,22 @@ class MySolensoStationCount:
             ) from exc
 
     # ------------------------------------------------------------------
+    # Refresh data
+    # ------------------------------------------------------------------
+    def get_station_refresh(self) -> None:
+        """Query the API for refresh station energy counters.
+
+        Sends a POST request to :data:`~mysolenso.const.API_STATION_COUNT`
+        with the current station ID wrapped in the Solenso RAW payload
+        format, then maps each response field onto a private attribute.
+
+        Raises:
+            MySolensoException: If the request fails, times out, or the
+                JSON response is malformed.
+        """
+        self._get_station_count()
+    
+    # ------------------------------------------------------------------
     # Internal data access
     # ------------------------------------------------------------------
 

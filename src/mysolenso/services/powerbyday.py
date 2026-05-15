@@ -281,6 +281,14 @@ class MySolensoPowerByDay:
             raise MySolensoException(msg)
 
     # ------------------------------------------------------------------
+    # Refresh Power data
+    # ------------------------------------------------------------------
+    def get_power_refresh(self) -> None:
+        """Query the API for refresh Power energy data.
+        """
+        self._get_power_by_day()
+        
+    # ------------------------------------------------------------------
     # Public properties
     # ------------------------------------------------------------------
 

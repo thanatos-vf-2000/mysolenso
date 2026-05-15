@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.abspath("../../src"))
 project = "mysolenso"
 copyright = "2026, Franck VANHOUCKE"
 author = "Franck VANHOUCKE"
-release = "0.0.1c0"
+release = "1.0.0"
 
 # -- Extensions ---------------------------------------------------------------
 extensions = [
