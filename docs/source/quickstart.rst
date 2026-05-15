@@ -32,14 +32,43 @@ Connect with a password
 Connect with an existing token
 ------------------------------
 
-If you already have a session token, you can use it directly to avoid
-an authentication network call:
-
 .. code-block:: python
 
    from mysolenso import MySolenso
 
-   client = MySolenso(username="user@example.com", token="eyJ...")
+   client = MySolenso(username="jdoe", token="eyJ...")
+
+Real-time energy counters
+-------------------------
+
+.. code-block:: python
+
+   print(client.stationcount.today_eq)    # kWh produced today
+   print(client.stationcount.total_eq)    # kWh lifetime production
+   print(client.stationcount.real_power)  # W current output
+   print(client.stationcount.co2_emission_reduction)
+
+Intra-day power curve
+---------------------
+
+.. code-block:: python
+
+   result = client.powerbyday.get_data
+   print(result["date"])               # "2026-05-15"
+   print(result["values"]["10:00"])    # 2048.75  (W at 10:00)
+
+   # Query a specific date
+   client.powerbyday.set_day("2025-12-25")
+   result = client.powerbyday.get_data
+
+Day-of-year production history
+-------------------------------
+
+.. code-block:: python
+
+   history = client.countbydayofyear.get_data
+   print(history["2026-01-01"])   # Wh produced on that day
+   print(history["2026-05-15"])   # 0.0 if not yet updated today
 
 Error handling
 --------------
@@ -74,3 +103,7 @@ Switch the active station
    # Select the second station (1-based index)
    client.station.set_station(2)
    print(client.station.name)
+
+   # Reload counters and history for the new station
+   client.stationcount.set_station_count(client.station.station_id)
+   client.countbydayofyear.set_station_id(client.station.station_id)

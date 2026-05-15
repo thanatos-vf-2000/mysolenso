@@ -84,19 +84,30 @@ class MySolensoMe:
             response = self._client.post(API_USER_ME)
 
             # Extract and normalise profile fields
-            self._username   = str(response.get("user_name", "")).strip()
-            self._name       = str(response.get("name", "")).strip()
-            self._phone      = str(response.get("phone", "")).strip()
-            self._email      = str(response.get("email", "")).strip()
-            self._role_ids   = str(response.get("role_ids", "")).strip()
-            # First role from the list (format: [{"name": "..."}])
-            self._roles_name = str(
-                response.get("roles", [{}])[0].get("name", "")
-            ).strip()
-            # User group name (format: {"name": "..."})
-            self._group_name = str(
-                response.get("group", {}).get("name", "")
-            ).strip()
+            def _clean(value):
+                return str(value).strip() if value is not None else None
+
+            self._username = _clean(response.get("user_name"))
+            self._name = _clean(response.get("name"))
+            self._phone = _clean(response.get("phone"))
+            self._email = _clean(response.get("email"))
+            self._role_ids = _clean(response.get("role_ids"))
+
+            # roles: [{"name": "..."}]
+            roles = response.get("roles")
+            self._roles_name = (
+                _clean(roles[0].get("name"))
+                if roles and isinstance(roles, list)
+                else None
+            )
+
+            # group: {"name": "..."}
+            group = response.get("group")
+            self._group_name = (
+                _clean(group.get("name"))
+                if group and isinstance(group, dict)
+                else None
+            )
             self._all_data = response
 
         except Exception as e:

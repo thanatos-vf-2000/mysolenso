@@ -490,10 +490,22 @@ class MySolensoStationData:
         return self._local_time
 
     @property
-    def install_power(self) -> str:
+    def install_power(self) -> dict:
         """Installed peak power of the station (in Wp or kWp).
 
+        Example:
+            {
+                "id": 123456,
+                "name": "Install Solenso",
+                "pid": 111139,
+                "type": 4,
+                "contact": "John Solenso",
+                "phone": "+33700000000",
+                "area": "",
+                "icon": ""
+            }
+            
         Returns:
-            str: ``install_power`` field of the station detail record.
+            dict: ``install_power`` field of the station detail record.
         """
         return self._install_power

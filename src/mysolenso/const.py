@@ -1,22 +1,28 @@
 """Configuration constants for the MySolenso library.
 
 This module centralises all fixed values used by the library:
-base URL, API endpoints, and network parameters. Modifying this file
+base URLs, API endpoints, and network parameters. Modifying this file
 is sufficient to point the library at a different environment (e.g. staging).
+
+Two base URLs are used:
+
+- :data:`BASE_URL_SOLENSO` — the Solenso monitoring platform (authentication,
+  user profile, station list, station detail, energy counters).
+- :data:`BASE_URL_HOYMILES` — the Hoymiles inverter data API (intra-day
+  power curve, day-of-year production totals).
 
 Attributes:
     DEFAULT_TIMEOUT (int): Network timeout in seconds applied to every HTTP
         request. Defaults to ``10``.
     BASE_URL_SOLENSO (str): Root URL of the Solenso platform.
-        All API routes are built from this base.
-    API_AUTH_LOGIN (str): Authentication endpoint. Expects a JSON payload
-        containing ``user_name`` and ``password``, and returns a session token.
-    API_USER_ME (str): Authenticated user profile endpoint. Returns account
-        information (name, email, role, group…).
-    API_STATION_ME (str): User PV station list endpoint. Returns a paginated
-        response with ``total`` and ``list``.
-    API_STATION_FIND (str): station data list endpoint. Returns a paginated
-        response with all data.
+    BASE_URL_HOYMILES (str): Root URL of the Hoymiles inverter data API.
+    API_AUTH_LOGIN (str): Solenso authentication endpoint.
+    API_USER_ME (str): Solenso authenticated user profile endpoint.
+    API_STATION_ME (str): Solenso paginated station list endpoint.
+    API_STATION_FIND (str): Solenso single-station detail endpoint.
+    API_STATION_COUNT (str): Solenso real-time energy counters endpoint.
+    API_POWER_BY_DAY (str): Hoymiles intra-day power curve endpoint.
+    API_POWER_DAY_OF_YEAR (str): Hoymiles day-of-year production totals endpoint.
 
 Example:
     Direct use of constants (internal usage)::
@@ -32,27 +38,63 @@ BASE_URL_SOLENSO: str = "https://monitor.solenso.net/platform/"
 """Root URL of the Solenso monitoring platform."""
 
 BASE_URL_HOYMILES: str = "https://neapi.hoymiles.com/pvm-data/api/"
+"""Root URL of the Hoymiles inverter data API (used for power/energy history)."""
 
 # --- Authentication endpoints ---
 
 API_AUTH_LOGIN: str = BASE_URL_SOLENSO + "api/gateway/iam/auth_login"
-"""POST endpoint for credential-based authentication."""
+"""POST endpoint for credential-based authentication.
+
+Expects a JSON payload with ``user_name`` and ``password``; returns a
+session token on success.
+"""
 
 # --- User endpoints ---
 
 API_USER_ME: str = BASE_URL_SOLENSO + "api/gateway/iam/fun_api_1_user_me"
-"""GET endpoint for the connected user account information."""
+"""POST endpoint for the connected user's account information.
 
-# --- Station endpoints ---
+Returns name, email, role, and group details for the authenticated user.
+"""
+
+# --- Station endpoints (Solenso) ---
 
 API_STATION_ME: str = BASE_URL_SOLENSO + "api/gateway/pvm/station_select_by_page"
-"""POST endpoint for paginated retrieval of the user's PV stations."""
+"""POST endpoint for paginated retrieval of the user's PV stations.
+
+Returns a response with ``total`` (int) and ``list`` (array of station dicts).
+"""
 
 API_STATION_FIND: str = BASE_URL_SOLENSO + "api/gateway/pvm/station_find"
-"""POST endpoint to retrieve the full detail record of a single PV station."""
+"""POST endpoint to retrieve the full detail record of a single PV station.
 
-API_STATION_COUNT: str = BASE_URL_SOLENSO + "api/gateway/pvm-data/data_count_station_real_data"
+Expects ``{"id": <station_id>}`` in the request body.
+"""
+
+API_STATION_COUNT: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm-data/data_count_station_real_data"
+)
+"""POST endpoint for real-time and cumulative energy counters of a station.
+
+Returns today's yield, monthly/yearly/lifetime totals, current power,
+CO₂ savings, equivalent trees planted, and data timestamps.
+"""
+
+# --- Power/energy history endpoints (Hoymiles) ---
 
 API_POWER_BY_DAY: str = BASE_URL_HOYMILES + "0/station/data/count_power_by_day"
+"""POST endpoint for the intra-day grid power curve of a station.
 
-API_POWER_DAY_OF_YEAR: str = BASE_URL_HOYMILES + "0/station/data/count_eq_by_day_of_year"
+Expects ``{"sid": <station_id>, "date": "YYYY-MM-DD"}``; returns a binary
+protobuf response with ``HH:MM`` time labels and packed float32 power values.
+"""
+
+API_POWER_DAY_OF_YEAR: str = (
+    BASE_URL_HOYMILES + "0/station/data/count_eq_by_day_of_year"
+)
+"""POST endpoint for day-of-year energy production totals.
+
+Expects ``{"sid": <station_id>}``; returns a mixed text/binary protobuf
+response with ``YYYY-MM-DD`` date strings and packed float32 Wh values
+covering every day since the station was commissioned.
+"""

@@ -1,12 +1,15 @@
 """Main entry point for the MySolenso library.
 
-This module exposes the :class:`MySolenso` facade class, which groups the
-three library sub-modules:
+This module exposes the :class:`MySolenso` facade class, which groups all
+library sub-modules into a single, unified interface:
 
 - :attr:`MySolenso.auth` — session management and token handling
 - :attr:`MySolenso.me` — user account information
-- :attr:`MySolenso.station` — photovoltaic station information
-- :attr:`MySolenso.stationdata` — photovoltaic station data
+- :attr:`MySolenso.station` — PV station list and active station selection
+- :attr:`MySolenso.stationdata` — detailed configuration of the active station
+- :attr:`MySolenso.stationcount` — real-time and cumulative energy counters
+- :attr:`MySolenso.powerbyday` — intra-day grid power curve
+- :attr:`MySolenso.countbydayofyear` — day-of-year energy production history
 
 This is the only class that most users need to import.
 
@@ -19,7 +22,6 @@ Example:
 
         # Authentication
         print(client.auth.isConnect())   # True
-        print(client.auth.token)
 
         # User profile
         print(client.me.name)
@@ -28,6 +30,18 @@ Example:
         # Active station
         print(client.station.station_id)
         print(client.station.install_power)
+
+        # Energy counters
+        print(client.stationcount.today_eq)
+        print(client.stationcount.real_power)
+
+        # Intra-day power curve
+        curve = client.powerbyday.get_data
+        print(curve["date"], curve["values"])
+
+        # Historical daily production
+        history = client.countbydayofyear.get_data
+        print(history["2026-01-01"])  # Wh produced on that day
 
     Connect directly with an existing token (avoids the authentication
     network call)::
@@ -54,9 +68,17 @@ _LOG = logging.getLogger(__name__)
 class MySolenso:
     """Main facade for the MySolenso library.
 
-    Instantiates and groups the three sub-modules (``auth``, ``me``,
-    ``station``) into a unified interface. Authentication and initial data
-    loading (profile + stations) are performed automatically at construction.
+    Instantiates and groups all sub-modules into a unified interface.
+    Authentication and initial data loading are performed automatically
+    at construction in the following order:
+
+    1. :class:`~mysolenso.auth.MySolensoAuth` — authenticate and obtain token.
+    2. :class:`~mysolenso.services.me.MySolensoMe` — fetch user profile.
+    3. :class:`~mysolenso.services.station.MySolensoStation` — fetch station list.
+    4. :class:`~mysolenso.services.stationdata.MySolensoStationData` — fetch station detail.
+    5. :class:`~mysolenso.services.stationcount.MySolensoStationCount` — fetch energy counters.
+    6. :class:`~mysolenso.services.powerbyday.MySolensoPowerByDay` — fetch today's power curve.
+    7. :class:`~mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay` — fetch production history.
 
     Args:
         username (str): Email address or Solenso account identifier.
@@ -69,18 +91,26 @@ class MySolenso:
         MySolensoConnectionException: If ``username`` is empty or if neither
             ``password`` nor ``token`` is provided.
         MySolensoAuthenticationException: If the credentials are invalid.
-        MySolensoException: On network error or missing data during
+        MySolensoException: On network error or missing data during any
             sub-module initialisation.
 
     Attributes:
         username (str): Account identifier.
-        password (Optional[str]): Password kept in memory; not reused after
-            construction.
+        password (Optional[str]): Password kept in memory (not reused after
+            construction).
         token (Optional[str]): Initial token provided at construction.
-        auth (MySolensoAuth): Sub-module for session management and
-            authorisation headers.
-        me (MySolensoMe): Sub-module for user profile access.
-        station (MySolensoStation): Sub-module for PV station access.
+        auth (MySolensoAuth): Session management and authorisation headers.
+        me (MySolensoMe): User profile access.
+        station (MySolensoStation): PV station list and active station
+            selection.
+        stationdata (MySolensoStationData): Detailed configuration of the
+            active station (timezone, pricing, installed power, etc.).
+        stationcount (MySolensoStationCount): Real-time and cumulative energy
+            counters (today/month/year/total yield, current power, CO₂).
+        powerbyday (MySolensoPowerByDay): Intra-day grid power curve
+            (``{HH:MM: watts}`` for a given date).
+        countbydayofyear (MySolensoCountByDayOfYeay): Full production history
+            as a ``{YYYY-MM-DD: Wh}`` dictionary since commissioning.
 
     Example:
         ::
@@ -91,7 +121,8 @@ class MySolenso:
             try:
                 client = MySolenso(username="admin", password="encrypted_pass")
                 print(client.me.name)
-                print(client.station.station_total)
+                print(client.stationcount.today_eq)
+                print(client.powerbyday.get_data["values"])
             except MySolensoException as e:
                 print(f"Error: {e}")
     """
@@ -104,26 +135,29 @@ class MySolenso:
     ) -> None:
         self.username = username
         self.password = password
-        self.token = token
+        self.token    = token
 
-        # --- Sequential initialisation of sub-modules ---
-
-        # 1. Authentication (raises an exception if credentials are invalid)
+        # 1. Authentication
         self.auth = MySolensoAuth(
             username=self.username,
             password=self.password,
             token=self.token,
         )
 
-        # 2. User profile (requires a valid token)
+        # 2. User profile
         self.me = MySolensoMe(self)
 
-        # 3. PV stations (requires a valid token; raises if no station found)
+        # 3. Station list
         self.station = MySolensoStation(self)
-        
-        # 4. Stations data (requires a valid token; raises if no station found)
+
+        # 4. Station detail
         self.stationdata = MySolensoStationData(self)
-        
+
+        # 5. Energy counters
         self.stationcount = MySolensoStationCount(self)
+
+        # 6. Today's intra-day power curve
         self.powerbyday = MySolensoPowerByDay(self)
+
+        # 7. Full day-of-year production history
         self.countbydayofyear = MySolensoCountByDayOfYeay(self)
