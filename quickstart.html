@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick Start &mdash; mysolenso 0.0.1c0 documentation</title>
+  <title>Quick Start &mdash; mysolenso 1.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=a8f7b636"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
@@ -164,6 +164,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.parent</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.set_station_count"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.set_station_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.get_station_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.get_station_refresh()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.all_data</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.station_id</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.today_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.today_eq</span></code></a></li>
@@ -185,6 +186,7 @@
 <li class="toctree-l4"><a class="reference internal" href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.parent</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_station_id()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_power_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_power_refresh()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_data</span></code></a></li>
 </ul>
 </li>
@@ -266,6 +268,8 @@
 </section>
 <section id="connect-with-a-password">
 <h2>Connect with a password<a class="headerlink" href="#connect-with-a-password" title="Link to this heading"></a></h2>
+<p>To recover your encrypted password, please use the project
+<a class="reference external" href="https://github.com/thanatos-vf-2000/pwdsolenso">pwdsolenso</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mysolenso</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolenso</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span>
@@ -286,6 +290,8 @@
 </section>
 <section id="connect-with-an-existing-token">
 <h2>Connect with an existing token<a class="headerlink" href="#connect-with-an-existing-token" title="Link to this heading"></a></h2>
+<p>To recover an token, please use the project
+<a class="reference external" href="https://github.com/thanatos-vf-2000/pwdsolenso">pwdsolenso</a></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mysolenso</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolenso</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;jdoe&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">&quot;eyJ...&quot;</span><span class="p">)</span>

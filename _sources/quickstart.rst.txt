@@ -11,6 +11,9 @@ Installation
 Connect with a password
 -----------------------
 
+To recover your encrypted password, please use the project
+`pwdsolenso <https://github.com/thanatos-vf-2000/pwdsolenso>`_
+
 .. code-block:: python
 
    from mysolenso import MySolenso
@@ -31,6 +34,9 @@ Connect with a password
 
 Connect with an existing token
 ------------------------------
+
+To recover an token, please use the project
+`pwdsolenso <https://github.com/thanatos-vf-2000/pwdsolenso>`_
 
 .. code-block:: python
 
