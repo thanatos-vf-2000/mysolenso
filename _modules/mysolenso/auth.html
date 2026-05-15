@@ -45,6 +45,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#connect-with-a-password">Connect with a password</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#connect-with-an-existing-token">Connect with an existing token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#real-time-energy-counters">Real-time energy counters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#intra-day-power-curve">Intra-day power curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#day-of-year-production-history">Day-of-year production history</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#error-handling">Error handling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#switch-the-active-station">Switch the active station</a></li>
 </ul>
@@ -58,6 +61,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.auth"><code class="docutils literal notranslate"><span class="pre">MySolenso.auth</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.me"><code class="docutils literal notranslate"><span class="pre">MySolenso.me</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.station"><code class="docutils literal notranslate"><span class="pre">MySolenso.station</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationdata"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationcount"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationcount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.countbydayofyear"><code class="docutils literal notranslate"><span class="pre">MySolenso.countbydayofyear</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -150,6 +157,45 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/services_stationcount.html">mysolenso.services.stationcount — Energy Counters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.set_station_count"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.set_station_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.today_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.today_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.month_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.month_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.year_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.year_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.total_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.total_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.real_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.real_power</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.co2_emission_reduction"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.co2_emission_reduction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.plant_tree"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.plant_tree</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.data_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.data_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.last_data_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.last_data_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.capacitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/services_powerbyday.html">mysolenso.services.powerbyday — Intra-day Power Curve</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_station_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/services_dayofyear.html">mysolenso.services.dayofyeay — Day-of-Year Production History</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.set_station_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.get_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/exceptions.html">mysolenso.exceptions — Exceptions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/exceptions.html#mysolenso.exceptions.MySolensoException"><code class="docutils literal notranslate"><span class="pre">MySolensoException</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/exceptions.html#mysolenso.exceptions.MySolensoConnectionException"><code class="docutils literal notranslate"><span class="pre">MySolensoConnectionException</span></code></a></li>
@@ -159,16 +205,24 @@
 <li class="toctree-l2"><a class="reference internal" href="../../api/const.html">mysolenso.const — Constants</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.BASE_URL_HOYMILES"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_AUTH_LOGIN"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_USER_ME"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_STATION_FIND"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_STATION_COUNT"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id0"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id1"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id2"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id3"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id4"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id5"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id2"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id3"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id4"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id5"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id6"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id7"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id8"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id9"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
 </ul>
 </li>
 </ul>

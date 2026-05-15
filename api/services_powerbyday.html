@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.const — Constants &mdash; mysolenso 0.0.1c0 documentation</title>
+  <title>mysolenso.services.powerbyday — Intra-day Power Curve &mdash; mysolenso 0.0.1c0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
@@ -19,7 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="mysolenso.exceptions — Exceptions" href="exceptions.html" /> 
+    <link rel="next" title="mysolenso.services.dayofyeay — Day-of-Year Production History" href="services_dayofyear.html" />
+    <link rel="prev" title="mysolenso.services.stationcount — Energy Counters" href="services_stationcount.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -179,12 +180,12 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="services_powerbyday.html">mysolenso.services.powerbyday — Intra-day Power Curve</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.parent</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_station_id()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_day()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_data</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mysolenso.services.powerbyday — Intra-day Power Curve</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mysolenso.services.powerbyday.MySolensoPowerByDay"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_station_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_data</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -204,27 +205,27 @@
 <li class="toctree-l3"><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoAuthenticationException"><code class="docutils literal notranslate"><span class="pre">MySolensoAuthenticationException</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">mysolenso.const — Constants</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.BASE_URL_HOYMILES"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_AUTH_LOGIN"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_USER_ME"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_STATION_FIND"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_STATION_COUNT"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="const.html">mysolenso.const — Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.BASE_URL_HOYMILES"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_AUTH_LOGIN"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_USER_ME"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_FIND"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_COUNT"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id0"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id1"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id2"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id3"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id4"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id5"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id6"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id7"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id8"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#id9"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -246,9 +247,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
-      <li class="breadcrumb-item active">mysolenso.const — Constants</li>
+      <li class="breadcrumb-item active">mysolenso.services.powerbyday — Intra-day Power Curve</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/api/const.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/api/services_powerbyday.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -256,213 +257,179 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-mysolenso.const">
-<span id="mysolenso-const-constants"></span><h1>mysolenso.const — Constants<a class="headerlink" href="#module-mysolenso.const" title="Link to this heading"></a></h1>
-<p>Configuration constants for the MySolenso library.</p>
-<p>This module centralises all fixed values used by the library:
-base URLs, API endpoints, and network parameters. Modifying this file
-is sufficient to point the library at a different environment (e.g. staging).</p>
-<p>Two base URLs are used:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#id1" title="mysolenso.const.BASE_URL_SOLENSO"><code class="xref py py-data docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a> — the Solenso monitoring platform (authentication,
-user profile, station list, station detail, energy counters).</p></li>
-<li><p><a class="reference internal" href="#id2" title="mysolenso.const.BASE_URL_HOYMILES"><code class="xref py py-data docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a> — the Hoymiles inverter data API (intra-day
-power curve, day-of-year production totals).</p></li>
-</ul>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.DEFAULT_TIMEOUT">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_TIMEOUT</span></span><a class="headerlink" href="#mysolenso.const.DEFAULT_TIMEOUT" title="Link to this definition"></a></dt>
-<dd><p>Network timeout in seconds applied to every HTTP
-request. Defaults to <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)">int</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.BASE_URL_SOLENSO">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">BASE_URL_SOLENSO</span></span><a class="headerlink" href="#mysolenso.const.BASE_URL_SOLENSO" title="Link to this definition"></a></dt>
-<dd><p>Root URL of the Solenso platform.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.BASE_URL_HOYMILES">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">BASE_URL_HOYMILES</span></span><a class="headerlink" href="#mysolenso.const.BASE_URL_HOYMILES" title="Link to this definition"></a></dt>
-<dd><p>Root URL of the Hoymiles inverter data API.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.API_AUTH_LOGIN">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_AUTH_LOGIN</span></span><a class="headerlink" href="#mysolenso.const.API_AUTH_LOGIN" title="Link to this definition"></a></dt>
-<dd><p>Solenso authentication endpoint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.API_USER_ME">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_USER_ME</span></span><a class="headerlink" href="#mysolenso.const.API_USER_ME" title="Link to this definition"></a></dt>
-<dd><p>Solenso authenticated user profile endpoint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.API_STATION_ME">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_ME</span></span><a class="headerlink" href="#mysolenso.const.API_STATION_ME" title="Link to this definition"></a></dt>
-<dd><p>Solenso paginated station list endpoint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.API_STATION_FIND">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_FIND</span></span><a class="headerlink" href="#mysolenso.const.API_STATION_FIND" title="Link to this definition"></a></dt>
-<dd><p>Solenso single-station detail endpoint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.API_STATION_COUNT">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_COUNT</span></span><a class="headerlink" href="#mysolenso.const.API_STATION_COUNT" title="Link to this definition"></a></dt>
-<dd><p>Solenso real-time energy counters endpoint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.API_POWER_BY_DAY">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_POWER_BY_DAY</span></span><a class="headerlink" href="#mysolenso.const.API_POWER_BY_DAY" title="Link to this definition"></a></dt>
-<dd><p>Hoymiles intra-day power curve endpoint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="mysolenso.const.API_POWER_DAY_OF_YEAR">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_POWER_DAY_OF_YEAR</span></span><a class="headerlink" href="#mysolenso.const.API_POWER_DAY_OF_YEAR" title="Link to this definition"></a></dt>
-<dd><p>Hoymiles day-of-year production totals endpoint.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="module-mysolenso.services.powerbyday">
+<span id="mysolenso-services-powerbyday-intra-day-power-curve"></span><h1>mysolenso.services.powerbyday — Intra-day Power Curve<a class="headerlink" href="#module-mysolenso.services.powerbyday" title="Link to this heading"></a></h1>
+<p>MySolenso intra-day power curve service.</p>
+<p>Provides the <a class="reference internal" href="#mysolenso.services.powerbyday.MySolensoPowerByDay" title="mysolenso.services.powerbyday.MySolensoPowerByDay"><code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoPowerByDay</span></code></a> class, which queries the
+<code class="docutils literal notranslate"><span class="pre">/count_power_by_day</span></code> Hoymiles endpoint and parses the binary protobuf
+response to expose a time-indexed dictionary of grid power measurements
+(in Watts) for a single day.</p>
+<p>By default the service loads data for <strong>today</strong> (or yesterday if the local
+hour is before 01:00, to avoid an empty dataset at midnight).  Use
+<a class="reference internal" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day" title="mysolenso.services.powerbyday.MySolensoPowerByDay.set_day"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_day()</span></code></a> to query any historical date.</p>
+<p>This module is instantiated automatically by <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolenso</span></code>
+and accessible via <code class="docutils literal notranslate"><span class="pre">client.powerbyday</span></code>.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<p>Direct use of constants (internal usage):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mysolenso.const</span><span class="w"> </span><span class="kn">import</span> <span class="n">API_AUTH_LOGIN</span><span class="p">,</span> <span class="n">DEFAULT_TIMEOUT</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_AUTH_LOGIN</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">DEFAULT_TIMEOUT</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">&quot;tok&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">get_data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>              <span class="c1"># &quot;2026-05-15&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;metric&quot;</span><span class="p">])</span>            <span class="c1"># &quot;grid_power&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="s2">&quot;08:30&quot;</span><span class="p">])</span>   <span class="c1"># e.g. 1523.5  (W)</span>
+
+<span class="c1"># Query a specific date</span>
+<span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">set_day</span><span class="p">(</span><span class="s2">&quot;2026-01-01&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">get_data</span>
 </pre></div>
 </div>
 </div>
-<dl class="py data">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_TIMEOUT</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
-<dd><p><code class="docutils literal notranslate"><span class="pre">10</span></code>).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mysolenso.services.powerbyday.MySolensoPowerByDay">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">mysolenso.services.powerbyday.</span></span><span class="sig-name descname"><span class="pre">MySolensoPowerByDay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/powerbyday.html#MySolensoPowerByDay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.powerbyday.MySolensoPowerByDay" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Intra-day grid power curve for a single PV station.</p>
+<p>Parses the binary protobuf response from <code class="docutils literal notranslate"><span class="pre">/count_power_by_day</span></code> and
+exposes a structured result containing the date, the metric name
+(<code class="docutils literal notranslate"><span class="pre">&quot;grid_power&quot;</span></code>), and a <code class="docutils literal notranslate"><span class="pre">{HH:MM:</span> <span class="pre">float}</span></code> dictionary of power
+measurements in Watts sampled throughout the day.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Network timeout in seconds (default</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> – Instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolenso</span></code> providing access
+to the <code class="docutils literal notranslate"><span class="pre">auth</span></code> and <code class="docutils literal notranslate"><span class="pre">station</span></code> sub-modules.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException" title="mysolenso.exceptions.MySolensoException"><strong>MySolensoException</strong></a> – If <code class="docutils literal notranslate"><span class="pre">parent.station.station_id</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+    if <code class="docutils literal notranslate"><span class="pre">grid_power</span></code> marker is absent from the response, or if any
+    network or parsing error occurs.</p>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mysolenso.services.powerbyday.MySolensoPowerByDay.parent">
+<span class="sig-name descname"><span class="pre">parent</span></span><a class="headerlink" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.parent" title="Link to this definition"></a></dt>
+<dd><p>Reference to the parent <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolenso</span></code> object.</p>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">BASE_URL_SOLENSO</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/'</span></span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
-<dd><p>Root URL of the Solenso monitoring platform.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the local clock hour is before <code class="docutils literal notranslate"><span class="pre">01:00</span></code>, the service
+automatically loads <strong>yesterday’s</strong> data to avoid returning an
+empty intra-day curve at midnight.</p>
+</div>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">&quot;tok&quot;</span><span class="p">)</span>
+<span class="n">pb</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pb</span><span class="o">.</span><span class="n">get_data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>              <span class="c1"># &quot;2026-05-15&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pb</span><span class="o">.</span><span class="n">get_data</span><span class="p">[</span><span class="s2">&quot;metric&quot;</span><span class="p">])</span>            <span class="c1"># &quot;grid_power&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pb</span><span class="o">.</span><span class="n">get_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="s2">&quot;10:00&quot;</span><span class="p">])</span>   <span class="c1"># 2048.75  (W)</span>
+</pre></div>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id">
+<span class="sig-name descname"><span class="pre">set_station_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/powerbyday.html#MySolensoPowerByDay.set_station_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id" title="Link to this definition"></a></dt>
+<dd><p>Switch the active station and optionally reload the power curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Station ID to activate. Must exist in the account’s
+station list.</p></li>
+<li><p><strong>refresh</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> (default), immediately reloads data
+for the new station. Set to <code class="docutils literal notranslate"><span class="pre">False</span></code> to defer the call.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException" title="mysolenso.exceptions.MySolensoException"><strong>MySolensoException</strong></a> – If <code class="docutils literal notranslate"><span class="pre">id</span></code> is not found in the account’s
+    station list, or if the subsequent API call fails.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">set_station_id</span><span class="p">(</span><span class="mi">43</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">get_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">BASE_URL_HOYMILES</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://neapi.hoymiles.com/pvm-data/api/'</span></span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
-<dd><p>Root URL of the Hoymiles inverter data API (used for power/energy history).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mysolenso.services.powerbyday.MySolensoPowerByDay.set_day">
+<span class="sig-name descname"><span class="pre">set_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">day</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/powerbyday.html#MySolensoPowerByDay.set_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day" title="Link to this definition"></a></dt>
+<dd><p>Set the queried date and optionally reload the power curve.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>day</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Date string in <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> format. Must be between
+<code class="docutils literal notranslate"><span class="pre">1900-01-01</span></code> and today (inclusive).</p></li>
+<li><p><strong>refresh</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> (default), immediately reloads data
+for the new date. Set to <code class="docutils literal notranslate"><span class="pre">False</span></code> to defer the call.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException" title="mysolenso.exceptions.MySolensoException"><strong>MySolensoException</strong></a> – If <code class="docutils literal notranslate"><span class="pre">day</span></code> is not in <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> format,
+    is outside the allowed range, or if the API call fails.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">set_day</span><span class="p">(</span><span class="s2">&quot;2025-12-25&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">get_data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="id3">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_AUTH_LOGIN</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/iam/auth_login'</span></span><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
-<dd><p>POST endpoint for credential-based authentication.</p>
-<p>Expects a JSON payload with <code class="docutils literal notranslate"><span class="pre">user_name</span></code> and <code class="docutils literal notranslate"><span class="pre">password</span></code>; returns a
-session token on success.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.powerbyday.MySolensoPowerByDay.get_data">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_data</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span><a class="headerlink" href="#mysolenso.services.powerbyday.MySolensoPowerByDay.get_data" title="Link to this definition"></a></dt>
+<dd><p>Intra-day power curve for the active station and date.</p>
+<p>Example:
+{</p>
+<blockquote>
+<div><p>‘metric’: ‘grid_power’,
+‘date’: ‘2025-05-12’,
+‘values’: {‘00:00’: 0.0, ‘01:00’: 0.0, ‘02:00’: 0.0, ‘03:00’: 0.0, ‘04:00’: 0.0, ‘05:00’: 0.0, ‘06:00’: 0.0, ‘06:30’: 42.6, ‘06:45’: 71.6, ‘07:00’: 108.3, ‘07:15’: 114.9, ‘07:30’: 199.4, ‘07:45’: 161.2, ‘08:00’: 139.6, ‘08:15’: 257.2, ‘08:30’: 501.9, ‘08:45’: 743.0, ‘09:00’: 784.7, ‘09:15’: 881.3, ‘09:30’: 1259.3, ‘09:45’: 929.3, ‘10:00’: 1225.9, ‘10:15’: 1416.0, ‘10:30’: 1535.7, ‘10:45’: 1131.0, ‘11:00’: 1917.1, ‘11:15’: 2750.5, ‘11:30’: 1542.4, ‘11:45’: 1220.3, ‘12:00’: 2245.9, ‘12:15’: 3135.0, ‘12:30’: 2582.1, ‘12:45’: 1930.6, ‘13:00’: 4368.4, ‘13:15’: 3474.5, ‘13:30’: 1516.8, ‘13:45’: 2436.1, ‘14:00’: 3371.3, ‘14:15’: 1513.3, ‘14:30’: 1891.5, ‘14:45’: 1967.2, ‘15:00’: 1906.7, ‘15:15’: 2066.9, ‘15:30’: 1863.2, ‘15:45’: 4957.9, ‘16:00’: 4360.8, ‘16:15’: 4118.8, ‘16:30’: 3748.1, ‘16:45’: 926.6, ‘17:00’: 1326.0, ‘17:15’: 1702.5, ‘17:30’: 1394.9, ‘17:45’: 1063.7, ‘18:00’: 645.2, ‘18:15’: 2089.5, ‘18:30’: 241.0, ‘18:45’: 549.7, ‘19:00’: 686.4, ‘19:15’: 583.5, ‘19:30’: 567.7, ‘19:45’: 434.7, ‘20:00’: 436.8, ‘20:15’: 426.4, ‘20:30’: 389.6, ‘20:45’: 177.9, ‘21:00’: 56.4, ‘21:15’: 20.8, ‘22:15’: 0.0, ‘23:15’: 0.0}</p>
+</div></blockquote>
+<p>}</p>
+<p>Returns a dictionary with three keys:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;metric&quot;</span></code> <em>(str)</em> — always <code class="docutils literal notranslate"><span class="pre">&quot;grid_power&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;date&quot;</span></code>   <em>(str | None)</em> — queried date in <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code>
+format as confirmed by the API, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if absent.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;values&quot;</span></code> <em>(Dict[str, float])</em> — <code class="docutils literal notranslate"><span class="pre">{HH:MM:</span> <span class="pre">watts}</span></code> mapping
+of sampled grid power readings throughout the day.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Structured result with <code class="docutils literal notranslate"><span class="pre">metric</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">values</span></code> keys.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">get_data</span>
+<span class="c1"># {</span>
+<span class="c1">#   &quot;metric&quot;: &quot;grid_power&quot;,</span>
+<span class="c1">#   &quot;date&quot;:   &quot;2026-05-15&quot;,</span>
+<span class="c1">#   &quot;values&quot;: {&quot;08:00&quot;: 512.0, &quot;08:30&quot;: 1024.5, ...}</span>
+<span class="c1"># }</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;12:00&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
 </dd></dl>
 
-<dl class="py data">
-<dt class="sig sig-object py" id="id4">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_USER_ME</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/iam/fun_api_1_user_me'</span></span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
-<dd><p>POST endpoint for the connected user’s account information.</p>
-<p>Returns name, email, role, and group details for the authenticated user.</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="id5">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_ME</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/pvm/station_select_by_page'</span></span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
-<dd><p>POST endpoint for paginated retrieval of the user’s PV stations.</p>
-<p>Returns a response with <code class="docutils literal notranslate"><span class="pre">total</span></code> (int) and <code class="docutils literal notranslate"><span class="pre">list</span></code> (array of station dicts).</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="id6">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_FIND</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/pvm/station_find'</span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
-<dd><p>POST endpoint to retrieve the full detail record of a single PV station.</p>
-<p>Expects <code class="docutils literal notranslate"><span class="pre">{&quot;id&quot;:</span> <span class="pre">&lt;station_id&gt;}</span></code> in the request body.</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="id7">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_COUNT</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/pvm-data/data_count_station_real_data'</span></span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
-<dd><p>POST endpoint for real-time and cumulative energy counters of a station.</p>
-<p>Returns today’s yield, monthly/yearly/lifetime totals, current power,
-CO₂ savings, equivalent trees planted, and data timestamps.</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="id8">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_POWER_BY_DAY</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://neapi.hoymiles.com/pvm-data/api/0/station/data/count_power_by_day'</span></span><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
-<dd><p>POST endpoint for the intra-day grid power curve of a station.</p>
-<p>Expects <code class="docutils literal notranslate"><span class="pre">{&quot;sid&quot;:</span> <span class="pre">&lt;station_id&gt;,</span> <span class="pre">&quot;date&quot;:</span> <span class="pre">&quot;YYYY-MM-DD&quot;}</span></code>; returns a binary
-protobuf response with <code class="docutils literal notranslate"><span class="pre">HH:MM</span></code> time labels and packed float32 power values.</p>
-</dd></dl>
-
-<dl class="py data">
-<dt class="sig sig-object py" id="id9">
-<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_POWER_DAY_OF_YEAR</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://neapi.hoymiles.com/pvm-data/api/0/station/data/count_eq_by_day_of_year'</span></span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
-<dd><p>POST endpoint for day-of-year energy production totals.</p>
-<p>Expects <code class="docutils literal notranslate"><span class="pre">{&quot;sid&quot;:</span> <span class="pre">&lt;station_id&gt;}</span></code>; returns a mixed text/binary protobuf
-response with <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> date strings and packed float32 Wh values
-covering every day since the station was commissioned.</p>
 </dd></dl>
 
 </section>
@@ -471,7 +438,8 @@ covering every day since the station was commissioned.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="exceptions.html" class="btn btn-neutral float-left" title="mysolenso.exceptions — Exceptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="services_stationcount.html" class="btn btn-neutral float-left" title="mysolenso.services.stationcount — Energy Counters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="services_dayofyear.html" class="btn btn-neutral float-right" title="mysolenso.services.dayofyeay — Day-of-Year Production History" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

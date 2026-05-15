@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.services.stationdata &mdash; mysolenso 0.0.1c0 documentation</title>
+  <title>mysolenso.services.powerbyday &mdash; mysolenso 0.0.1c0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
@@ -244,7 +244,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">mysolenso.services.stationdata</li>
+      <li class="breadcrumb-item active">mysolenso.services.powerbyday</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -253,123 +253,218 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for mysolenso.services.stationdata</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;MySolenso detailed PV station data service.</span>
+  <h1>Source code for mysolenso.services.powerbyday</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;MySolenso intra-day power curve service.</span>
 
-<span class="sd">Provides the :class:`MySolensoStationData` class, which queries the</span>
-<span class="sd">``/station_find`` endpoint and exposes extended configuration and runtime</span>
-<span class="sd">data for a specific photovoltaic station.</span>
+<span class="sd">Provides the :class:`MySolensoPowerByDay` class, which queries the</span>
+<span class="sd">``/count_power_by_day`` Hoymiles endpoint and parses the binary protobuf</span>
+<span class="sd">response to expose a time-indexed dictionary of grid power measurements</span>
+<span class="sd">(in Watts) for a single day.</span>
 
-<span class="sd">Unlike :class:`~mysolenso.services.station.MySolensoStation`, which returns</span>
-<span class="sd">a paginated list of stations, this service fetches the **full detail record**</span>
-<span class="sd">of a single station (pricing, timezone, config, local time, etc.).</span>
+<span class="sd">By default the service loads data for **today** (or yesterday if the local</span>
+<span class="sd">hour is before 01:00, to avoid an empty dataset at midnight).  Use</span>
+<span class="sd">:meth:`~MySolensoPowerByDay.set_day` to query any historical date.</span>
 
-<span class="sd">This module is intended to be instantiated by :class:`~mysolenso.MySolenso`</span>
-<span class="sd">and accessed via ``client.station_data``.</span>
+<span class="sd">This module is instantiated automatically by :class:`~mysolenso.MySolenso`</span>
+<span class="sd">and accessible via ``client.powerbyday``.</span>
 
 <span class="sd">Example:</span>
 <span class="sd">    ::</span>
 
-<span class="sd">        client = MySolenso(username=&quot;jdoe&quot;, token=&quot;tok&quot;)</span>
+<span class="sd">        client = MySolenso(username=&quot;user&quot;, token=&quot;tok&quot;)</span>
 
-<span class="sd">        # Detailed data for the currently active station</span>
-<span class="sd">        print(client.station_data.station_id)</span>
-<span class="sd">        print(client.station_data.name)</span>
-<span class="sd">        print(client.station_data.electricity_price)</span>
-<span class="sd">        print(client.station_data.local_time)</span>
-<span class="sd">        print(client.station_data.timezone)</span>
+<span class="sd">        result = client.powerbyday.get_data</span>
+<span class="sd">        print(result[&quot;date&quot;])              # &quot;2026-05-15&quot;</span>
+<span class="sd">        print(result[&quot;metric&quot;])            # &quot;grid_power&quot;</span>
+<span class="sd">        print(result[&quot;values&quot;][&quot;08:30&quot;])   # e.g. 1523.5  (W)</span>
 
-<span class="sd">        # Switch to a different station by its ID</span>
-<span class="sd">        client.station_data.set_station_find(43)</span>
-<span class="sd">        print(client.station_data.install_power)</span>
+<span class="sd">        # Query a specific date</span>
+<span class="sd">        client.powerbyday.set_day(&quot;2026-01-01&quot;)</span>
+<span class="sd">        result = client.powerbyday.get_data</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">struct</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">..post</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoPost</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..const</span><span class="w"> </span><span class="kn">import</span> <span class="n">API_STATION_FIND</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..const</span><span class="w"> </span><span class="kn">import</span> <span class="n">API_POWER_BY_DAY</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoException</span>
 
 <span class="n">_LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="MySolensoStationData">
-<a class="viewcode-back" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">MySolensoStationData</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Detailed configuration and runtime data for a single PV station.</span>
+<div class="viewcode-block" id="MySolensoPowerByDay">
+<a class="viewcode-back" href="../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MySolensoPowerByDay</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Intra-day grid power curve for a single PV station.</span>
 
-<span class="sd">    Queries the ``/station_find`` endpoint with a station ID and exposes the</span>
-<span class="sd">    full detail record as Python properties. The active station defaults to</span>
-<span class="sd">    the one currently selected in the parent&#39;s</span>
-<span class="sd">    :class:`~mysolenso.services.station.MySolensoStation` sub-module.</span>
-
-<span class="sd">    Use :meth:`set_station_find` to switch to any station that belongs to</span>
-<span class="sd">    the account (validated against the station list).</span>
+<span class="sd">    Parses the binary protobuf response from ``/count_power_by_day`` and</span>
+<span class="sd">    exposes a structured result containing the date, the metric name</span>
+<span class="sd">    (``&quot;grid_power&quot;``), and a ``{HH:MM: float}`` dictionary of power</span>
+<span class="sd">    measurements in Watts sampled throughout the day.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        parent: Instance of :class:`~mysolenso.MySolenso` providing access</span>
 <span class="sd">            to the ``auth`` and ``station`` sub-modules.</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        MySolensoException: If ``parent.station.station_id`` is ``None``</span>
-<span class="sd">            (no active station set), or if the API response is invalid.</span>
+<span class="sd">        MySolensoException: If ``parent.station.station_id`` is ``None``,</span>
+<span class="sd">            if ``grid_power`` marker is absent from the response, or if any</span>
+<span class="sd">            network or parsing error occurs.</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        parent: Reference to the parent :class:`~mysolenso.MySolenso` object.</span>
 
 <span class="sd">    Note:</span>
-<span class="sd">        Every call to :meth:`set_station_find` triggers a new network</span>
-<span class="sd">        request to refresh all properties.</span>
+<span class="sd">        If the local clock hour is before ``01:00``, the service</span>
+<span class="sd">        automatically loads **yesterday&#39;s** data to avoid returning an</span>
+<span class="sd">        empty intra-day curve at midnight.</span>
 
 <span class="sd">    Example:</span>
 <span class="sd">        ::</span>
 
-<span class="sd">            client = MySolenso(username=&quot;jdoe&quot;, token=&quot;tok&quot;)</span>
-<span class="sd">            sd = client.station_data</span>
+<span class="sd">            client = MySolenso(username=&quot;admin&quot;, token=&quot;tok&quot;)</span>
+<span class="sd">            pb = client.powerbyday</span>
 
-<span class="sd">            print(sd.station_id)          # active station ID</span>
-<span class="sd">            print(sd.name)                # &quot;My Solar Roof&quot;</span>
-<span class="sd">            print(sd.electricity_price)   # 0.1740</span>
-<span class="sd">            print(sd.money_unit)          # &quot;EUR&quot;</span>
-<span class="sd">            print(sd.local_time)          # &quot;2026-05-14 10:32:00&quot;</span>
-<span class="sd">            sd.set_station_find(43)       # switch and reload</span>
+<span class="sd">            print(pb.get_data[&quot;date&quot;])              # &quot;2026-05-15&quot;</span>
+<span class="sd">            print(pb.get_data[&quot;metric&quot;])            # &quot;grid_power&quot;</span>
+<span class="sd">            print(pb.get_data[&quot;values&quot;][&quot;10:00&quot;])   # 2048.75  (W)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
 
-        <span class="c1"># Guard: station_id must be resolved before instantiation</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> - MySolensoStationData station_id is None.&quot;</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> station_id is None.&quot;</span>
+            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_station_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span>
+
+        <span class="c1"># Default to today; use yesterday before 01:00 to avoid empty data</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_day</span> <span class="o">=</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_day</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_power_by_day</span><span class="p">()</span>
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Data retrieval</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_power_by_day</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query the API and parse the binary protobuf response for one day.</span>
+
+<span class="sd">        The response is a binary protobuf payload containing:</span>
+
+<span class="sd">        - **Time labels** — ``HH:MM`` strings, one per measurement interval.</span>
+<span class="sd">        - **Date label** — a ``YYYY-MM-DD`` string confirming the queried day.</span>
+<span class="sd">        - **grid_power field** — a packed ``repeated float32`` array</span>
+<span class="sd">          (little-endian) prefixed by a 3-byte protobuf header</span>
+<span class="sd">          (``grid_power`` marker + ``0x12`` tag + 2-byte length varint).</span>
+
+<span class="sd">        Parsing strategy:</span>
+
+<span class="sd">        - Times are extracted with a regex (``\\d{2}:\\d{2}``).</span>
+<span class="sd">        - The date is extracted with a regex (``\\d{4}-\\d{2}-\\d{2}``).</span>
+<span class="sd">        - The ``grid_power`` marker is located; the float array starts</span>
+<span class="sd">          3 bytes after the marker end (1 tag byte + 2 length bytes).</span>
+<span class="sd">        - The array ends at the ``\\x1a\\x0a`` delimiter that precedes the</span>
+<span class="sd">          date field in the protobuf message.</span>
+<span class="sd">        - Float32 values are decoded in 4-byte aligned chunks; times and</span>
+<span class="sd">          values are zipped into the ``values`` dictionary.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            MySolensoException: If ``grid_power`` is absent from the</span>
+<span class="sd">                response, or if any network or struct unpacking error occurs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">MySolensoPost</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_headers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_auth_headers_hoymiles</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_raw_payload</span><span class="p">({</span><span class="s2">&quot;sid&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_station_id</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_day</span><span class="p">})</span>
+            <span class="n">response</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">poststr</span><span class="p">(</span><span class="n">API_POWER_BY_DAY</span><span class="p">)</span>
+
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="c1"># 1. Extract HH:MM time labels</span>
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="n">times</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">rb</span><span class="s1">&#39;(\d</span><span class="si">{2}</span><span class="s1">:\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)]</span>
+
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="c1"># 2. Extract the date string</span>
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="n">date_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">rb</span><span class="s1">&#39;(\d</span><span class="si">{4}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">-\d</span><span class="si">{2}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+            <span class="n">date_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">date_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="k">if</span> <span class="n">date_match</span> <span class="k">else</span> <span class="kc">None</span>
             <span class="p">)</span>
-            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="s2">&quot;MySolensoStationData station_id is None.&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_station_find</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span>
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="c1"># 3. Locate the grid_power protobuf field</span>
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="n">marker</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;grid_power&#39;</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="s2">&quot;&#39;grid_power&#39; marker not found in response.&quot;</span><span class="p">)</span>
 
-        <span class="c1"># Initial data fetch for the active station</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_get_station_find</span><span class="p">()</span>
+            <span class="c1"># Float array starts 3 bytes after the marker</span>
+            <span class="c1"># (1 byte field tag 0x12 + 2 bytes length varint)</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>
+
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="c1"># 4. Find the end of the float array (date delimiter)</span>
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="n">date_delimiter</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x1a\x0a</span><span class="s1">&#39;</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">date_delimiter</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">end</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+            <span class="n">binary_part</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="c1"># 5. Decode float32 values (4-byte aligned)</span>
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="n">floats</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">binary_part</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+                <span class="n">chunk</span> <span class="o">=</span> <span class="n">binary_part</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="n">floats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;&lt;f&#39;</span><span class="p">,</span> <span class="n">chunk</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="c1"># 6. Build the result structure</span>
+            <span class="c1"># ----------------------------------------------------------</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_result</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;grid_power&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;date&quot;</span><span class="p">:</span>   <span class="n">date_value</span><span class="p">,</span>
+                <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">floats</span><span class="p">)),</span>
+            <span class="p">}</span>
+
+        <span class="k">except</span> <span class="n">MySolensoException</span><span class="p">:</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Failed to parse power-by-day response: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
 
     <span class="c1"># ------------------------------------------------------------------</span>
-    <span class="c1"># Station selection</span>
+    <span class="c1"># Station and date selection</span>
     <span class="c1"># ------------------------------------------------------------------</span>
 
-<div class="viewcode-block" id="MySolensoStationData.set_station_find">
-<a class="viewcode-back" href="../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.set_station_find">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">set_station_find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch the active station and reload all properties from the API.</span>
-
-<span class="sd">        The provided ``id`` is validated against the station list returned by</span>
-<span class="sd">        :attr:`~mysolenso.services.station.MySolensoStation.stations` to</span>
-<span class="sd">        prevent requests for stations that do not belong to the account.</span>
+<div class="viewcode-block" id="MySolensoPowerByDay.set_station_id">
+<a class="viewcode-back" href="../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_station_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch the active station and optionally reload the power curve.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            id (int): Station ID to activate. Must exist in the account&#39;s</span>
 <span class="sd">                station list.</span>
+<span class="sd">            refresh (bool): If ``True`` (default), immediately reloads data</span>
+<span class="sd">                for the new station. Set to ``False`` to defer the call.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            MySolensoException: If ``id`` is not found in the account&#39;s</span>
@@ -378,398 +473,116 @@
 <span class="sd">        Example:</span>
 <span class="sd">            ::</span>
 
-<span class="sd">                client.station_data.set_station_find(999999)</span>
-<span class="sd">                print(client.station_data.name)</span>
+<span class="sd">                client.powerbyday.set_station_id(43)</span>
+<span class="sd">                print(client.powerbyday.get_data[&quot;values&quot;])</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">stations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">stations</span>
-        <span class="n">exists</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">station</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span> <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">stations</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">exists</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">station</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span> <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">stations</span><span class="p">):</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_station_find: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_station_id: &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;station </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2"> not found.&quot;</span>
             <span class="p">)</span>
             <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_station_find</span> <span class="o">=</span> <span class="nb">id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_get_station_find</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_station_id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="k">if</span> <span class="n">refresh</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_power_by_day</span><span class="p">()</span></div>
 
 
-    <span class="c1"># ------------------------------------------------------------------</span>
-    <span class="c1"># Data retrieval</span>
-    <span class="c1"># ------------------------------------------------------------------</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_get_station_find</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query the API and refresh all station detail attributes.</span>
-
-<span class="sd">        Sends a POST request to :data:`~mysolenso.const.API_STATION_FIND`</span>
-<span class="sd">        with the current station ID, then maps every field of the response</span>
-<span class="sd">        onto the instance&#39;s private attributes.</span>
-
-<span class="sd">        Raises:</span>
-<span class="sd">            MySolensoException: If the request fails, times out, or returns</span>
-<span class="sd">                a malformed JSON response.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">MySolensoPost</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_headers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_auth_headers_solenso</span><span class="p">())</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_raw_payload</span><span class="p">({</span>
-                <span class="s2">&quot;ERROR_BACK&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-                <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_station_find</span><span class="p">},</span>
-                <span class="s2">&quot;WAITING_PROMISE&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-            <span class="p">})</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_STATION_FIND</span><span class="p">)</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span> <span class="o">=</span> <span class="n">response</span>
-
-            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>              <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_create_at</span>         <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;create_at&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_capacitor</span>         <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;capacitor&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_address</span>           <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;address&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span>            <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;config&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_is_stars</span>          <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;is_stars&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_money_unit</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;money_unit&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_electricity_price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;electricity_price&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span>          <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;timezone&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_local_time</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;local_time&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_install_power</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_data</span><span class="p">(</span><span class="s2">&quot;group&quot;</span><span class="p">)</span>
-
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span>
-                <span class="s2">&quot;Invalid or corrupted JSON response.&quot;</span>
-            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
-
-    <span class="c1"># ------------------------------------------------------------------</span>
-    <span class="c1"># Internal data access</span>
-    <span class="c1"># ------------------------------------------------------------------</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">_get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a field from the cached station detail response.</span>
+<div class="viewcode-block" id="MySolensoPowerByDay.set_day">
+<a class="viewcode-back" href="../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_day</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the queried date and optionally reload the power curve.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            name (str): Field name to read from the raw response dict.</span>
+<span class="sd">            day (str): Date string in ``YYYY-MM-DD`` format. Must be between</span>
+<span class="sd">                ``1900-01-01`` and today (inclusive).</span>
+<span class="sd">            refresh (bool): If ``True`` (default), immediately reloads data</span>
+<span class="sd">                for the new date. Set to ``False`` to defer the call.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Union[int, float, str, dict, None]: Field value, or ``None``</span>
-<span class="sd">            if the key is absent.</span>
+<span class="sd">        Raises:</span>
+<span class="sd">            MySolensoException: If ``day`` is not in ``YYYY-MM-DD`` format,</span>
+<span class="sd">                is outside the allowed range, or if the API call fails.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                client.powerbyday.set_day(&quot;2025-12-25&quot;)</span>
+<span class="sd">                print(client.powerbyday.get_data[&quot;values&quot;])</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">day</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid length.&quot;</span><span class="p">)</span>
+
+            <span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+
+            <span class="n">min_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="n">max_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">min_date</span> <span class="o">&lt;=</span> <span class="n">date_obj</span> <span class="o">&lt;=</span> <span class="n">max_date</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_day: &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;date outside the allowed range &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">min_date</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">date_obj</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">max_date</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_day</span> <span class="o">=</span> <span class="n">day</span>
+            <span class="k">if</span> <span class="n">refresh</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_power_by_day</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="n">MySolensoException</span><span class="p">:</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_day: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2">&#39; is not a valid YYYY-MM-DD date.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
 
     <span class="c1"># ------------------------------------------------------------------</span>
     <span class="c1"># Public properties</span>
     <span class="c1"># ------------------------------------------------------------------</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">all_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Full raw response returned by the ``/station_find`` endpoint.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Intra-day power curve for the active station and date.</span>
+<span class="sd">        </span>
+<span class="sd">        Example:</span>
+<span class="sd">        {</span>
+<span class="sd">            &#39;metric&#39;: &#39;grid_power&#39;,</span>
+<span class="sd">            &#39;date&#39;: &#39;2025-05-12&#39;,</span>
+<span class="sd">            &#39;values&#39;: {&#39;00:00&#39;: 0.0, &#39;01:00&#39;: 0.0, &#39;02:00&#39;: 0.0, &#39;03:00&#39;: 0.0, &#39;04:00&#39;: 0.0, &#39;05:00&#39;: 0.0, &#39;06:00&#39;: 0.0, &#39;06:30&#39;: 42.6, &#39;06:45&#39;: 71.6, &#39;07:00&#39;: 108.3, &#39;07:15&#39;: 114.9, &#39;07:30&#39;: 199.4, &#39;07:45&#39;: 161.2, &#39;08:00&#39;: 139.6, &#39;08:15&#39;: 257.2, &#39;08:30&#39;: 501.9, &#39;08:45&#39;: 743.0, &#39;09:00&#39;: 784.7, &#39;09:15&#39;: 881.3, &#39;09:30&#39;: 1259.3, &#39;09:45&#39;: 929.3, &#39;10:00&#39;: 1225.9, &#39;10:15&#39;: 1416.0, &#39;10:30&#39;: 1535.7, &#39;10:45&#39;: 1131.0, &#39;11:00&#39;: 1917.1, &#39;11:15&#39;: 2750.5, &#39;11:30&#39;: 1542.4, &#39;11:45&#39;: 1220.3, &#39;12:00&#39;: 2245.9, &#39;12:15&#39;: 3135.0, &#39;12:30&#39;: 2582.1, &#39;12:45&#39;: 1930.6, &#39;13:00&#39;: 4368.4, &#39;13:15&#39;: 3474.5, &#39;13:30&#39;: 1516.8, &#39;13:45&#39;: 2436.1, &#39;14:00&#39;: 3371.3, &#39;14:15&#39;: 1513.3, &#39;14:30&#39;: 1891.5, &#39;14:45&#39;: 1967.2, &#39;15:00&#39;: 1906.7, &#39;15:15&#39;: 2066.9, &#39;15:30&#39;: 1863.2, &#39;15:45&#39;: 4957.9, &#39;16:00&#39;: 4360.8, &#39;16:15&#39;: 4118.8, &#39;16:30&#39;: 3748.1, &#39;16:45&#39;: 926.6, &#39;17:00&#39;: 1326.0, &#39;17:15&#39;: 1702.5, &#39;17:30&#39;: 1394.9, &#39;17:45&#39;: 1063.7, &#39;18:00&#39;: 645.2, &#39;18:15&#39;: 2089.5, &#39;18:30&#39;: 241.0, &#39;18:45&#39;: 549.7, &#39;19:00&#39;: 686.4, &#39;19:15&#39;: 583.5, &#39;19:30&#39;: 567.7, &#39;19:45&#39;: 434.7, &#39;20:00&#39;: 436.8, &#39;20:15&#39;: 426.4, &#39;20:30&#39;: 389.6, &#39;20:45&#39;: 177.9, &#39;21:00&#39;: 56.4, &#39;21:15&#39;: 20.8, &#39;22:15&#39;: 0.0, &#39;23:15&#39;: 0.0}</span>
+<span class="sd">        }</span>
+<span class="sd">        </span>
+<span class="sd">        Returns a dictionary with three keys:</span>
 
-<span class="sd">        Useful for accessing fields not exposed by the other properties.</span>
+<span class="sd">        - ``&quot;metric&quot;`` *(str)* — always ``&quot;grid_power&quot;``.</span>
+<span class="sd">        - ``&quot;date&quot;``   *(str | None)* — queried date in ``YYYY-MM-DD``</span>
+<span class="sd">          format as confirmed by the API, or ``None`` if absent.</span>
+<span class="sd">        - ``&quot;values&quot;`` *(Dict[str, float])* — ``{HH:MM: watts}`` mapping</span>
+<span class="sd">          of sampled grid power readings throughout the day.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Structured result with ``metric``, ``date``, and</span>
+<span class="sd">            ``values`` keys.</span>
 
 <span class="sd">        Example:</span>
-<span class="sd">            {</span>
-<span class="sd">                &quot;id&quot;: 9999999,</span>
-<span class="sd">                &quot;gid&quot;: 123456,</span>
-<span class="sd">                &quot;name&quot;: &quot;DOE JOHN&quot;,</span>
-<span class="sd">                &quot;type&quot;: 1,</span>
-<span class="sd">                &quot;tz_id&quot;: 42,</span>
-<span class="sd">                &quot;city_code&quot;: &quot;FR13005000000000&quot;,</span>
-<span class="sd">                &quot;status&quot;: 40,</span>
-<span class="sd">                &quot;create_by&quot;: 293382,</span>
-<span class="sd">                &quot;create_at&quot;: &quot;2025-11-08 10:44:51&quot;,</span>
-<span class="sd">                &quot;classify&quot;: 1,</span>
-<span class="sd">                &quot;tz_name&quot;: &quot;UTC+01&quot;,</span>
-<span class="sd">                &quot;pic_path&quot;: &quot;&quot;,</span>
-<span class="sd">                &quot;capacitor&quot;: &quot;5&quot;,</span>
-<span class="sd">                &quot;address&quot;: &quot;95 Moon Road, 99999 Galaxy, World&quot;,</span>
-<span class="sd">                &quot;layout_step&quot;: 2,</span>
-<span class="sd">                &quot;is_balance&quot;: 0,</span>
-<span class="sd">                &quot;is_reflux&quot;: 0,</span>
-<span class="sd">                &quot;remarks&quot;: &quot;&quot;,</span>
-<span class="sd">                &quot;config&quot;: {</span>
-<span class="sd">                    &quot;sun_spec_num&quot;: 0,</span>
-<span class="sd">                    &quot;power_limit&quot;: &quot;&quot;,</span>
-<span class="sd">                    &quot;power_limit_pf&quot;: &quot;&quot;,</span>
-<span class="sd">                    &quot;power_limit_re&quot;: &quot;&quot;,</span>
-<span class="sd">                    &quot;module_max_power&quot;: 0,</span>
-<span class="sd">                    &quot;owner_is_show_layout&quot;: 1,</span>
-<span class="sd">                    &quot;owner_is_modify_dev&quot;: 0,</span>
-<span class="sd">                    &quot;third_party_user&quot;: [],</span>
-<span class="sd">                    &quot;billing_type&quot;: 0,</span>
-<span class="sd">                    &quot;billing_start&quot;: &quot;&quot;,</span>
-<span class="sd">                    &quot;billing_every&quot;: 0,</span>
-<span class="sd">                    &quot;client_type&quot;: 100,</span>
-<span class="sd">                    &quot;layout_show&quot;: 1,</span>
-<span class="sd">                    &quot;fcs&quot;: 0,</span>
-<span class="sd">                    &quot;ess_cfg_edit&quot;: 0,</span>
-<span class="sd">                    &quot;grid_type&quot;: 0,</span>
-<span class="sd">                    &quot;diy&quot;: 0,</span>
-<span class="sd">                    &quot;weather&quot;: 0,</span>
-<span class="sd">                    &quot;au&quot;: 0,</span>
-<span class="sd">                    &quot;cr&quot;: 0,</span>
-<span class="sd">                    &quot;split_power&quot;: 0,</span>
-<span class="sd">                    &quot;dw&quot;: 0,</span>
-<span class="sd">                    &quot;eps&quot;: 0</span>
-<span class="sd">                },</span>
-<span class="sd">                &quot;is_stars&quot;: 0,</span>
-<span class="sd">                &quot;money_unit&quot;: &quot;EUR&quot;,</span>
-<span class="sd">                &quot;electricity_price&quot;: 0.25,</span>
-<span class="sd">                &quot;in_price&quot;: 0,</span>
-<span class="sd">                &quot;usd&quot;: &quot;&quot;,</span>
-<span class="sd">                &quot;nk_name&quot;: null,</span>
-<span class="sd">                &quot;int5m&quot;: 0,</span>
-<span class="sd">                &quot;is_3rd&quot;: 0,</span>
-<span class="sd">                &quot;dc&quot;: 0,</span>
-<span class="sd">                &quot;et&quot;: 0,</span>
-<span class="sd">                &quot;city_id&quot;: 41641,</span>
-<span class="sd">                &quot;weather_of_cid&quot;: 0,</span>
-<span class="sd">                &quot;timezone&quot;: {</span>
-<span class="sd">                    &quot;id&quot;: 42,</span>
-<span class="sd">                    &quot;dis_name&quot;: &quot;(UTC+01:00) Windhoek&quot;,</span>
-<span class="sd">                    &quot;name&quot;: &quot;Africa/Windhoek&quot;,</span>
-<span class="sd">                    &quot;tz_name&quot;: &quot;UTC+01&quot;,</span>
-<span class="sd">                    &quot;offset&quot;: 7200000</span>
-<span class="sd">                },</span>
-<span class="sd">                &quot;local_time&quot;: &quot;2026-05-12 14:39:07&quot;,</span>
-<span class="sd">                &quot;parent_city&quot;: [</span>
-<span class="sd">                    {</span>
-<span class="sd">                        &quot;id&quot;: 69,</span>
-<span class="sd">                        &quot;pid&quot;: 0,</span>
-<span class="sd">                        &quot;code&quot;: &quot;FR00000000000000&quot;,</span>
-<span class="sd">                        &quot;weather_of_cid&quot;: 0,</span>
-<span class="sd">                        &quot;city_name&quot;: &quot;World&quot;,</span>
-<span class="sd">                        &quot;country_code&quot;: &quot;FR&quot;,</span>
-<span class="sd">                        &quot;level&quot;: 1</span>
-<span class="sd">                    },</span>
-<span class="sd">                    {</span>
-<span class="sd">                        &quot;id&quot;: 41636,</span>
-<span class="sd">                        &quot;pid&quot;: 69,</span>
-<span class="sd">                        &quot;code&quot;: &quot;FR13000000000000&quot;,</span>
-<span class="sd">                        &quot;weather_of_cid&quot;: 0,</span>
-<span class="sd">                        &quot;city_name&quot;: &quot;Galaxy&quot;,</span>
-<span class="sd">                        &quot;country_code&quot;: &quot;FR&quot;,</span>
-<span class="sd">                        &quot;level&quot;: 2</span>
-<span class="sd">                    },</span>
-<span class="sd">                    {</span>
-<span class="sd">                        &quot;id&quot;: 41641,</span>
-<span class="sd">                        &quot;pid&quot;: 41636,</span>
-<span class="sd">                        &quot;code&quot;: &quot;FR13005000000000&quot;,</span>
-<span class="sd">                        &quot;weather_of_cid&quot;: 0,</span>
-<span class="sd">                        &quot;city_name&quot;: &quot;Moon&quot;,</span>
-<span class="sd">                        &quot;country_code&quot;: &quot;FR&quot;,</span>
-<span class="sd">                        &quot;level&quot;: 3</span>
-<span class="sd">                    }</span>
-<span class="sd">                ],</span>
-<span class="sd">                &quot;latitude&quot;: &quot;39.10884652257048&quot;,</span>
-<span class="sd">                &quot;longitude&quot;: &quot;-76.77128918829347&quot;,</span>
-<span class="sd">                &quot;meter_location&quot;: 0,</span>
-<span class="sd">                &quot;owner_list&quot;: [</span>
-<span class="sd">                    {</span>
-<span class="sd">                        &quot;uid&quot;: 111111,</span>
-<span class="sd">                        &quot;name&quot;: &quot;John DOE&quot;,</span>
-<span class="sd">                        &quot;user_name&quot;: &quot;JDOE&quot;</span>
-<span class="sd">                    }</span>
-<span class="sd">                ],</span>
-<span class="sd">                &quot;group&quot;: {</span>
-<span class="sd">                    &quot;id&quot;: 123456,</span>
-<span class="sd">                    &quot;name&quot;: &quot;Install Solenso&quot;,</span>
-<span class="sd">                    &quot;pid&quot;: 111139,</span>
-<span class="sd">                    &quot;type&quot;: 4,</span>
-<span class="sd">                    &quot;contact&quot;: &quot;John Solenso&quot;,</span>
-<span class="sd">                    &quot;phone&quot;: &quot;+33700000000&quot;,</span>
-<span class="sd">                    &quot;area&quot;: &quot;&quot;,</span>
-<span class="sd">                    &quot;icon&quot;: &quot;&quot;</span>
-<span class="sd">                },</span>
-<span class="sd">                &quot;money_data&quot;: {</span>
-<span class="sd">                    &quot;code&quot;: &quot;EUR&quot;,</span>
-<span class="sd">                    &quot;unit&quot;: &quot;€&quot;</span>
-<span class="sd">                },</span>
-<span class="sd">                &quot;warn_data&quot;: {</span>
-<span class="sd">                    &quot;s_uoff&quot;: false,</span>
-<span class="sd">                    &quot;s_ustable&quot;: false,</span>
-<span class="sd">                    &quot;s_uid&quot;: false,</span>
-<span class="sd">                    &quot;l3_warn&quot;: false,</span>
-<span class="sd">                    &quot;g_warn&quot;: false,</span>
-<span class="sd">                    &quot;me_warn&quot;: false,</span>
-<span class="sd">                    &quot;dl&quot;: null,</span>
-<span class="sd">                    &quot;pw_off&quot;: false</span>
-<span class="sd">                },</span>
-<span class="sd">                &quot;bms_capacitor&quot;: &quot;0&quot;,</span>
-<span class="sd">                &quot;inv_mode&quot;: 0,</span>
-<span class="sd">                &quot;create_by_name&quot;: &quot;SOLENSO_ADMIN&quot;,</span>
-<span class="sd">                &quot;lack&quot;: 0,</span>
-<span class="sd">                &quot;ak&quot;: &quot;aP7xQnLk9vTe41dR2mHyCuJ8zsKb&quot;,</span>
-<span class="sd">                &quot;flag_map&quot;: {</span>
-<span class="sd">                    &quot;gfi&quot;: 1</span>
-<span class="sd">                }</span>
-<span class="sd">            }</span>
-<span class="sd">        Returns:</span>
-<span class="sd">            dict: Complete dictionary from the ``data`` field of the response.</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                data = client.powerbyday.get_data</span>
+<span class="sd">                # {</span>
+<span class="sd">                #   &quot;metric&quot;: &quot;grid_power&quot;,</span>
+<span class="sd">                #   &quot;date&quot;:   &quot;2026-05-15&quot;,</span>
+<span class="sd">                #   &quot;values&quot;: {&quot;08:00&quot;: 512.0, &quot;08:30&quot;: 1024.5, ...}</span>
+<span class="sd">                # }</span>
+<span class="sd">                print(data[&quot;values&quot;].get(&quot;12:00&quot;, 0))</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">station_id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Identifier of the station currently loaded.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            int: Station ID used for the last ``/station_find`` API call.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_station_find</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Name of the photovoltaic installation.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            str: ``name`` field of the station detail record.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">create_at</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Date the station was registered on the platform.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            str: ``create_at`` field (ISO 8601 format or similar).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_at</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">capacitor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Solar panel capacity of the station (kVA).</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            str: ``capacitor`` field of the station detail record.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacitor</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">address</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Full geographic address of the station.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            str: ``address`` field of the station detail record.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_address</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Station configuration object returned by the API.</span>
-
-<span class="sd">        Contains hardware and software settings specific to the installation.</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            {</span>
-<span class="sd">                &quot;sun_spec_num&quot;: 0,</span>
-<span class="sd">                &quot;power_limit&quot;: &quot;&quot;,</span>
-<span class="sd">                &quot;power_limit_pf&quot;: &quot;&quot;,</span>
-<span class="sd">                &quot;power_limit_re&quot;: &quot;&quot;,</span>
-<span class="sd">                &quot;module_max_power&quot;: 0,</span>
-<span class="sd">                &quot;owner_is_show_layout&quot;: 1,</span>
-<span class="sd">                &quot;owner_is_modify_dev&quot;: 0,</span>
-<span class="sd">                &quot;third_party_user&quot;: [],</span>
-<span class="sd">                &quot;billing_type&quot;: 0,</span>
-<span class="sd">                &quot;billing_start&quot;: &quot;&quot;,</span>
-<span class="sd">                &quot;billing_every&quot;: 0,</span>
-<span class="sd">                &quot;client_type&quot;: 100,</span>
-<span class="sd">                &quot;layout_show&quot;: 1,</span>
-<span class="sd">                &quot;fcs&quot;: 0,</span>
-<span class="sd">                &quot;ess_cfg_edit&quot;: 0,</span>
-<span class="sd">                &quot;grid_type&quot;: 0,</span>
-<span class="sd">                &quot;diy&quot;: 0,</span>
-<span class="sd">                &quot;weather&quot;: 0,</span>
-<span class="sd">                &quot;au&quot;: 0,</span>
-<span class="sd">                &quot;cr&quot;: 0,</span>
-<span class="sd">                &quot;split_power&quot;: 0,</span>
-<span class="sd">                &quot;dw&quot;: 0,</span>
-<span class="sd">                &quot;eps&quot;: 0</span>
-<span class="sd">            }</span>
-<span class="sd">        Returns:</span>
-<span class="sd">            dict: ``config`` field of the station detail record.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">is_stars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Indicates whether the station is marked as a favourite (&quot;starred&quot;).</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            int: ``is_stars`` field.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_stars</span>  <span class="c1"># fix: was returning self.is_stars (infinite recursion)</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">money_unit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Currency code used for financial calculations on this station.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            str: ``money_unit`` field (e.g. ``&quot;EUR&quot;``, ``&quot;USD&quot;``).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_money_unit</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">electricity_price</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Electricity sale/buy price configured for this station.</span>
-
-<span class="sd">        Used by the platform to estimate revenue or savings from solar</span>
-<span class="sd">        production.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            float: ``electricity_price`` field (unit depends on</span>
-<span class="sd">            :attr:`money_unit`).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_electricity_price</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">timezone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Timezone information object for the station&#39;s location.</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            {</span>
-<span class="sd">                &quot;id&quot;: 42,</span>
-<span class="sd">                &quot;dis_name&quot;: &quot;(UTC+01:00) Windhoek&quot;,</span>
-<span class="sd">                &quot;name&quot;: &quot;Africa/Windhoek&quot;,</span>
-<span class="sd">                &quot;tz_name&quot;: &quot;UTC+01&quot;,</span>
-<span class="sd">                &quot;offset&quot;: 7200000</span>
-<span class="sd">            }</span>
-<span class="sd">            </span>
-<span class="sd">        Returns:</span>
-<span class="sd">            dict: ``timezone`` field, typically containing an IANA timezone</span>
-<span class="sd">            identifier and UTC offset.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">local_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Current local time at the station&#39;s location.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            str: ``local_time`` field as returned by the API</span>
-<span class="sd">            (format: ``&quot;YYYY-MM-DD HH:MM:SS&quot;`` or similar).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_local_time</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">install_power</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Installed peak power of the station (in Wp or kWp).</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            {</span>
-<span class="sd">                &quot;id&quot;: 123456,</span>
-<span class="sd">                &quot;name&quot;: &quot;Install Solenso&quot;,</span>
-<span class="sd">                &quot;pid&quot;: 111139,</span>
-<span class="sd">                &quot;type&quot;: 4,</span>
-<span class="sd">                &quot;contact&quot;: &quot;John Solenso&quot;,</span>
-<span class="sd">                &quot;phone&quot;: &quot;+33700000000&quot;,</span>
-<span class="sd">                &quot;area&quot;: &quot;&quot;,</span>
-<span class="sd">                &quot;icon&quot;: &quot;&quot;</span>
-<span class="sd">            }</span>
-<span class="sd">            </span>
-<span class="sd">        Returns:</span>
-<span class="sd">            dict: ``install_power`` field of the station detail record.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_install_power</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result</span></div>
 
 </pre></div>
 
