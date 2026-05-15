@@ -61,6 +61,7 @@ from .services.stationdata import MySolensoStationData
 from .services.stationcount import MySolensoStationCount
 from .services.powerbyday import MySolensoPowerByDay
 from .services.dayofyeay import MySolensoCountByDayOfYeay
+from .services.reports.powerbystation import MySolensoPowerByStation
 
 _LOG = logging.getLogger(__name__)
 
@@ -79,6 +80,7 @@ class MySolenso:
     5. :class:`~mysolenso.services.stationcount.MySolensoStationCount` — fetch energy counters.
     6. :class:`~mysolenso.services.powerbyday.MySolensoPowerByDay` — fetch today's power curve.
     7. :class:`~mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay` — fetch production history.
+    8. :class:`~mysolenso.services.powerbystation.MySolensoPowerByStation` — fetch power history.
 
     Args:
         username (str): Email address or Solenso account identifier.
@@ -111,6 +113,7 @@ class MySolenso:
             (``{HH:MM: watts}`` for a given date).
         countbydayofyear (MySolensoCountByDayOfYeay): Full production history
             as a ``{YYYY-MM-DD: Wh}`` dictionary since commissioning.
+        powerbystation (MySolensoPowerByStation): Full power history for one day
 
     Example:
         ::
@@ -161,3 +164,6 @@ class MySolenso:
 
         # 7. Full day-of-year production history
         self.countbydayofyear = MySolensoCountByDayOfYeay(self)
+
+        # 8. Full power history for one day
+        self.powerbystation = MySolensoPowerByStation(self)

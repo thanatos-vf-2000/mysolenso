@@ -12,16 +12,17 @@ Two base URLs are used:
   power curve, day-of-year production totals).
 
 Attributes:
-    DEFAULT_TIMEOUT (int): Network timeout in seconds applied to every HTTP
+    DEFAULT_TIMEOUT (int)      : Network timeout in seconds applied to every HTTP
         request. Defaults to ``10``.
-    BASE_URL_SOLENSO (str): Root URL of the Solenso platform.
-    BASE_URL_HOYMILES (str): Root URL of the Hoymiles inverter data API.
-    API_AUTH_LOGIN (str): Solenso authentication endpoint.
-    API_USER_ME (str): Solenso authenticated user profile endpoint.
-    API_STATION_ME (str): Solenso paginated station list endpoint.
-    API_STATION_FIND (str): Solenso single-station detail endpoint.
-    API_STATION_COUNT (str): Solenso real-time energy counters endpoint.
-    API_POWER_BY_DAY (str): Hoymiles intra-day power curve endpoint.
+    BASE_URL_SOLENSO (str)     : Root URL of the Solenso platform.
+    BASE_URL_HOYMILES (str)    : Root URL of the Hoymiles inverter data API.
+    API_AUTH_LOGIN (str)       : Solenso authentication endpoint.
+    API_USER_ME (str)          : Solenso authenticated user profile endpoint.
+    API_STATION_ME (str)       : Solenso paginated station list endpoint.
+    API_STATION_FIND (str)     : Solenso single-station detail endpoint.
+    API_STATION_COUNT (str)    : Solenso real-time energy counters endpoint.
+    API_POWER_BY_STATION (str) : Retrieve power data in 15-minute intervals for a station for a single day
+    API_POWER_BY_DAY (str)     : Hoymiles intra-day power curve endpoint.
     API_POWER_DAY_OF_YEAR (str): Hoymiles day-of-year production totals endpoint.
 
 Example:
@@ -79,6 +80,16 @@ API_STATION_COUNT: str = (
 Returns today's yield, monthly/yearly/lifetime totals, current power,
 CO₂ savings, equivalent trees planted, and data timestamps.
 """
+
+
+API_POWER_BY_STATION: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm-report/report_select_power_by_station"
+)
+"""POST endpoint for report select power by station.
+
+Retrieve power data in 15-minute intervals for a station for a single day.
+"""
+
 
 # --- Power/energy history endpoints (Hoymiles) ---
 

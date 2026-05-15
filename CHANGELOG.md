@@ -1,6 +1,9 @@
 # CHANGELOG
 
 <!-- version list -->
+## v1.1.0.a (2026-05-15)
+- Add Class MySolensoPowerByStation,
+
 ## v1.0.0 (2026-05-15)
 - Update documentation,
 - stationcount - Add function get_station_refresh to refresh station energy counters,

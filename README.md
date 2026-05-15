@@ -19,10 +19,20 @@ To recover your encrypted password, please use the project [pwdsolenso](https://
 
 ## Example usage
 
+### Generic example
+
 See [example.py](./example.py) for a basic usage and tests
 
 ```code
 PYTHONPATH=./src/ python3 example.py --username <USER> --password <PASSWORD_CRYPT>
+```
+
+### Report example
+
+See [example_reports.py](./example_reports.py) for a report usage and tests
+
+```code
+PYTHONPATH=./src/ python3 example_reports.py --username <USER> --password <PASSWORD_CRYPT>
 ```
 
 ## https://www.solenso.fr/ - mysolenso
