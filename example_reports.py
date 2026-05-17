@@ -77,10 +77,32 @@ async def main() -> None:
         _power_data = client.powerbystation.extract_power_data
         
         print("===================================")
+        print("Power by Station")
         print("name          :", _all_data.get("name"))
         
-        for item in _power_data:
-            print("%10s: %i" % (item["date"], item["power"]))
+        #Display 10 values
+        for item in _power_data[:10]:
+            print("%-10s: %6i" % (item["date"], item["power"]))
+            
+        client.oempower.set_day(
+            day_min="2026-04-11",
+            day_max="2026-04-15",
+            refresh=True)
+        _oem_power = client.oempower.power_data
+        print("===================================")
+        print("OEM Power")
+        for item in _oem_power:
+            print("%-15s: %10s KwH" % (item["date"], item["power"]))
+        
+        client.oempowercount.set_day(
+            day_min="2026-04-11",
+            day_max="2026-04-15",
+            refresh=True)
+        print("===================================")
+        print("OEM Power Count")
+        print("Total pv         : %10s KwH" % client.oempowercount.total_pv)
+        print("Total consumption: %10s KwH" % client.oempowercount.total_consumption)
+        
         
         
         _LOG.info("End MySolenso.")

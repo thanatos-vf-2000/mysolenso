@@ -62,6 +62,8 @@ from .services.stationcount import MySolensoStationCount
 from .services.powerbyday import MySolensoPowerByDay
 from .services.dayofyeay import MySolensoCountByDayOfYeay
 from .services.reports.powerbystation import MySolensoPowerByStation
+from .services.reports.oempower import MySolensoOEMPower
+from .services.reports.oempowercount import MySolensoOEMPowerCount
 
 _LOG = logging.getLogger(__name__)
 
@@ -167,3 +169,6 @@ class MySolenso:
 
         # 8. Full power history for one day
         self.powerbystation = MySolensoPowerByStation(self)
+        
+        self.oempower = MySolensoOEMPower(self)
+        self.oempowercount = MySolensoOEMPowerCount(self)

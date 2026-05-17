@@ -91,6 +91,14 @@ Retrieve power data in 15-minute intervals for a station for a single day.
 """
 
 
+API_OEM_EQ: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm-report/oem_eq_p_c_1"
+)
+
+API_OEM_COUNT: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm-report/oem_count_eq_g_c_1"
+)
+
 # --- Power/energy history endpoints (Hoymiles) ---
 
 API_POWER_BY_DAY: str = BASE_URL_HOYMILES + "0/station/data/count_power_by_day"

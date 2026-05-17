@@ -1,8 +1,11 @@
 # CHANGELOG
 
 <!-- version list -->
-## v1.1.0.a (2026-05-15)
+## v1.1.0.b (2026-05-17)
 - Add Class MySolensoPowerByStation,
+- Add Class MySolensoOEMPower,
+- Add Class MySolensoOEMPowerCount,
+- Add example_reports.py
 
 ## v1.0.0 (2026-05-15)
 - Update documentation,

@@ -13,5 +13,6 @@ API Reference
    services_stationcount
    services_powerbyday
    services_dayofyear
+   services_reports_powerbystation
    exceptions
    const
