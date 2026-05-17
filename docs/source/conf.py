@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.abspath("../../src"))
 project = "mysolenso"
 copyright = "2026, Franck VANHOUCKE"
 author = "Franck VANHOUCKE"
-release = "1.1.0.b"
+release = "1.1.0"
 
 # -- Extensions ---------------------------------------------------------------
 extensions = [
@@ -55,3 +55,8 @@ html_theme_options = {
     "sticky_navigation": True,
 }
 html_static_path = []
+
+# -- Display Version ----------------------------------------------------------
+rst_epilog = """
+.. |release| replace:: %s
+""" % release
