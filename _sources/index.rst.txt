@@ -1,6 +1,8 @@
 mysolenso — Documentation
 ==========================
 
+Version: |release|
+
 Python library for interfacing the `monitor.solenso.net` platform.
 
 .. toctree::

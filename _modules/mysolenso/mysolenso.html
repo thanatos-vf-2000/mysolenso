@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.mysolenso &mdash; mysolenso 1.0.0 documentation</title>
+  <title>mysolenso.mysolenso &mdash; mysolenso 1.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/documentation_options.js?v=fc837d61"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -54,6 +54,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/mysolenso.html">mysolenso — Main Facade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mysolenso.html#sub-modules-initialised-at-construction">Sub-modules initialised at construction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/mysolenso.html#example">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso"><code class="docutils literal notranslate"><span class="pre">MySolenso</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.username"><code class="docutils literal notranslate"><span class="pre">MySolenso.username</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.password"><code class="docutils literal notranslate"><span class="pre">MySolenso.password</span></code></a></li>
@@ -65,6 +67,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationcount"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationcount</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbyday</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.countbydayofyear"><code class="docutils literal notranslate"><span class="pre">MySolenso.countbydayofyear</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbystation"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbystation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.oempower"><code class="docutils literal notranslate"><span class="pre">MySolenso.oempower</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.oempowercount"><code class="docutils literal notranslate"><span class="pre">MySolenso.oempowercount</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -198,6 +203,43 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/services_reports_powerbystation.html">mysolenso.services.reports.powerbystation — Daily power aggregation service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.get_power_station_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.get_power_station_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.extract_power_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.extract_power_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/services_reports_oempower.html">mysolenso.services.reports.oempower — Solenso endpoint and returns a list of daily PV energy production records for a given station over a configurable date range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.oem_pv_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.oem_pv_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.power_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.power_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/services_reports_oempowercount.html">mysolenso.services.reports.oempowercount — OEM PV energy totals (count) report service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.oem_power_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.oem_power_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_pv"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.total_pv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_consumption"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.total_consumption</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/exceptions.html">mysolenso.exceptions — Exceptions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../api/exceptions.html#mysolenso.exceptions.MySolensoException"><code class="docutils literal notranslate"><span class="pre">MySolensoException</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/exceptions.html#mysolenso.exceptions.MySolensoConnectionException"><code class="docutils literal notranslate"><span class="pre">MySolensoConnectionException</span></code></a></li>
@@ -205,6 +247,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/const.html">mysolenso.const — Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#example">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.BASE_URL_HOYMILES"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
@@ -213,18 +257,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_STATION_FIND"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_STATION_COUNT"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_POWER_BY_STATION"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_STATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_OEM_EQ"><code class="docutils literal notranslate"><span class="pre">API_OEM_EQ</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id0"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id1"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id2"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id3"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id4"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id5"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id6"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id7"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id8"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/const.html#id9"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -259,52 +296,73 @@
 <span></span><span class="sd">&quot;&quot;&quot;Main entry point for the MySolenso library.</span>
 
 <span class="sd">This module exposes the :class:`MySolenso` facade class, which groups all</span>
-<span class="sd">library sub-modules into a single, unified interface:</span>
+<span class="sd">library sub-modules into a single, unified interface. Most users only need</span>
+<span class="sd">to import and instantiate this class.</span>
 
-<span class="sd">- :attr:`MySolenso.auth` — session management and token handling</span>
-<span class="sd">- :attr:`MySolenso.me` — user account information</span>
-<span class="sd">- :attr:`MySolenso.station` — PV station list and active station selection</span>
-<span class="sd">- :attr:`MySolenso.stationdata` — detailed configuration of the active station</span>
-<span class="sd">- :attr:`MySolenso.stationcount` — real-time and cumulative energy counters</span>
-<span class="sd">- :attr:`MySolenso.powerbyday` — intra-day grid power curve</span>
-<span class="sd">- :attr:`MySolenso.countbydayofyear` — day-of-year energy production history</span>
+<span class="sd">Sub-modules initialised at construction</span>
+<span class="sd">---------------------------------------</span>
+<span class="sd">1. :class:`~mysolenso.auth.MySolensoAuth` — authentication and token management.</span>
+<span class="sd">2. :class:`~mysolenso.services.me.MySolensoMe` — authenticated user profile.</span>
+<span class="sd">3. :class:`~mysolenso.services.station.MySolensoStation` — PV station list and</span>
+<span class="sd">   active station selection.</span>
+<span class="sd">4. :class:`~mysolenso.services.stationdata.MySolensoStationData` — detailed</span>
+<span class="sd">   configuration of the active station.</span>
+<span class="sd">5. :class:`~mysolenso.services.stationcount.MySolensoStationCount` — real-time</span>
+<span class="sd">   and cumulative energy counters.</span>
+<span class="sd">6. :class:`~mysolenso.services.powerbyday.MySolensoPowerByDay` — intra-day</span>
+<span class="sd">   grid power curve for today.</span>
+<span class="sd">7. :class:`~mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay` — full</span>
+<span class="sd">   day-of-year production history (Wh per day since commissioning).</span>
+<span class="sd">8. :class:`~mysolenso.services.reports.powerbystation.MySolensoPowerByStation`</span>
+<span class="sd">   — per-station power data in 15-minute intervals for a single day.</span>
+<span class="sd">9. :class:`~mysolenso.services.reports.oempower.MySolensoOEMPower` — OEM daily</span>
+<span class="sd">   PV energy list report (one record per day, paginated).</span>
+<span class="sd">10. :class:`~mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount`</span>
+<span class="sd">    — OEM aggregated PV and consumption totals over a date range.</span>
 
-<span class="sd">This is the only class that most users need to import.</span>
+<span class="sd">Example</span>
+<span class="sd">-------</span>
+<span class="sd">Connect with an encrypted password::</span>
 
-<span class="sd">Example:</span>
-<span class="sd">    Connect with an encrypted password::</span>
+<span class="sd">    from mysolenso import MySolenso</span>
 
-<span class="sd">        from mysolenso import MySolenso</span>
+<span class="sd">    client = MySolenso(username=&quot;jdoe@example.com&quot;, password=&quot;encrypted_pass&quot;)</span>
 
-<span class="sd">        client = MySolenso(username=&quot;jdoe&quot;, password=&quot;encrypted_pass&quot;)</span>
+<span class="sd">    # Authentication status</span>
+<span class="sd">    print(client.auth.isConnect())          # True</span>
 
-<span class="sd">        # Authentication</span>
-<span class="sd">        print(client.auth.isConnect())   # True</span>
+<span class="sd">    # User profile</span>
+<span class="sd">    print(client.me.name)</span>
+<span class="sd">    print(client.me.email)</span>
 
-<span class="sd">        # User profile</span>
-<span class="sd">        print(client.me.name)</span>
-<span class="sd">        print(client.me.email)</span>
+<span class="sd">    # Active station</span>
+<span class="sd">    print(client.station.station_id)</span>
+<span class="sd">    print(client.station.install_power)</span>
 
-<span class="sd">        # Active station</span>
-<span class="sd">        print(client.station.station_id)</span>
-<span class="sd">        print(client.station.install_power)</span>
+<span class="sd">    # Real-time energy counters</span>
+<span class="sd">    print(client.stationcount.today_eq)     # kWh produced today</span>
+<span class="sd">    print(client.stationcount.real_power)   # current output in W</span>
 
-<span class="sd">        # Energy counters</span>
-<span class="sd">        print(client.stationcount.today_eq)</span>
-<span class="sd">        print(client.stationcount.real_power)</span>
+<span class="sd">    # Intra-day power curve (15-min intervals)</span>
+<span class="sd">    curve = client.powerbyday.get_data</span>
+<span class="sd">    print(curve[&quot;date&quot;], curve[&quot;values&quot;])   # {&quot;08:00&quot;: 512.0, ...}</span>
 
-<span class="sd">        # Intra-day power curve</span>
-<span class="sd">        curve = client.powerbyday.get_data</span>
-<span class="sd">        print(curve[&quot;date&quot;], curve[&quot;values&quot;])</span>
+<span class="sd">    # Historical daily production since commissioning</span>
+<span class="sd">    history = client.countbydayofyear.get_data</span>
+<span class="sd">    print(history[&quot;2026-01-01&quot;])            # Wh produced on that day</span>
 
-<span class="sd">        # Historical daily production</span>
-<span class="sd">        history = client.countbydayofyear.get_data</span>
-<span class="sd">        print(history[&quot;2026-01-01&quot;])  # Wh produced on that day</span>
+<span class="sd">    # OEM daily list report for a date range</span>
+<span class="sd">    client.oempower.set_day(&quot;2026-04-01&quot;, &quot;2026-04-30&quot;)</span>
+<span class="sd">    for record in client.oempower.all_data:</span>
+<span class="sd">        print(record[&quot;date&quot;], record[&quot;pv_eq&quot;], &quot;kWh&quot;)</span>
 
-<span class="sd">    Connect directly with an existing token (avoids the authentication</span>
-<span class="sd">    network call)::</span>
+<span class="sd">    # OEM aggregated totals for the same range</span>
+<span class="sd">    client.oempowercount.set_day(&quot;2026-04-01&quot;, &quot;2026-04-30&quot;)</span>
+<span class="sd">    print(client.oempowercount.total_pv)    # e.g. &quot;415.72&quot;</span>
 
-<span class="sd">        client = MySolenso(username=&quot;jdoe&quot;, token=&quot;eyJ...&quot;)</span>
+<span class="sd">Connect with an existing token (skips the authentication network call)::</span>
+
+<span class="sd">    client = MySolenso(username=&quot;jdoe@example.com&quot;, token=&quot;eyJ...&quot;)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -319,6 +377,9 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">.services.stationcount</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoStationCount</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.services.powerbyday</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoPowerByDay</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.services.dayofyeay</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoCountByDayOfYeay</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.services.reports.powerbystation</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoPowerByStation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.services.reports.oempower</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoOEMPower</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.services.reports.oempowercount</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoOEMPowerCount</span>
 
 <span class="n">_LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
@@ -328,49 +389,60 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">MySolenso</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Main facade for the MySolenso library.</span>
 
-<span class="sd">    Instantiates and groups all sub-modules into a unified interface.</span>
-<span class="sd">    Authentication and initial data loading are performed automatically</span>
-<span class="sd">    at construction in the following order:</span>
-
-<span class="sd">    1. :class:`~mysolenso.auth.MySolensoAuth` — authenticate and obtain token.</span>
-<span class="sd">    2. :class:`~mysolenso.services.me.MySolensoMe` — fetch user profile.</span>
-<span class="sd">    3. :class:`~mysolenso.services.station.MySolensoStation` — fetch station list.</span>
-<span class="sd">    4. :class:`~mysolenso.services.stationdata.MySolensoStationData` — fetch station detail.</span>
-<span class="sd">    5. :class:`~mysolenso.services.stationcount.MySolensoStationCount` — fetch energy counters.</span>
-<span class="sd">    6. :class:`~mysolenso.services.powerbyday.MySolensoPowerByDay` — fetch today&#39;s power curve.</span>
-<span class="sd">    7. :class:`~mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay` — fetch production history.</span>
+<span class="sd">    Instantiates and groups all service sub-modules under a single object.</span>
+<span class="sd">    Authentication and initial data loading are performed automatically at</span>
+<span class="sd">    construction time in the order listed in the module docstring.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        username (str): Email address or Solenso account identifier.</span>
-<span class="sd">        password (Optional[str]): Encrypted password. If provided, a network</span>
-<span class="sd">            call is made to obtain the session token.</span>
-<span class="sd">        token (Optional[str]): Existing session token. If provided, no</span>
-<span class="sd">            additional authentication call is made.</span>
+<span class="sd">        username (str): Solenso account e-mail address or identifier.</span>
+<span class="sd">        password (Optional[str]): Encrypted password. When provided, a POST</span>
+<span class="sd">            request is made to the authentication endpoint to obtain a</span>
+<span class="sd">            session token. Must be omitted when ``token`` is given.</span>
+<span class="sd">        token (Optional[str]): Pre-obtained session token. When provided,</span>
+<span class="sd">            the authentication network call is skipped entirely.</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        MySolensoConnectionException: If ``username`` is empty or if neither</span>
-<span class="sd">            ``password`` nor ``token`` is provided.</span>
-<span class="sd">        MySolensoAuthenticationException: If the credentials are invalid.</span>
-<span class="sd">        MySolensoException: On network error or missing data during any</span>
+<span class="sd">        MySolensoConnectionException: If ``username`` is empty, or if</span>
+<span class="sd">            neither ``password`` nor ``token`` is supplied.</span>
+<span class="sd">        MySolensoAuthenticationException: If the supplied credentials are</span>
+<span class="sd">            rejected by the Solenso API.</span>
+<span class="sd">        MySolensoException: On any network error or missing data during</span>
 <span class="sd">            sub-module initialisation.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        username (str): Account identifier.</span>
-<span class="sd">        password (Optional[str]): Password kept in memory (not reused after</span>
-<span class="sd">            construction).</span>
-<span class="sd">        token (Optional[str]): Initial token provided at construction.</span>
-<span class="sd">        auth (MySolensoAuth): Session management and authorisation headers.</span>
-<span class="sd">        me (MySolensoMe): User profile access.</span>
-<span class="sd">        station (MySolensoStation): PV station list and active station</span>
-<span class="sd">            selection.</span>
-<span class="sd">        stationdata (MySolensoStationData): Detailed configuration of the</span>
-<span class="sd">            active station (timezone, pricing, installed power, etc.).</span>
+<span class="sd">        username (str): Account identifier supplied at construction.</span>
+<span class="sd">        password (Optional[str]): Encrypted password kept in memory</span>
+<span class="sd">            (used only during construction; not reused afterward).</span>
+<span class="sd">        token (Optional[str]): Initial token supplied at construction.</span>
+<span class="sd">        auth (MySolensoAuth): Session management and HTTP authorisation headers.</span>
+<span class="sd">            Provides :meth:`~mysolenso.auth.MySolensoAuth.get_auth_headers_solenso`</span>
+<span class="sd">            and :meth:`~mysolenso.auth.MySolensoAuth.get_auth_headers_hoymiles`.</span>
+<span class="sd">        me (MySolensoMe): Authenticated user profile (name, email, role, group).</span>
+<span class="sd">        station (MySolensoStation): PV station list and active station control.</span>
+<span class="sd">            Use :meth:`~mysolenso.services.station.MySolensoStation.set_station`</span>
+<span class="sd">            to switch the active station; all other services update accordingly.</span>
+<span class="sd">        stationdata (MySolensoStationData): Detailed technical configuration of</span>
+<span class="sd">            the active station: timezone, installed capacity, pricing, inverters.</span>
 <span class="sd">        stationcount (MySolensoStationCount): Real-time and cumulative energy</span>
-<span class="sd">            counters (today/month/year/total yield, current power, CO₂).</span>
-<span class="sd">        powerbyday (MySolensoPowerByDay): Intra-day grid power curve</span>
-<span class="sd">            (``{HH:MM: watts}`` for a given date).</span>
-<span class="sd">        countbydayofyear (MySolensoCountByDayOfYeay): Full production history</span>
-<span class="sd">            as a ``{YYYY-MM-DD: Wh}`` dictionary since commissioning.</span>
+<span class="sd">            counters — today/month/year/lifetime yield, current power, CO₂ offset.</span>
+<span class="sd">        powerbyday (MySolensoPowerByDay): Intra-day grid power curve. Returns a</span>
+<span class="sd">            ``{HH:MM: watts}`` mapping for the active station and a given date.</span>
+<span class="sd">            Use :meth:`~mysolenso.services.powerbyday.MySolensoPowerByDay.set_day`</span>
+<span class="sd">            to query a specific date.</span>
+<span class="sd">        countbydayofyear (MySolensoCountByDayOfYeay): Full production history as</span>
+<span class="sd">            a ``{YYYY-MM-DD: Wh}`` dictionary covering every day since the station</span>
+<span class="sd">            was commissioned.</span>
+<span class="sd">        powerbystation (MySolensoPowerByStation): Per-station power data in</span>
+<span class="sd">            15-minute intervals for a single day (PV, consumption, grid, BMS).</span>
+<span class="sd">        oempower (MySolensoOEMPower): OEM daily PV energy list report. Returns one</span>
+<span class="sd">            record per day with ``pv_eq`` (kWh) and auxiliary fields. Use</span>
+<span class="sd">            :meth:`~mysolenso.services.reports.oempower.MySolensoOEMPower.set_day`</span>
+<span class="sd">            to set the date range.</span>
+<span class="sd">        oempowercount (MySolensoOEMPowerCount): OEM aggregated PV and consumption</span>
+<span class="sd">            totals over a date range. Exposes :attr:`total_pv` and</span>
+<span class="sd">            :attr:`total_consumption` for the configured period. Use</span>
+<span class="sd">            :meth:`~mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_day`</span>
+<span class="sd">            to set the date range.</span>
 
 <span class="sd">    Example:</span>
 <span class="sd">        ::</span>
@@ -379,10 +451,20 @@
 <span class="sd">            from mysolenso.exceptions import MySolensoException</span>
 
 <span class="sd">            try:</span>
-<span class="sd">                client = MySolenso(username=&quot;admin&quot;, password=&quot;encrypted_pass&quot;)</span>
+<span class="sd">                client = MySolenso(username=&quot;jdoe&quot;,</span>
+<span class="sd">                                   password=&quot;encrypted_pass&quot;)</span>
+
 <span class="sd">                print(client.me.name)</span>
 <span class="sd">                print(client.stationcount.today_eq)</span>
 <span class="sd">                print(client.powerbyday.get_data[&quot;values&quot;])</span>
+
+<span class="sd">                # OEM report for the last month</span>
+<span class="sd">                client.oempower.set_day(&quot;2026-04-01&quot;, &quot;2026-04-30&quot;)</span>
+<span class="sd">                print(client.oempower.power_data)</span>
+
+<span class="sd">                client.oempowercount.set_day(&quot;2026-04-01&quot;, &quot;2026-04-30&quot;)</span>
+<span class="sd">                print(client.oempowercount.total_pv, &quot;kWh total&quot;)</span>
+
 <span class="sd">            except MySolensoException as e:</span>
 <span class="sd">                print(f&quot;Error: {e}&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -397,30 +479,39 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">token</span>    <span class="o">=</span> <span class="n">token</span>
 
-        <span class="c1"># 1. Authentication</span>
+        <span class="c1"># 1. Authentication — must come first; all other services depend on it.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">MySolensoAuth</span><span class="p">(</span>
             <span class="n">username</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
             <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span>
             <span class="n">token</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="c1"># 2. User profile</span>
+        <span class="c1"># 2. User profile — fetched immediately after authentication.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">me</span> <span class="o">=</span> <span class="n">MySolensoMe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="c1"># 3. Station list</span>
+        <span class="c1"># 3. Station list — determines which station is active.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">station</span> <span class="o">=</span> <span class="n">MySolensoStation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="c1"># 4. Station detail</span>
+        <span class="c1"># 4. Station detail — technical configuration of the active station.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stationdata</span> <span class="o">=</span> <span class="n">MySolensoStationData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="c1"># 5. Energy counters</span>
+        <span class="c1"># 5. Energy counters — real-time and cumulative production figures.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stationcount</span> <span class="o">=</span> <span class="n">MySolensoStationCount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="c1"># 6. Today&#39;s intra-day power curve</span>
+        <span class="c1"># 6. Intra-day power curve — today&#39;s grid power in 15-min intervals.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">powerbyday</span> <span class="o">=</span> <span class="n">MySolensoPowerByDay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="c1"># 7. Full day-of-year production history</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">countbydayofyear</span> <span class="o">=</span> <span class="n">MySolensoCountByDayOfYeay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+        <span class="c1"># 7. Day-of-year history — daily Wh totals since commissioning.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">countbydayofyear</span> <span class="o">=</span> <span class="n">MySolensoCountByDayOfYeay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># 8. Per-station power report — 15-min power data for a single day.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">powerbystation</span> <span class="o">=</span> <span class="n">MySolensoPowerByStation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># 9. OEM daily list report — one JSON record per day (paginated).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oempower</span> <span class="o">=</span> <span class="n">MySolensoOEMPower</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># 10. OEM aggregated totals — single-call PV + consumption summary.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oempowercount</span> <span class="o">=</span> <span class="n">MySolensoOEMPowerCount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 </pre></div>
 

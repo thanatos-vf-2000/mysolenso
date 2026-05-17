@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mysolenso.services.reports.oempower &mdash; mysolenso 1.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=fc837d61"></script>
+      <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            mysolenso
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#connect-with-a-password">Connect with a password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#connect-with-an-existing-token">Connect with an existing token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#real-time-energy-counters">Real-time energy counters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#intra-day-power-curve">Intra-day power curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#day-of-year-production-history">Day-of-year production history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#switch-the-active-station">Switch the active station</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/mysolenso.html">mysolenso — Main Facade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/mysolenso.html#sub-modules-initialised-at-construction">Sub-modules initialised at construction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/mysolenso.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso"><code class="docutils literal notranslate"><span class="pre">MySolenso</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.username"><code class="docutils literal notranslate"><span class="pre">MySolenso.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.password"><code class="docutils literal notranslate"><span class="pre">MySolenso.password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.token"><code class="docutils literal notranslate"><span class="pre">MySolenso.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.auth"><code class="docutils literal notranslate"><span class="pre">MySolenso.auth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.me"><code class="docutils literal notranslate"><span class="pre">MySolenso.me</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.station"><code class="docutils literal notranslate"><span class="pre">MySolenso.station</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationdata"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationcount"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationcount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.countbydayofyear"><code class="docutils literal notranslate"><span class="pre">MySolenso.countbydayofyear</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbystation"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbystation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.oempower"><code class="docutils literal notranslate"><span class="pre">MySolenso.oempower</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.oempowercount"><code class="docutils literal notranslate"><span class="pre">MySolenso.oempowercount</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/auth.html">mysolenso.auth — Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/auth.html#mysolenso.auth.MySolensoAuth"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/auth.html#mysolenso.auth.MySolensoAuth.username"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/auth.html#mysolenso.auth.MySolensoAuth.token"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/auth.html#mysolenso.auth.MySolensoAuth.token_language"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token_language</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/auth.html#mysolenso.auth.MySolensoAuth.isConnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.isConnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_solenso"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_solenso()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_hoymiles"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_hoymiles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/auth.html#mysolenso.auth.MySolensoAuth.disconnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.disconnect()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/post.html">mysolenso.post — HTTP Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost"><code class="docutils literal notranslate"><span class="pre">MySolensoPost</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.timeout"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.headers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.raw_payload</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.set_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.remove_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.remove_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.set_headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_headers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.set_raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_raw_payload()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.post"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/post.html#mysolenso.post.MySolensoPost.poststr"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.poststr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_me.html">mysolenso.services.me — User Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe"><code class="docutils literal notranslate"><span class="pre">MySolensoMe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.username"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.phone"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.phone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.email"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.role_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.role_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.roles_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.roles_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.group_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.group_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_me.html#mysolenso.services.me.MySolensoMe.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.all_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_station.html">mysolenso.services.station — PV Stations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation"><code class="docutils literal notranslate"><span class="pre">MySolensoStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.refresh_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.refresh_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_total"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_total</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.stations"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.stations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.city_code"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.city_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.status"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.create_at"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.create_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.tz_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.tz_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.capacitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.install_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.install_power</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.org_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.org_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.warn_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.warn_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_station.html#mysolenso.services.station.MySolensoStation.ak"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.ak</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_stationdata.html">mysolenso.services.stationdata — Station Detail Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.set_station_find"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.set_station_find()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.name"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.create_at"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.create_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.capacitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.config"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.is_stars"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.is_stars</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.money_unit"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.money_unit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.electricity_price"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.electricity_price</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.timezone"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.timezone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.local_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.local_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.install_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.install_power</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_stationcount.html">mysolenso.services.stationcount — Energy Counters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.set_station_count"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.set_station_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.get_station_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.get_station_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.today_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.today_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.month_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.month_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.year_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.year_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.total_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.total_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.real_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.real_power</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.co2_emission_reduction"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.co2_emission_reduction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.plant_tree"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.plant_tree</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.data_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.data_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.last_data_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.last_data_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.capacitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_powerbyday.html">mysolenso.services.powerbyday — Intra-day Power Curve</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_station_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_power_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_power_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_dayofyear.html">mysolenso.services.dayofyeay — Day-of-Year Production History</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.set_station_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.get_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_reports_powerbystation.html">mysolenso.services.reports.powerbystation — Daily power aggregation service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.get_power_station_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.get_power_station_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.extract_power_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.extract_power_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_reports_oempower.html">mysolenso.services.reports.oempower — Solenso endpoint and returns a list of daily PV energy production records for a given station over a configurable date range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.oem_pv_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.oem_pv_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.power_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.power_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html">mysolenso.services.reports.oempowercount — OEM PV energy totals (count) report service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.oem_power_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.oem_power_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_pv"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.total_pv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_consumption"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.total_consumption</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/exceptions.html">mysolenso.exceptions — Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/exceptions.html#mysolenso.exceptions.MySolensoException"><code class="docutils literal notranslate"><span class="pre">MySolensoException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/exceptions.html#mysolenso.exceptions.MySolensoConnectionException"><code class="docutils literal notranslate"><span class="pre">MySolensoConnectionException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/exceptions.html#mysolenso.exceptions.MySolensoAuthenticationException"><code class="docutils literal notranslate"><span class="pre">MySolensoAuthenticationException</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/const.html">mysolenso.const — Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.BASE_URL_HOYMILES"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_AUTH_LOGIN"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_USER_ME"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_STATION_FIND"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_STATION_COUNT"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_POWER_BY_STATION"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_STATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_OEM_EQ"><code class="docutils literal notranslate"><span class="pre">API_OEM_EQ</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">mysolenso</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">mysolenso.services.reports.oempower</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for mysolenso.services.reports.oempower</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;MySolenso OEM PV energy report service.</span>
+
+<span class="sd">Provides the :class:`MySolensoOEMPower` class, which queries the</span>
+<span class="sd">``/oem_eq`` Solenso endpoint and returns a list of daily PV energy</span>
+<span class="sd">production records for a given station over a configurable date range.</span>
+
+<span class="sd">The API returns a JSON payload with a ``list`` of daily records and a</span>
+<span class="sd">``total`` count. Each record contains the station ID, owner name,</span>
+<span class="sd">timezone, date, PV energy in kWh (``pv_eq``), and several other</span>
+<span class="sd">consumption/grid fields.</span>
+
+<span class="sd">By default the service queries **today** (or yesterday before 01:00)</span>
+<span class="sd">for a single day. Use :meth:`~MySolensoOEMPower.set_day` to adjust</span>
+<span class="sd">the date range and :meth:`~MySolensoOEMPower.set_station` to switch</span>
+<span class="sd">the active station.</span>
+
+<span class="sd">This module is instantiated automatically by :class:`~mysolenso.MySolenso`</span>
+<span class="sd">and is accessible via ``client.oem_power``.</span>
+
+<span class="sd">Example:</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        client = MySolenso(username=&quot;user&quot;, token=&quot;tok&quot;)</span>
+
+<span class="sd">        # Fetch data for a custom date range</span>
+<span class="sd">        client.oem_power.set_day(&quot;2026-04-01&quot;, &quot;2026-04-30&quot;)</span>
+<span class="sd">        records = client.oem_power.all_data</span>
+<span class="sd">        for r in records:</span>
+<span class="sd">            print(r[&quot;date&quot;], r[&quot;pv_eq&quot;], &quot;kWh&quot;)</span>
+
+<span class="sd">        # Simplified view: date + power only</span>
+<span class="sd">        print(client.oem_power.power_data)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">...post</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoPost</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...const</span><span class="w"> </span><span class="kn">import</span> <span class="n">API_OEM_EQ</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">...exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolensoException</span>
+
+<span class="n">_LOG</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MySolensoOEMPower">
+<a class="viewcode-back" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MySolensoOEMPower</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;OEM daily PV energy report for a single station over a date range.</span>
+
+<span class="sd">    Queries the ``/oem_eq`` Solenso endpoint and exposes the raw JSON</span>
+<span class="sd">    record list as well as a simplified ``{date, power}`` view.</span>
+
+<span class="sd">    The date range defaults to **today** (or yesterday before 01:00 to</span>
+<span class="sd">    avoid empty datasets at midnight). Call :meth:`set_day` to change it</span>
+<span class="sd">    and :meth:`set_station` to switch the monitored station.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        parent: Instance of :class:`~mysolenso.MySolenso` providing access</span>
+<span class="sd">            to the ``auth`` and ``station`` sub-modules.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        MySolensoException: If ``parent.station.station_id`` is ``None``.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        parent: Reference to the parent :class:`~mysolenso.MySolenso` object.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        Data is **not** fetched automatically at construction time.</span>
+<span class="sd">        Call :meth:`set_day` (with ``refresh=True``, the default) or</span>
+<span class="sd">        :meth:`_get_oem_pv` explicitly to load the first dataset.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            client = MySolenso(username=&quot;admin&quot;, token=&quot;tok&quot;)</span>
+<span class="sd">            oem = client.oem_power</span>
+
+<span class="sd">            oem.set_day(&quot;2026-04-01&quot;, &quot;2026-04-30&quot;)</span>
+<span class="sd">            print(oem.all_data)     # full JSON list</span>
+<span class="sd">            print(oem.power_data)   # [{date, power}, ...]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
+
+        <span class="c1"># Validate that a station has already been selected by the parent.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> station_id is None.&quot;</span>
+            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_station_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span>
+
+        <span class="c1"># Default to today; fall back to yesterday before 01:00 to avoid</span>
+        <span class="c1"># returning an empty dataset at midnight before the first inverter</span>
+        <span class="c1"># measurement of the day arrives.</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">now</span><span class="o">.</span><span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_day_min</span> <span class="o">=</span> <span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_day_min</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># By default the range covers a single day (min == max).</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_day_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_day_min</span>
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Station selection</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="MySolensoOEMPower.set_station">
+<a class="viewcode-back" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_station">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_station</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Switch the active station and optionally reload power data.</span>
+
+<span class="sd">        The provided ``id`` is validated against the station list from</span>
+<span class="sd">        :attr:`~mysolenso.services.station.MySolensoStation.stations`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            id (int): Station ID to activate. Must exist in the account&#39;s</span>
+<span class="sd">                station list.</span>
+<span class="sd">            refresh (bool): If ``True`` (default), immediately calls</span>
+<span class="sd">                :meth:`_get_oem_pv` to reload data for the new station.</span>
+<span class="sd">                Set to ``False`` to defer the network call.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            MySolensoException: If ``id`` is not found in the account&#39;s</span>
+<span class="sd">                station list, or if the subsequent API call fails.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                client.oem_power.set_station(43)</span>
+<span class="sd">                print(client.oem_power.all_data)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">stations</span>
+
+        <span class="c1"># Verify the requested station ID exists in the account.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">station</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span> <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">stations</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_station: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;station </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2"> not found.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_station_id</span> <span class="o">=</span> <span class="nb">id</span>
+
+        <span class="c1"># Reload data for the new station unless the caller deferred it.</span>
+        <span class="k">if</span> <span class="n">refresh</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_oem_pv</span><span class="p">()</span></div>
+
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Date range selection</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="MySolensoOEMPower.set_day">
+<a class="viewcode-back" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_day">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_day</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day_min</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">day_max</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">refresh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the query date range and optionally reload the data.</span>
+
+<span class="sd">        Both ``day_min`` and ``day_max`` must be valid ``YYYY-MM-DD``</span>
+<span class="sd">        strings within ``[1900-01-01, today]``, and ``day_min`` must not</span>
+<span class="sd">        be later than ``day_max``.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            day_min (str): Start of the date range (inclusive), in</span>
+<span class="sd">                ``YYYY-MM-DD`` format.</span>
+<span class="sd">            day_max (str): End of the date range (inclusive), in</span>
+<span class="sd">                ``YYYY-MM-DD`` format.</span>
+<span class="sd">            refresh (bool): If ``True`` (default), immediately calls</span>
+<span class="sd">                :meth:`_get_oem_pv` to reload data for the new range.</span>
+<span class="sd">                Set to ``False`` to defer the network call.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            MySolensoException:</span>
+<span class="sd">                - If either date string is not exactly 10 characters.</span>
+<span class="sd">                - If either date is outside ``[1900-01-01, today]``.</span>
+<span class="sd">                - If ``day_min &gt; day_max``.</span>
+<span class="sd">                - If either date string cannot be parsed as ``YYYY-MM-DD``.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                client.oem_power.set_day(&quot;2026-04-01&quot;, &quot;2026-04-30&quot;)</span>
+<span class="sd">                print(client.oem_power.all_data)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Basic length check before attempting strptime.</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">day_min</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid length for day_min.&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">day_max</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid length for day_max.&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Compute the allowed date range.</span>
+            <span class="n">min_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="n">max_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+
+            <span class="c1"># Parse both date strings.</span>
+            <span class="n">day_min_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">day_min</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="n">day_max_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">day_max</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+
+            <span class="c1"># Validate day_min is within the allowed range.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">min_date</span> <span class="o">&lt;=</span> <span class="n">day_min_obj</span> <span class="o">&lt;=</span> <span class="n">max_date</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_day: &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;day_min outside the allowed range &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">min_date</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">day_min</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">max_date</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="c1"># Validate day_max is within the allowed range.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">min_date</span> <span class="o">&lt;=</span> <span class="n">day_max_obj</span> <span class="o">&lt;=</span> <span class="n">max_date</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_day: &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;day_max outside the allowed range &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">min_date</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">day_max</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">max_date</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="c1"># Validate the range ordering: start must not be after end.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">day_min_obj</span> <span class="o">&lt;=</span> <span class="n">day_max_obj</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_day: &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;date day_min not less or equal to day_max.&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">day_min</span><span class="si">}</span><span class="s2"> &lt;= </span><span class="si">{</span><span class="n">day_max</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="c1"># Commit the new date range.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_day_min</span> <span class="o">=</span> <span class="n">day_min</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_day_max</span> <span class="o">=</span> <span class="n">day_max</span>
+
+            <span class="c1"># Reload data unless the caller deferred it.</span>
+            <span class="k">if</span> <span class="n">refresh</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_oem_pv</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="n">MySolensoException</span><span class="p">:</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - set_day: &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">day_min</span><span class="si">}</span><span class="s2">&#39; or </span><span class="si">{</span><span class="n">day_max</span><span class="si">}</span><span class="s2"> are not a valid YYYY-MM-DD date.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Data retrieval</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_oem_pv</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Query the ``/oem_eq`` endpoint and store the JSON response.</span>
+
+<span class="sd">        Sends a POST request to the Solenso OEM energy-equivalence</span>
+<span class="sd">        endpoint with the current station ID and date range. The</span>
+<span class="sd">        response is expected to be a JSON object with:</span>
+
+<span class="sd">        - ``list``  *(list[dict])* — one record per day, each containing</span>
+<span class="sd">          ``sid``, ``name``, ``date``, ``pv_eq``, ``consumption_eq``, etc.</span>
+<span class="sd">        - ``total`` *(int)* — total number of records matching the query.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            MySolensoException:</span>
+<span class="sd">                - If the API returns an empty or falsy response body.</span>
+<span class="sd">                - If ``total`` is 0 (no data for the requested period).</span>
+<span class="sd">                - If any network or JSON parsing error occurs.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            The ``page_size`` is fixed at 10 in this implementation.</span>
+<span class="sd">            For large date ranges, only the first 10 records are returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">MySolensoPost</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_headers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_auth_headers_solenso</span><span class="p">())</span>
+
+            <span class="c1"># Build the request body: station list, mode, date range, pagination.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">set_raw_payload</span><span class="p">({</span>
+                <span class="s2">&quot;WAITING_PROMISE&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;sid_list&quot;</span><span class="p">:</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_station_id</span><span class="p">],</span>
+                    <span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_day_min</span><span class="p">,</span>
+                    <span class="s2">&quot;end_date&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_day_max</span><span class="p">,</span>
+                    <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&quot;page_size&quot;</span><span class="p">:</span> <span class="mi">10</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_OEM_EQ</span><span class="p">)</span>
+
+            <span class="c1"># Guard against empty or null responses.</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">response</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> - _get_oem_pv: &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;response data not found.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="c1"># Store the full record list and the record count.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_total</span>    <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;total&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="k">except</span> <span class="n">MySolensoException</span><span class="p">:</span>
+            <span class="k">raise</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span>
+                <span class="s2">&quot;Invalid or corrupted JSON response.&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+        <span class="c1"># Raise an explicit error when the API returned an empty dataset.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_total</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">_LOG</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> - _get_oem_pv no data.&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">MySolensoException</span><span class="p">(</span><span class="s2">&quot;_get_oem_pv no data.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Refresh</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="MySolensoOEMPower.oem_pv_refresh">
+<a class="viewcode-back" href="../../../../api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.oem_pv_refresh">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">oem_pv_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Re-fetch OEM PV data for the current station and date range.</span>
+
+<span class="sd">        Convenience method that delegates to :meth:`_get_oem_pv`.</span>
+<span class="sd">        Call this after the underlying data may have changed (e.g. for</span>
+<span class="sd">        intra-day monitoring).</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                client.oem_power.oem_pv_refresh()</span>
+<span class="sd">                print(client.oem_power.all_data)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_oem_pv</span><span class="p">()</span></div>
+
+
+    <span class="c1"># ------------------------------------------------------------------</span>
+    <span class="c1"># Public properties</span>
+    <span class="c1"># ------------------------------------------------------------------</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Raw list of daily OEM PV records from the API.</span>
+
+<span class="sd">        Each element is a dictionary with the following keys:</span>
+
+<span class="sd">        - ``sid`` *(int)* — station identifier.</span>
+<span class="sd">        - ``name`` *(str)* — station owner&#39;s display name.</span>
+<span class="sd">        - ``tz_name`` *(str)* — IANA timezone name of the station.</span>
+<span class="sd">        - ``date`` *(str)* — record date in ``YYYY-MM-DD`` format.</span>
+<span class="sd">        - ``pv_eq`` *(str)* — daily PV energy production in kWh.</span>
+<span class="sd">        - ``consumption_eq`` *(str)* — daily consumption energy in kWh,</span>
+<span class="sd">          or ``&quot;-&quot;`` when no consumption meter is installed.</span>
+<span class="sd">        - ``meter_c_eq`` *(str)* — meter energy value.</span>
+<span class="sd">        - ``meter_location`` *(int)* — meter location type.</span>
+<span class="sd">        - ``capacitor`` *(int)* — capacitor presence flag.</span>
+<span class="sd">        - ``create_at`` *(str | None)* — record creation timestamp.</span>
+<span class="sd">        - ``p2g`` *(Any | None)* — peer-to-grid value (may be ``null``).</span>
+<span class="sd">        - ``lfg`` *(Any | None)* — load-following generation (may be ``null``).</span>
+<span class="sd">        - ``eq_hour`` *(int)* — equivalent production hours.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list[dict]: Complete raw record list for the active station</span>
+<span class="sd">            and date range.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                client.oem_power.set_day(&quot;2026-04-11&quot;, &quot;2026-04-13&quot;)</span>
+<span class="sd">                for record in client.oem_power.all_data:</span>
+<span class="sd">                    print(record[&quot;date&quot;], record[&quot;pv_eq&quot;], &quot;kWh&quot;)</span>
+<span class="sd">                # 2026-04-11  14.58 kWh</span>
+<span class="sd">                # 2026-04-12  25.2  kWh</span>
+<span class="sd">                # 2026-04-13  14.35 kWh</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">power_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Simplified list of ``{date, power}`` records.</span>
+
+<span class="sd">        Extracts only the ``date`` and ``pv_eq`` fields from each raw</span>
+<span class="sd">        record in :attr:`all_data`, returning a concise list suitable</span>
+<span class="sd">        for charting or CSV export.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list[dict]: Each element has exactly two keys:</span>
+
+<span class="sd">            - ``&quot;date&quot;`` *(str)* — date in ``YYYY-MM-DD`` format.</span>
+<span class="sd">            - ``&quot;power&quot;`` *(str)* — PV energy in kWh as a string</span>
+<span class="sd">              (preserves the original API string representation).</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If :attr:`all_data` is empty or missing.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ::</span>
+
+<span class="sd">                client.oem_power.set_day(&quot;2026-04-01&quot;, &quot;2026-04-03&quot;)</span>
+<span class="sd">                for entry in client.oem_power.power_data:</span>
+<span class="sd">                    print(entry[&quot;date&quot;], entry[&quot;power&quot;])</span>
+<span class="sd">                # 2026-04-01  12.3</span>
+<span class="sd">                # 2026-04-02  18.7</span>
+<span class="sd">                # 2026-04-03  9.1</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_all_data</span>
+
+        <span class="c1"># Guard against an uninitialised or empty data store.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data_list</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;all_data is missing or empty&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Return a minimal projection: date + pv_eq only.</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;power&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;pv_eq&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data_list</span>
+        <span class="p">]</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Franck VANHOUCKE.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

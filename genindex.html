@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; mysolenso 1.0.0 documentation</title>
+  <title>Index &mdash; mysolenso 1.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/documentation_options.js?v=fc837d61"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
@@ -54,6 +54,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/mysolenso.html">mysolenso — Main Facade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/mysolenso.html#sub-modules-initialised-at-construction">Sub-modules initialised at construction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/mysolenso.html#example">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso"><code class="docutils literal notranslate"><span class="pre">MySolenso</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.username"><code class="docutils literal notranslate"><span class="pre">MySolenso.username</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.password"><code class="docutils literal notranslate"><span class="pre">MySolenso.password</span></code></a></li>
@@ -65,6 +67,9 @@
 <li class="toctree-l4"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationcount"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationcount</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbyday</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.countbydayofyear"><code class="docutils literal notranslate"><span class="pre">MySolenso.countbydayofyear</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbystation"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbystation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.oempower"><code class="docutils literal notranslate"><span class="pre">MySolenso.oempower</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.oempowercount"><code class="docutils literal notranslate"><span class="pre">MySolenso.oempowercount</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -198,6 +203,43 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="api/services_reports_powerbystation.html">mysolenso.services.reports.powerbystation — Daily power aggregation service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.get_power_station_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.get_power_station_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.extract_power_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.extract_power_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/services_reports_oempower.html">mysolenso.services.reports.oempower — Solenso endpoint and returns a list of daily PV energy production records for a given station over a configurable date range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.oem_pv_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.oem_pv_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.power_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.power_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/services_reports_oempowercount.html">mysolenso.services.reports.oempowercount — OEM PV energy totals (count) report service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.oem_power_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.oem_power_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_pv"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.total_pv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_consumption"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.total_consumption</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="api/exceptions.html">mysolenso.exceptions — Exceptions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/exceptions.html#mysolenso.exceptions.MySolensoException"><code class="docutils literal notranslate"><span class="pre">MySolensoException</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/exceptions.html#mysolenso.exceptions.MySolensoConnectionException"><code class="docutils literal notranslate"><span class="pre">MySolensoConnectionException</span></code></a></li>
@@ -205,6 +247,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/const.html">mysolenso.const — Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/const.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/const.html#example">Example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.BASE_URL_HOYMILES"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
@@ -213,18 +257,11 @@
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.API_STATION_FIND"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.API_STATION_COUNT"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.API_POWER_BY_STATION"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_STATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.API_OEM_EQ"><code class="docutils literal notranslate"><span class="pre">API_OEM_EQ</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id0"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id1"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id2"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id3"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id4"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id5"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id6"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id7"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id8"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/const.html#id9"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -293,6 +330,12 @@
       <li><a href="api/services_me.html#mysolenso.services.me.MySolensoMe.all_data">all_data (mysolenso.services.me.MySolensoMe property)</a>
 
       <ul>
+        <li><a href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.all_data">(mysolenso.services.reports.oempower.MySolensoOEMPower property)</a>
+</li>
+        <li><a href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.all_data">(mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount property)</a>
+</li>
+        <li><a href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.all_data">(mysolenso.services.reports.powerbystation.MySolensoPowerByStation property)</a>
+</li>
         <li><a href="api/services_station.html#mysolenso.services.station.MySolensoStation.all_data">(mysolenso.services.station.MySolensoStation property)</a>
 </li>
         <li><a href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.all_data">(mysolenso.services.stationcount.MySolensoStationCount property)</a>
@@ -302,19 +345,25 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/const.html#id3">API_AUTH_LOGIN (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.API_AUTH_LOGIN">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.API_AUTH_LOGIN">API_AUTH_LOGIN (in module mysolenso.const)</a>
 </li>
-      <li><a href="api/const.html#id8">API_POWER_BY_DAY (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.API_POWER_BY_DAY">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.API_OEM_COUNT">API_OEM_COUNT (in module mysolenso.const)</a>
 </li>
-      <li><a href="api/const.html#id9">API_POWER_DAY_OF_YEAR (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.API_POWER_DAY_OF_YEAR">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.API_OEM_EQ">API_OEM_EQ (in module mysolenso.const)</a>
 </li>
-      <li><a href="api/const.html#id7">API_STATION_COUNT (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.API_STATION_COUNT">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.API_POWER_BY_DAY">API_POWER_BY_DAY (in module mysolenso.const)</a>
 </li>
-      <li><a href="api/const.html#id6">API_STATION_FIND (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.API_STATION_FIND">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.API_POWER_BY_STATION">API_POWER_BY_STATION (in module mysolenso.const)</a>
 </li>
-      <li><a href="api/const.html#id5">API_STATION_ME (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.API_STATION_ME">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.API_POWER_DAY_OF_YEAR">API_POWER_DAY_OF_YEAR (in module mysolenso.const)</a>
 </li>
-      <li><a href="api/const.html#id4">API_USER_ME (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.API_USER_ME">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.API_STATION_COUNT">API_STATION_COUNT (in module mysolenso.const)</a>
+</li>
+      <li><a href="api/const.html#mysolenso.const.API_STATION_FIND">API_STATION_FIND (in module mysolenso.const)</a>
+</li>
+      <li><a href="api/const.html#mysolenso.const.API_STATION_ME">API_STATION_ME (in module mysolenso.const)</a>
+</li>
+      <li><a href="api/const.html#mysolenso.const.API_USER_ME">API_USER_ME (in module mysolenso.const)</a>
 </li>
       <li><a href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.auth">auth (mysolenso.mysolenso.MySolenso attribute)</a>
 </li>
@@ -324,11 +373,11 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/const.html#id2">BASE_URL_HOYMILES (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.BASE_URL_HOYMILES">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.BASE_URL_HOYMILES">BASE_URL_HOYMILES (in module mysolenso.const)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/const.html#id1">BASE_URL_SOLENSO (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.BASE_URL_SOLENSO">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.BASE_URL_SOLENSO">BASE_URL_SOLENSO (in module mysolenso.const)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -370,7 +419,7 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/const.html#id0">DEFAULT_TIMEOUT (in module mysolenso.const)</a>, <a href="api/const.html#mysolenso.const.DEFAULT_TIMEOUT">[1]</a>
+      <li><a href="api/const.html#mysolenso.const.DEFAULT_TIMEOUT">DEFAULT_TIMEOUT (in module mysolenso.const)</a>
 </li>
       <li><a href="api/auth.html#mysolenso.auth.MySolensoAuth.disconnect">disconnect() (mysolenso.auth.MySolensoAuth method)</a>
 </li>
@@ -385,6 +434,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/services_me.html#mysolenso.services.me.MySolensoMe.email">email (mysolenso.services.me.MySolensoMe property)</a>
+</li>
+      <li><a href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.extract_power_data">extract_power_data (mysolenso.services.reports.powerbystation.MySolensoPowerByStation property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -405,6 +456,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_power_refresh">get_power_refresh() (mysolenso.services.powerbyday.MySolensoPowerByDay method)</a>
+</li>
+      <li><a href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.get_power_station_refresh">get_power_station_refresh() (mysolenso.services.reports.powerbystation.MySolensoPowerByStation method)</a>
 </li>
       <li><a href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.get_station_refresh">get_station_refresh() (mysolenso.services.stationcount.MySolensoStationCount method)</a>
 </li>
@@ -476,6 +529,12 @@
 </li>
         <li><a href="api/services_powerbyday.html#module-mysolenso.services.powerbyday">mysolenso.services.powerbyday</a>
 </li>
+        <li><a href="api/services_reports_oempower.html#module-mysolenso.services.reports.oempower">mysolenso.services.reports.oempower</a>
+</li>
+        <li><a href="api/services_reports_oempowercount.html#module-mysolenso.services.reports.oempowercount">mysolenso.services.reports.oempowercount</a>
+</li>
+        <li><a href="api/services_reports_powerbystation.html#module-mysolenso.services.reports.powerbystation">mysolenso.services.reports.powerbystation</a>
+</li>
         <li><a href="api/services_station.html#module-mysolenso.services.station">mysolenso.services.station</a>
 </li>
         <li><a href="api/services_stationcount.html#module-mysolenso.services.stationcount">mysolenso.services.stationcount</a>
@@ -517,8 +576,6 @@
         <li><a href="api/mysolenso.html#module-mysolenso.mysolenso">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     mysolenso.post
 
@@ -533,6 +590,8 @@
         <li><a href="api/services_dayofyear.html#module-mysolenso.services.dayofyeay">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     mysolenso.services.me
 
@@ -545,6 +604,27 @@
 
       <ul>
         <li><a href="api/services_powerbyday.html#module-mysolenso.services.powerbyday">module</a>
+</li>
+      </ul></li>
+      <li>
+    mysolenso.services.reports.oempower
+
+      <ul>
+        <li><a href="api/services_reports_oempower.html#module-mysolenso.services.reports.oempower">module</a>
+</li>
+      </ul></li>
+      <li>
+    mysolenso.services.reports.oempowercount
+
+      <ul>
+        <li><a href="api/services_reports_oempowercount.html#module-mysolenso.services.reports.oempowercount">module</a>
+</li>
+      </ul></li>
+      <li>
+    mysolenso.services.reports.powerbystation
+
+      <ul>
+        <li><a href="api/services_reports_powerbystation.html#module-mysolenso.services.reports.powerbystation">module</a>
 </li>
       </ul></li>
       <li>
@@ -580,9 +660,15 @@
 </li>
       <li><a href="api/services_me.html#mysolenso.services.me.MySolensoMe">MySolensoMe (class in mysolenso.services.me)</a>
 </li>
+      <li><a href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower">MySolensoOEMPower (class in mysolenso.services.reports.oempower)</a>
+</li>
+      <li><a href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount">MySolensoOEMPowerCount (class in mysolenso.services.reports.oempowercount)</a>
+</li>
       <li><a href="api/post.html#mysolenso.post.MySolensoPost">MySolensoPost (class in mysolenso.post)</a>
 </li>
       <li><a href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay">MySolensoPowerByDay (class in mysolenso.services.powerbyday)</a>
+</li>
+      <li><a href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation">MySolensoPowerByStation (class in mysolenso.services.reports.powerbystation)</a>
 </li>
       <li><a href="api/services_station.html#mysolenso.services.station.MySolensoStation">MySolensoStation (class in mysolenso.services.station)</a>
 </li>
@@ -610,6 +696,16 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.oem_power_refresh">oem_power_refresh() (mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount method)</a>
+</li>
+      <li><a href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.oem_pv_refresh">oem_pv_refresh() (mysolenso.services.reports.oempower.MySolensoOEMPower method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.oempower">oempower (mysolenso.mysolenso.MySolenso attribute)</a>
+</li>
+      <li><a href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.oempowercount">oempowercount (mysolenso.mysolenso.MySolenso attribute)</a>
+</li>
       <li><a href="api/services_station.html#mysolenso.services.station.MySolensoStation.org_name">org_name (mysolenso.services.station.MySolensoStation property)</a>
 </li>
   </ul></td>
@@ -624,6 +720,12 @@
         <li><a href="api/services_me.html#mysolenso.services.me.MySolensoMe.parent">(mysolenso.services.me.MySolensoMe attribute)</a>
 </li>
         <li><a href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.parent">(mysolenso.services.powerbyday.MySolensoPowerByDay attribute)</a>
+</li>
+        <li><a href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.parent">(mysolenso.services.reports.oempower.MySolensoOEMPower attribute)</a>
+</li>
+        <li><a href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.parent">(mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount attribute)</a>
+</li>
+        <li><a href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.parent">(mysolenso.services.reports.powerbystation.MySolensoPowerByStation attribute)</a>
 </li>
         <li><a href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.parent">(mysolenso.services.stationcount.MySolensoStationCount attribute)</a>
 </li>
@@ -642,7 +744,11 @@
 </li>
       <li><a href="api/post.html#mysolenso.post.MySolensoPost.poststr">poststr() (mysolenso.post.MySolensoPost method)</a>
 </li>
+      <li><a href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.power_data">power_data (mysolenso.services.reports.oempower.MySolensoOEMPower property)</a>
+</li>
       <li><a href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbyday">powerbyday (mysolenso.mysolenso.MySolenso attribute)</a>
+</li>
+      <li><a href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerbystation">powerbystation (mysolenso.mysolenso.MySolenso attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -671,17 +777,35 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day">set_day() (mysolenso.services.powerbyday.MySolensoPowerByDay method)</a>
+
+      <ul>
+        <li><a href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_day">(mysolenso.services.reports.oempower.MySolensoOEMPower method)</a>
 </li>
+        <li><a href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_day">(mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount method)</a>
+</li>
+        <li><a href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_day">(mysolenso.services.reports.powerbystation.MySolensoPowerByStation method)</a>
+</li>
+      </ul></li>
       <li><a href="api/post.html#mysolenso.post.MySolensoPost.set_header">set_header() (mysolenso.post.MySolensoPost method)</a>
 </li>
       <li><a href="api/post.html#mysolenso.post.MySolensoPost.set_headers">set_headers() (mysolenso.post.MySolensoPost method)</a>
 </li>
       <li><a href="api/post.html#mysolenso.post.MySolensoPost.set_raw_payload">set_raw_payload() (mysolenso.post.MySolensoPost method)</a>
 </li>
-      <li><a href="api/services_station.html#mysolenso.services.station.MySolensoStation.set_station">set_station() (mysolenso.services.station.MySolensoStation method)</a>
+      <li><a href="api/services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_station">set_station() (mysolenso.services.reports.oempower.MySolensoOEMPower method)</a>
+
+      <ul>
+        <li><a href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_station">(mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount method)</a>
 </li>
+        <li><a href="api/services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_station">(mysolenso.services.reports.powerbystation.MySolensoPowerByStation method)</a>
+</li>
+        <li><a href="api/services_station.html#mysolenso.services.station.MySolensoStation.set_station">(mysolenso.services.station.MySolensoStation method)</a>
+</li>
+      </ul></li>
       <li><a href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.set_station_count">set_station_count() (mysolenso.services.stationcount.MySolensoStationCount method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.set_station_find">set_station_find() (mysolenso.services.stationdata.MySolensoStationData method)</a>
 </li>
       <li><a href="api/services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.set_station_id">set_station_id() (mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay method)</a>
@@ -690,8 +814,6 @@
         <li><a href="api/services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id">(mysolenso.services.powerbyday.MySolensoPowerByDay method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/mysolenso.html#mysolenso.mysolenso.MySolenso.station">station (mysolenso.mysolenso.MySolenso attribute)</a>
 </li>
       <li><a href="api/services_station.html#mysolenso.services.station.MySolensoStation.station_id">station_id (mysolenso.services.station.MySolensoStation property)</a>
@@ -736,7 +858,11 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api/auth.html#mysolenso.auth.MySolensoAuth.token_language">token_language (mysolenso.auth.MySolensoAuth property)</a>
 </li>
+      <li><a href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_consumption">total_consumption (mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount property)</a>
+</li>
       <li><a href="api/services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.total_eq">total_eq (mysolenso.services.stationcount.MySolensoStationCount property)</a>
+</li>
+      <li><a href="api/services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_pv">total_pv (mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount property)</a>
 </li>
       <li><a href="api/services_station.html#mysolenso.services.station.MySolensoStation.tz_name">tz_name (mysolenso.services.station.MySolensoStation property)</a>
 </li>
