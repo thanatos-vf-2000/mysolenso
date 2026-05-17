@@ -1,6 +1,21 @@
 # CHANGELOG
 
 <!-- version list -->
+## v1.1.0 (2026-05-17)
+- Add Class MySolensoPowerByStation,
+- Add Class MySolensoOEMPower,
+- Add Class MySolensoOEMPowerCount,
+- Add example_reports.py,
+- Update README.md,
+- Rename old pytest: 
+  - tests\test_solenso_api.py to tests\test_00_solenso_api.py
+  - tests\test_service_me.py to tests\test_10_service_me.py
+  - tests\test_service_station.py to tests\test_11_service_station.py
+  - tests\test_service_stationdata.py to tests\test_12_service_stationdata.py
+  - tests\test_service_stationcount.py to tests\test_13_service_stationcount.py
+- Add pytest: test_20_report_powerbystation.py, test_14_service_dayofyear.py, 
+    test_15_service_powerbyday.py, test_21_report_oempower.py and test_22_report_oempowercount.py
+
 ## v1.0.0 (2026-05-15)
 - Update documentation,
 - stationcount - Add function get_station_refresh to refresh station energy counters,
