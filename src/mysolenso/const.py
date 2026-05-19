@@ -167,6 +167,23 @@ Request body::
 Used by :class:`~mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount`.
 """
 
+
+API_STATION_INFO_DEVICE: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm/station_select_device_of_tree"
+)
+
+API_STATION_COUNT_DEVICE: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm/station_count_device"
+)
+
+API_DTU_SELECT_ALL: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm/dtu_select_all"
+)
+
+API_MICRO_FIND: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm/micro_find"
+)
+
 # ---------------------------------------------------------------------------
 # Power / energy history endpoints (Hoymiles)
 # ---------------------------------------------------------------------------

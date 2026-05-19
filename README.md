@@ -37,6 +37,9 @@ The library handles authentication, user profile retrieval, PV station data, rea
   - [Example scripts](#example-scripts)
     - [Generic example](#generic-example)
     - [Report example](#report-example)
+    - [Stations example](#stations-example)
+    - [DTU example](#dtu-example)
+    - [Micro example](#micro-example)
   - [Documentation](#documentation)
   - [Help](#help)
   - [Contributing](#contributing)
@@ -306,6 +309,36 @@ See [`example_reports.py`](./example_reports.py) for OEM report usage.
 
 ---
 
+### Stations example
+
+```bash
+PYTHONPATH=./src/ python3 example_stations.py --username <USER> --password <PASSWORD_CRYPT>
+```
+
+See [`example_stations.py`](./example_stations.py) for Stations report usage.
+
+---
+
+### DTU example
+
+```bash
+PYTHONPATH=./src/ python3 example_dtu.py --username <USER> --password <PASSWORD_CRYPT>
+```
+
+See [`example_dtu.py`](./example_dtu.py) for DTU report usage.
+
+---
+
+### Micro example
+
+```bash
+PYTHONPATH=./src/ python3 example_micro.py --username <USER> --password <PASSWORD_CRYPT>
+```
+
+See [`example_micro.py`](./example_micro.py) for DTU report usage.
+
+---
+
 ## Documentation
 
 Full API documentation is available at **[thanatos-vf-2000.github.io/mysolenso](https://thanatos-vf-2000.github.io/mysolenso/)**.
@@ -314,7 +347,7 @@ Full API documentation is available at **[thanatos-vf-2000.github.io/mysolenso](
 
 ## Help
 
-- You must use your crypt password or a token, not your password directly. To do this, use the project [pwdsolenso](https://github.com/thanatos-vf-2000/pwdsolenso).
+You must use your crypt password or a token, not your password directly. To do this, use the project [pwdsolenso](https://github.com/thanatos-vf-2000/pwdsolenso).
 
 ---
 

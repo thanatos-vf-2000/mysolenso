@@ -85,6 +85,10 @@ from .services.dayofyeay import MySolensoCountByDayOfYeay
 from .services.reports.powerbystation import MySolensoPowerByStation
 from .services.reports.oempower import MySolensoOEMPower
 from .services.reports.oempowercount import MySolensoOEMPowerCount
+from .services.stations.stationinfodev import MySolensoStationInfoDevice
+from .services.stations.countdevice import MySolensoStationCountDevice
+from .services.dtu.selectall import MySolensoDTUSelectAll
+from .services.micro.find import MySolensoMicroFind
 
 _LOG = logging.getLogger(__name__)
 
@@ -215,3 +219,10 @@ class MySolenso:
 
         # 10. OEM aggregated totals — single-call PV + consumption summary.
         self.oempowercount = MySolensoOEMPowerCount(self)
+        
+        self.stationinfodevice = MySolensoStationInfoDevice(self)
+        self.stationcountdevice = MySolensoStationCountDevice(self)
+        
+        self.dtuselectall = MySolensoDTUSelectAll(self)
+        
+        self.microfind = MySolensoMicroFind(self)
