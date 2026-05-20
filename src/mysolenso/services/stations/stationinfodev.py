@@ -1,35 +1,70 @@
+"""Service for retrieving the device tree of a PV station.
+ 
+This module provides :class:`MySolensoStationInfoDevice`, which wraps the
+``station_select_device_of_tree`` Solenso endpoint. One call returns the
+primary DTU and all attached microinverters in a hierarchical structure,
+along with serial numbers, firmware versions, and connectivity status.
+"""
+ 
 from __future__ import annotations
-
+ 
 import logging
 from typing import Any
-
+ 
 from ...post import MySolensoPost
 from ...const import API_STATION_INFO_DEVICE
 from ...exceptions import MySolensoException
-
+ 
 _LOG = logging.getLogger(__name__)
-
-
+ 
+ 
 class MySolensoStationInfoDevice:
-
+    """Retrieve the full device tree for the active station.
+ 
+    The device tree contains the primary DTU record and all child
+    microinverters, each with serial number, firmware versions, model number,
+    and warning/connection status.
+ 
+    Call :meth:`station_info_device_refresh` to populate the data, then access
+    the properties below.
+ 
+    Args:
+        parent (MySolenso): The parent client object that holds the
+            authentication context and the active station reference.
+ 
+    Raises:
+        MySolensoException: If no active station is set on the parent at
+            construction time.
+    """
+ 
     def __init__(self, parent) -> None:
         self.parent = parent
-
+ 
         # Validate that a station has already been selected by the parent.
         if self.parent.station.station_id is None:
             msg = f"{self.__class__.__name__} station_id is None."
             _LOG.warning(msg)
             raise MySolensoException(msg)
-
+ 
         self._station_id = self.parent.station.station_id
-
-
+ 
+ 
     # ------------------------------------------------------------------
     # Station selection
     # ------------------------------------------------------------------
-
+ 
     def set_station(self, id: int, refresh: bool = True) -> None:
-
+        """Switch the active station for device tree queries.
+ 
+        Args:
+            id (int): ID of the target station. Must exist in the account's
+                station list.
+            refresh (bool): When ``True`` (default), immediately re-fetches
+                the device tree for the new station.
+ 
+        Raises:
+            MySolensoException: If the requested station ID is not found.
+        """
         stations = self.parent.station.stations
 
         # Verify the requested station ID exists in the account.
@@ -46,18 +81,14 @@ class MySolensoStationInfoDevice:
         # Reload data for the new station unless the caller deferred it.
         if refresh:
             self._get_station_info_device()
-
-
     # ------------------------------------------------------------------
-    # Data retrieval
-    # ------------------------------------------------------------------
-
+ 
     def _get_station_info_device(self) -> None:
-
+ 
         try:
             self._client = MySolensoPost()
             self._client.set_headers(self.parent.auth.get_auth_headers_solenso())
-
+ 
             # Build the request body: station list, mode, and date range.
             # Note: no pagination — this endpoint returns a single aggregate.
             self._client.set_raw_payload({
@@ -66,7 +97,7 @@ class MySolensoStationInfoDevice:
                 "WAITING_PROMISE": True
             })
             response = self._client.post(API_STATION_INFO_DEVICE)
-
+ 
             # Guard against empty or null responses.
             if not response:
                 msg = (
@@ -75,33 +106,33 @@ class MySolensoStationInfoDevice:
                 )
                 _LOG.warning(msg)
                 raise MySolensoException(msg)
-
+ 
             # Store the complete raw response dictionary.
             self._all_data = response[0]
             
-
+ 
             # Helper to convert None → None, everything else → stripped string.
             def _clean(
                 value: str | int | float | bool | list | dict | None
             ) -> str | int | float | bool | list | dict | None:
-
+ 
                 if value is None:
                     return None
-
+ 
                 if isinstance(value, str):
                     return value.strip()
-
+ 
                 if isinstance(value, list):
                     return [_clean(item) for item in value]
-
+ 
                 if isinstance(value, dict):
                     return {
                         _clean(key): _clean(val)
                         for key, val in value.items()
                     }
-
+ 
                 return value
-
+ 
             # Extract and clean the two aggregate fields.
             self._sn          = _clean(self._all_data.get("sn"))
             self._connect     = _clean(self._all_data.get("warn_data").get("connect"))
@@ -116,31 +147,31 @@ class MySolensoStationInfoDevice:
             self._hard_ver    = _clean(self._all_data.get("hard_ver"))
             self._extend_data = _clean(self._all_data.get("extend_data"))
             self._children    = _clean(self._all_data.get("children"))
-
-
+ 
+ 
         except MySolensoException:
             raise
         except Exception as exc:
             raise MySolensoException(
                 "Invalid or corrupted JSON response."
             ) from exc
-
+ 
     # ------------------------------------------------------------------
     # Refresh
     # ------------------------------------------------------------------
-
+ 
     def station_info_device_refresh(self) -> None:
-
+        """Force a fresh fetch of the device tree from the API."""
         self._get_station_info_device()
-
+ 
     # ------------------------------------------------------------------
     # Public properties
     # ------------------------------------------------------------------
-
+ 
     @property
     def all_data(self) -> dict:
         """_summary_
-
+ 
         Returns:
             {
                 "sn": "D0100289H",
@@ -304,7 +335,7 @@ class MySolensoStationInfoDevice:
             }
         """
         return self._all_data
-
+ 
     @property
     def sn(self) -> str:
         return self._sn
@@ -328,7 +359,7 @@ class MySolensoStationInfoDevice:
     @property
     def type(self) -> int:
         return self._type
-
+ 
     @property
     def version(self) -> int:
         return self._version
@@ -336,7 +367,7 @@ class MySolensoStationInfoDevice:
     @property
     def replace_num(self) -> int:
         return self._replace_num
-
+ 
     @property
     def model_no(self) -> str:
         return self._model_no
@@ -353,11 +384,11 @@ class MySolensoStationInfoDevice:
     def list_dtu(self) -> list[dict]:
         
         data_list = self._children
-
+ 
         # Guard against an uninitialised or empty data store.
         if not data_list:
             raise ValueError("all_data is missing or empty")
-
+ 
         # Return a minimal projection: date + pv_eq only.
         return [
             {
@@ -371,11 +402,11 @@ class MySolensoStationInfoDevice:
     def list_dtu_info(self) -> list[dict]:
         
         data_list = self._children
-
+ 
         # Guard against an uninitialised or empty data store.
         if not data_list:
             raise ValueError("all_data is missing or empty")
-
+ 
         # Return a minimal projection: date + pv_eq only.
         return [
             {
