@@ -94,6 +94,10 @@ async def main() -> None:
         print("Station Count Device")
         print("station_num:", client.stationcountdevice.station_num)
         
+        print("===================================")
+        print("Station AK:")
+        client.stationak.station_ak_refresh()
+        print("address:", client.stationak.address)
         _LOG.info("End MySolenso.")
 
     except MySolensoAuthenticationException as err:

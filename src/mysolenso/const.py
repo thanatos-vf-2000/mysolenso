@@ -105,6 +105,8 @@ Returns today's yield, monthly/yearly/lifetime totals, current power output,
 CO₂ savings, equivalent trees planted, and the last data timestamp.
 """
 
+API_STATION_AK: str = BASE_URL_SOLENSO + "api/gateway/pvm-ext/station_ak_find"
+
 # ---------------------------------------------------------------------------
 # Report endpoints (Solenso)
 # ---------------------------------------------------------------------------
@@ -178,6 +180,10 @@ API_STATION_COUNT_DEVICE: str = (
 
 API_DTU_SELECT_ALL: str = (
     BASE_URL_SOLENSO + "api/gateway/pvm/dtu_select_all"
+)
+
+API_DTU_FIND: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm/dtu_find"
 )
 
 API_MICRO_FIND: str = (

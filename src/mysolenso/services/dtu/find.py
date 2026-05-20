@@ -4,13 +4,13 @@ import logging
 from typing import Any
 
 from ...post import MySolensoPost
-from ...const import API_MICRO_FIND
+from ...const import API_DTU_FIND
 from ...exceptions import MySolensoException
 
 _LOG = logging.getLogger(__name__)
 
 
-class MySolensoMicroFind:
+class MySolensoDTUFind:
 
     def __init__(self, parent) -> None:
         self.parent = parent
@@ -22,7 +22,7 @@ class MySolensoMicroFind:
             raise MySolensoException(msg)
 
         self._station_id = self.parent.station.station_id
-        self._micro_id = None
+        self._dtu_id = None
 
 
     # ------------------------------------------------------------------
@@ -45,41 +45,41 @@ class MySolensoMicroFind:
         self._station_id = id
 
     # ------------------------------------------------------------------
-    # Micro selection
+    # DTU selection
     # ------------------------------------------------------------------
 
-    def set_micro(self, id: int, refresh: bool = True) -> None:
+    def set_dtu(self, id: int, refresh: bool = True) -> None:
 
         self.parent.dtuselectall.dtu_select_all_refresh()
-        micros = self.parent.dtuselectall.list_micros
+        _dtu = self.parent.dtuselectall.dtu_id
 
-        # Verify the requested micro ID exists in the account.
-        if not any(micro.get("id") == id for micro in micros):
+        # Verify the requested DTU ID exists in the account.
+        if _dtu != id:
             msg = (
-                f"{self.__class__.__name__} - set_micro: "
-                f"micro {id} not found."
+                f"{self.__class__.__name__} - set_dtu: "
+                f"DTU {id} not found ({_dtu})."
             )
             _LOG.warning(msg)
             raise MySolensoException(msg)
 
-        self._micro_id = id
+        self._dtu_id = id
 
-        # Reload data for the new micro unless the caller deferred it.
+        # Reload data for the new DTU unless the caller deferred it.
         if refresh:
-            self._get_micro_find()
+            self._get_dtu_find()
             
             
     # ------------------------------------------------------------------
     # Data retrieval
     # ------------------------------------------------------------------
 
-    def _get_micro_find(self) -> None:
+    def _get_dtu_find(self) -> None:
 
         try:
             
-            if self._micro_id is None:
+            if self._dtu_id is None:
                 msg = (
-                    f"{self.__class__.__name__} - _get_micro_find: "
+                    f"{self.__class__.__name__} - _get_dtu_find: "
                     f"micro id not found."
                 )
                 _LOG.warning(msg)
@@ -91,15 +91,15 @@ class MySolensoMicroFind:
             # Note: no pagination — this endpoint returns a single aggregate.
             self._client.set_raw_payload({
                 "body":{
-                    "id": self._micro_id},
+                    "id": self._dtu_id},
                 "WAITING_PROMISE": True
             })
-            response = self._client.post(API_MICRO_FIND)
+            response = self._client.post(API_DTU_FIND)
 
             # Guard against empty or null responses.
             if not response:
                 msg = (
-                    f"{self.__class__.__name__} - _get_micro_find: "
+                    f"{self.__class__.__name__} - _get_dtu_find: "
                     f"response data not found."
                 )
                 _LOG.warning(msg)
@@ -120,9 +120,9 @@ class MySolensoMicroFind:
     # Refresh
     # ------------------------------------------------------------------
 
-    def micro_find_refresh(self) -> None:
+    def dtu_find_refresh(self) -> None:
 
-        self._get_micro_find()
+        self._get_dtu_find()
 
     # ------------------------------------------------------------------
     # Public properties
@@ -134,52 +134,76 @@ class MySolensoMicroFind:
 
         Returns:
             {
-                "sn": "A11001X4A",
-                "warn_data": {
-                    "warn": false,
-                    "connect": true
-                },
-                "id": 7454520,
+                "id": 1456060,
                 "sid": 1553580,
                 "classify": 1,
                 "station_name": "DOE JOHN",
-                "station_city_code": "FR13005000000000",
-                "dev_type": 3,
+                "gw_sn": "D0100289H",
+                "sn": "D0100289H",
+                "dev_type": 1,
                 "replace_num": 0,
-                "grid_id": 0,
-                "grid_name": "",
-                "grid_version": "",
                 "create_by": 293382,
-                "create_at": "2023-08-05 10:57:22",
+                "create_at": "2023-06-27 17:48:02",
                 "tz_name": "UTC+01",
                 "update_by": 293382,
-                "update_at": "2023-08-05 10:57:22",
-                "port_num": null,
-                "port_array": null,
-                "vc": "2L2",
-                "init_soft_ver": "V01.00.04",
-                "init_hard_no": "Sol-H1000H",
-                "init_hard_ver": "H00.04.00",
-                "dtu_id": 1456060,
-                "dtu_sn": "D0100289H",
-                "dtu_version": 3,
-                "repeater_id": null,
-                "repeater_sn": null,
-                "layout_list": [],
+                "update_at": "2023-06-27 17:48:02",
+                "vc": "289",
+                "init_soft_ver": "V00.00.06",
+                "init_hard_ver": "H12.02.02",
+                "init_rf_soft_ver": "256",
+                "init_rf_hard_ver": "0",
+                "wifi_ver": null,
+                "model_info": null,
+                "repeater_num": 0,
+                "mi_num": 5,
                 "rule": {
-                    "dev_type": 3,
-                    "port": 2,
+                    "dev_type": 1,
                     "version": 3,
-                    "phase": 1,
-                    "hm": 1,
+                    "balance": 1,
+                    "reflux": 1,
+                    "repeater": 0,
+                    "module_count": 99,
+                    "multiple": 0,
+                    "sun_spec": 0,
+                    "power_limit": 7,
+                    "model": 0,
+                    "module_no": "HD-Insight",
+                    "module": "HD-Insight",
+                    "mi_list": [
+                        "A21",
+                        "A11",
+                        "A22",
+                        "A01",
+                        "A12",
+                        "A23",
+                        "A02",
+                        "A13",
+                        "A03",
+                        "A15",
+                        "A05"
+                    ],
+                    "sub1g": 0,
+                    "rule_config": 1,
+                    "conn_way": 11,
                     "inner": 0,
-                    "ctl_mode": 3,
-                    "exc": 0,
-                    "grid_type": 0,
-                    "map": {},
+                    "pv": 0,
+                    "series": 0,
+                    "es": 0,
+                    "au": 0,
+                    "hp": 0,
+                    "lc": 0,
                     "ble": 0,
-                    "series": 7
-                }
+                    "data_interval": 0,
+                    "scan": 0,
+                    "classify": 1,
+                    "map": {
+                        "ut5": 99
+                    },
+                    "rep_set": [],
+                    "un": 0,
+                    "gen": 0
+                },
+                "fm": {}
             }
         """
         return self._all_data

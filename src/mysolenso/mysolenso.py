@@ -87,7 +87,9 @@ from .services.reports.oempower import MySolensoOEMPower
 from .services.reports.oempowercount import MySolensoOEMPowerCount
 from .services.stations.stationinfodev import MySolensoStationInfoDevice
 from .services.stations.countdevice import MySolensoStationCountDevice
+from .services.stations.ak import MySolensoStationAK
 from .services.dtu.selectall import MySolensoDTUSelectAll
+from .services.dtu.find import MySolensoDTUFind
 from .services.micro.find import MySolensoMicroFind
 
 _LOG = logging.getLogger(__name__)
@@ -222,7 +224,9 @@ class MySolenso:
         
         self.stationinfodevice = MySolensoStationInfoDevice(self)
         self.stationcountdevice = MySolensoStationCountDevice(self)
+        self.stationak = MySolensoStationAK(self)
         
         self.dtuselectall = MySolensoDTUSelectAll(self)
+        self.dtufind = MySolensoDTUFind(self)
         
         self.microfind = MySolensoMicroFind(self)

@@ -73,7 +73,7 @@ async def main() -> None:
         )
 
         client.dtuselectall.dtu_select_all_refresh()
-        _dtu_list_micros =  client.dtuselectall.list_micros
+        _dtu_list_micros =  client.dtuselectall.list_micros_info
         print("===================================")
         print("DTU Select All")
         print("SN Master          :", client.dtuselectall.dtu_sn)
@@ -87,6 +87,16 @@ async def main() -> None:
         client.stationcountdevice.station_count_device_refresh()
         print("Station Count Device")
         print("station_num:", client.stationcountdevice.station_num)
+        
+        print("===================================")
+        print("DTU find")
+        _dtu_id = client.dtuselectall.dtu_id
+        client.dtufind.set_dtu(
+            id= _dtu_id,
+            refresh = True
+        )
+        _dtu_info = client.dtufind.all_data
+        print("station_name: %20s" % (_dtu_info.get("station_name")))
         
         _LOG.info("End MySolenso.")
 
