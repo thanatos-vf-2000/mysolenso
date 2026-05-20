@@ -1,7 +1,7 @@
 # CHANGELOG
 
 <!-- version list -->
-## v1.1.0.c (2026-05-20)
+## v1.2.0 (2026-05-20)
 - Update data for publication into pypi.org,
 - Add Class MySolensoStationInfoDevice,
 - Add Class MySolensoStationCountDevice,
