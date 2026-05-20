@@ -1,4 +1,4 @@
-mysolenso.services.station — PV Stations
+mysolenso.services.station - PV Stations
 ==========================================
 
 .. automodule:: mysolenso.services.station

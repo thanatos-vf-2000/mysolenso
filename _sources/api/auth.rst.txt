@@ -1,4 +1,4 @@
-mysolenso.auth — Authentication
+mysolenso.auth - Authentication
 ================================
 
 .. automodule:: mysolenso.auth

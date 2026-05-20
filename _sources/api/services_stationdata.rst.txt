@@ -1,4 +1,4 @@
-mysolenso.services.stationdata — Station Detail Data
+mysolenso.services.stationdata - Station Detail Data
 =====================================================
 
 .. automodule:: mysolenso.services.stationdata

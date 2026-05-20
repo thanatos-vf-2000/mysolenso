@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mysolenso.services.dtu.find - DTU Find &mdash; mysolenso 1.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=6efca38a"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mysolenso.services.micro.find - Micro Find" href="services_micro_find.html" />
+    <link rel="prev" title="mysolenso.services.dtu.selectall - DTU Select All" href="services_dtu_selectall.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            mysolenso
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#connect-with-a-password">Connect with a password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#connect-with-an-existing-token">Connect with an existing token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#real-time-energy-counters">Real-time energy counters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#intra-day-power-curve">Intra-day power curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#day-of-year-production-history">Day-of-year production history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#switch-the-active-station">Switch the active station</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mysolenso.html">mysolenso - Main Facade</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysolenso.html#sub-modules-initialised-at-construction">Sub-modules initialised at construction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysolenso.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso"><code class="docutils literal notranslate"><span class="pre">MySolenso</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.username"><code class="docutils literal notranslate"><span class="pre">MySolenso.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.password"><code class="docutils literal notranslate"><span class="pre">MySolenso.password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.token"><code class="docutils literal notranslate"><span class="pre">MySolenso.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.auth"><code class="docutils literal notranslate"><span class="pre">MySolenso.auth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.me"><code class="docutils literal notranslate"><span class="pre">MySolenso.me</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.station"><code class="docutils literal notranslate"><span class="pre">MySolenso.station</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationdata"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdata</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationcount"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationcount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.powerbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.countbydayofyear"><code class="docutils literal notranslate"><span class="pre">MySolenso.countbydayofyear</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.powerbystation"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerbystation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.oempower"><code class="docutils literal notranslate"><span class="pre">MySolenso.oempower</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.oempowercount"><code class="docutils literal notranslate"><span class="pre">MySolenso.oempowercount</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationinfodevice"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationinfodevice</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationcountdevice"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationcountdevice</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationak"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationak</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtuselectall"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtuselectall</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtufind"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtufind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.microfind"><code class="docutils literal notranslate"><span class="pre">MySolenso.microfind</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auth.html">mysolenso.auth - Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.username"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.token"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.token_language"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.token_language</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.isConnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.isConnect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_solenso"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_solenso()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.get_auth_headers_hoymiles"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.get_auth_headers_hoymiles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auth.html#mysolenso.auth.MySolensoAuth.disconnect"><code class="docutils literal notranslate"><span class="pre">MySolensoAuth.disconnect()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="post.html">mysolenso.post - HTTP Client</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost"><code class="docutils literal notranslate"><span class="pre">MySolensoPost</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.timeout"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.timeout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.headers</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.raw_payload</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.set_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.remove_header"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.remove_header()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.set_headers"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_headers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.set_raw_payload"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.set_raw_payload()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.post"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="post.html#mysolenso.post.MySolensoPost.poststr"><code class="docutils literal notranslate"><span class="pre">MySolensoPost.poststr()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_me.html">mysolenso.services.me - User Profile</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe"><code class="docutils literal notranslate"><span class="pre">MySolensoMe</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.username"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.phone"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.phone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.email"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.role_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.role_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.roles_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.roles_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.group_name"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.group_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_me.html#mysolenso.services.me.MySolensoMe.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoMe.all_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_station.html">mysolenso.services.station - PV Stations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation"><code class="docutils literal notranslate"><span class="pre">MySolensoStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.refresh_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.refresh_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.station_total"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_total</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.station_ids"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_ids</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.stations"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.stations</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.city_code"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.city_code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.status"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.create_at"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.create_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.tz_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.tz_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.capacitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.install_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.install_power</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.org_name"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.org_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.warn_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.warn_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_station.html#mysolenso.services.station.MySolensoStation.ak"><code class="docutils literal notranslate"><span class="pre">MySolensoStation.ak</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_stationdata.html">mysolenso.services.stationdata - Station Detail Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.set_station_find"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.set_station_find()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.name"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.create_at"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.create_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.capacitor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.address</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.config"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.is_stars"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.is_stars</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.money_unit"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.money_unit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.electricity_price"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.electricity_price</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.timezone"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.timezone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.local_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.local_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationdata.html#mysolenso.services.stationdata.MySolensoStationData.install_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStationData.install_power</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_stationcount.html">mysolenso.services.stationcount - Energy Counters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.set_station_count"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.set_station_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.get_station_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.get_station_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.station_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.today_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.today_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.month_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.month_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.year_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.year_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.total_eq"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.total_eq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.real_power"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.real_power</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.co2_emission_reduction"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.co2_emission_reduction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.plant_tree"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.plant_tree</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.data_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.data_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.last_data_time"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.last_data_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stationcount.html#mysolenso.services.stationcount.MySolensoStationCount.capacitor"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCount.capacitor</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_powerbyday.html">mysolenso.services.powerbyday - Intra-day Power Curve</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_station_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_power_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_power_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_powerbyday.html#mysolenso.services.powerbyday.MySolensoPowerByDay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByDay.get_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_dayofyear.html">mysolenso.services.dayofyeay - Day-of-Year Production History</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.set_station_id"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.set_station_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay.get_data"><code class="docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay.get_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_reports_powerbystation.html">mysolenso.services.reports.powerbystation - Daily power aggregation service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.get_power_station_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.get_power_station_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_powerbystation.html#mysolenso.services.reports.powerbystation.MySolensoPowerByStation.extract_power_data"><code class="docutils literal notranslate"><span class="pre">MySolensoPowerByStation.extract_power_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_reports_oempower.html">mysolenso.services.reports.oempower - Solenso endpoint and returns a list of daily PV energy production records for a given station over a configurable date range</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.oem_pv_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.oem_pv_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempower.html#mysolenso.services.reports.oempower.MySolensoOEMPower.power_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPower.power_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_reports_oempowercount.html">mysolenso.services.reports.oempowercount - OEM PV energy totals (count) report service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.parent"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.parent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.set_day"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.set_day()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.oem_power_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.oem_power_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_pv"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.total_pv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_reports_oempowercount.html#mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount.total_consumption"><code class="docutils literal notranslate"><span class="pre">MySolensoOEMPowerCount.total_consumption</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_stations_ak.html">mysolenso.services.stations.ak - Station AK (geographic info)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_stations_ak.html#mysolenso.services.stations.ak.MySolensoStationAK"><code class="docutils literal notranslate"><span class="pre">MySolensoStationAK</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_ak.html#mysolenso.services.stations.ak.MySolensoStationAK.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStationAK.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_ak.html#mysolenso.services.stations.ak.MySolensoStationAK.station_ak_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoStationAK.station_ak_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_ak.html#mysolenso.services.stations.ak.MySolensoStationAK.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationAK.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_ak.html#mysolenso.services.stations.ak.MySolensoStationAK.id"><code class="docutils literal notranslate"><span class="pre">MySolensoStationAK.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_ak.html#mysolenso.services.stations.ak.MySolensoStationAK.longitude"><code class="docutils literal notranslate"><span class="pre">MySolensoStationAK.longitude</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_ak.html#mysolenso.services.stations.ak.MySolensoStationAK.latitude"><code class="docutils literal notranslate"><span class="pre">MySolensoStationAK.latitude</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_ak.html#mysolenso.services.stations.ak.MySolensoStationAK.address"><code class="docutils literal notranslate"><span class="pre">MySolensoStationAK.address</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_stations_countdevice.html">mysolenso.services.stations.countdevice - Station Count Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.station_count_device_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.station_count_device_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.sn"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.sn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.station_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.station_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.dtu_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.dtu_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.repeater_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.repeater_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.mi_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.mi_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.au_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.au_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.rsd_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.rsd_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.op_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.op_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.tran_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.tran_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.meter_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.meter_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.bms_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.bms_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_countdevice.html#mysolenso.services.stations.countdevice.MySolensoStationCountDevice.em_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationCountDevice.em_num</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_stations_stationinfodev.html">mysolenso.services.stations.stationinfodev - Station Info Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.station_info_device_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.station_info_device_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.sn"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.sn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.connect"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.connect</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.warn"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.warn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.vc"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.vc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.dtu_sn"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.dtu_sn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.type"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.version"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.version</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.replace_num"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.replace_num</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.model_no"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.model_no</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.soft_ver"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.soft_ver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.hard_ver"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.hard_ver</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.list_dtu"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.list_dtu</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_stations_stationinfodev.html#mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice.list_dtu_info"><code class="docutils literal notranslate"><span class="pre">MySolensoStationInfoDevice.list_dtu_info</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_dtu_selectall.html">mysolenso.services.dtu.selectall - DTU Select All</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.dtu_select_all_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.dtu_select_all_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.all_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.dtu_id"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.dtu_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.dtu_sn"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.dtu_sn</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.dtu_dev_type"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.dtu_dev_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.dtu_vc"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.dtu_vc</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.list_micros_info"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.list_micros_info</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.list_micros"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll.list_micros</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">mysolenso.services.dtu.find - DTU Find</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mysolenso.services.dtu.find.MySolensoDTUFind"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUFind</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.dtu.find.MySolensoDTUFind.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUFind.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.dtu.find.MySolensoDTUFind.set_dtu"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUFind.set_dtu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.dtu.find.MySolensoDTUFind.dtu_find_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUFind.dtu_find_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.services.dtu.find.MySolensoDTUFind.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoDTUFind.all_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="services_micro_find.html">mysolenso.services.micro.find - Micro Find</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="services_micro_find.html#mysolenso.services.micro.find.MySolensoMicroFind"><code class="docutils literal notranslate"><span class="pre">MySolensoMicroFind</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="services_micro_find.html#mysolenso.services.micro.find.MySolensoMicroFind.set_station"><code class="docutils literal notranslate"><span class="pre">MySolensoMicroFind.set_station()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_micro_find.html#mysolenso.services.micro.find.MySolensoMicroFind.set_micro"><code class="docutils literal notranslate"><span class="pre">MySolensoMicroFind.set_micro()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_micro_find.html#mysolenso.services.micro.find.MySolensoMicroFind.micro_find_refresh"><code class="docutils literal notranslate"><span class="pre">MySolensoMicroFind.micro_find_refresh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="services_micro_find.html#mysolenso.services.micro.find.MySolensoMicroFind.all_data"><code class="docutils literal notranslate"><span class="pre">MySolensoMicroFind.all_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">mysolenso.exceptions - Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException"><code class="docutils literal notranslate"><span class="pre">MySolensoException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoConnectionException"><code class="docutils literal notranslate"><span class="pre">MySolensoConnectionException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoAuthenticationException"><code class="docutils literal notranslate"><span class="pre">MySolensoAuthenticationException</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="const.html">mysolenso.const - Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="const.html#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.DEFAULT_TIMEOUT"><code class="docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.BASE_URL_SOLENSO"><code class="docutils literal notranslate"><span class="pre">BASE_URL_SOLENSO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.BASE_URL_HOYMILES"><code class="docutils literal notranslate"><span class="pre">BASE_URL_HOYMILES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_AUTH_LOGIN"><code class="docutils literal notranslate"><span class="pre">API_AUTH_LOGIN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_USER_ME"><code class="docutils literal notranslate"><span class="pre">API_USER_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_ME"><code class="docutils literal notranslate"><span class="pre">API_STATION_ME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_FIND"><code class="docutils literal notranslate"><span class="pre">API_STATION_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_COUNT"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_AK"><code class="docutils literal notranslate"><span class="pre">API_STATION_AK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_BY_STATION"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_STATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_OEM_EQ"><code class="docutils literal notranslate"><span class="pre">API_OEM_EQ</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_INFO_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_INFO_DEVICE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_COUNT_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT_DEVICE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_SELECT_ALL"><code class="docutils literal notranslate"><span class="pre">API_DTU_SELECT_ALL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_FIND"><code class="docutils literal notranslate"><span class="pre">API_DTU_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_MICRO_FIND"><code class="docutils literal notranslate"><span class="pre">API_MICRO_FIND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mysolenso</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">mysolenso.services.dtu.find - DTU Find</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/services_dtu_find.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mysolenso-services-dtu-find-dtu-find">
+<h1>mysolenso.services.dtu.find - DTU Find<a class="headerlink" href="#mysolenso-services-dtu-find-dtu-find" title="Link to this heading"></a></h1>
+<p id="module-mysolenso.services.dtu.find">Service for retrieving detailed information about a single DTU.</p>
+<p>This module provides <a class="reference internal" href="#mysolenso.services.dtu.find.MySolensoDTUFind" title="mysolenso.services.dtu.find.MySolensoDTUFind"><code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoDTUFind</span></code></a>, which wraps the
+<code class="docutils literal notranslate"><span class="pre">dtu_find</span></code> Solenso endpoint. A valid DTU ID must be set via
+<a class="reference internal" href="#mysolenso.services.dtu.find.MySolensoDTUFind.set_dtu" title="mysolenso.services.dtu.find.MySolensoDTUFind.set_dtu"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_dtu()</span></code></a> before the data is fetched.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mysolenso.services.dtu.find.MySolensoDTUFind">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">mysolenso.services.dtu.find.</span></span><span class="sig-name descname"><span class="pre">MySolensoDTUFind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/dtu/find.html#MySolensoDTUFind"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.dtu.find.MySolensoDTUFind" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Retrieve the full detail record for a single DTU.</p>
+<p>Call <a class="reference internal" href="#mysolenso.services.dtu.find.MySolensoDTUFind.set_dtu" title="mysolenso.services.dtu.find.MySolensoDTUFind.set_dtu"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_dtu()</span></code></a> with a valid DTU ID to trigger the API request and
+populate the cached data.  The ID is validated against the DTU returned by
+<a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll" title="mysolenso.services.dtu.selectall.MySolensoDTUSelectAll"><code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoDTUSelectAll</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> (<a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso" title="mysolenso.mysolenso.MySolenso"><em>MySolenso</em></a>) – The parent client object that holds the
+authentication context and the active station reference.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException" title="mysolenso.exceptions.MySolensoException"><strong>MySolensoException</strong></a> – If no active station is set on the parent at
+    construction time.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mysolenso.services.dtu.find.MySolensoDTUFind.set_station">
+<span class="sig-name descname"><span class="pre">set_station</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/dtu/find.html#MySolensoDTUFind.set_station"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.dtu.find.MySolensoDTUFind.set_station" title="Link to this definition"></a></dt>
+<dd><p>Switch the active station context (does not refresh data).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – ID of the target station. Must exist in the account’s
+station list.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException" title="mysolenso.exceptions.MySolensoException"><strong>MySolensoException</strong></a> – If the requested station ID is not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mysolenso.services.dtu.find.MySolensoDTUFind.set_dtu">
+<span class="sig-name descname"><span class="pre">set_dtu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/dtu/find.html#MySolensoDTUFind.set_dtu"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.dtu.find.MySolensoDTUFind.set_dtu" title="Link to this definition"></a></dt>
+<dd><p>Select the DTU to query and optionally fetch its data.</p>
+<p>The DTU ID is validated against the record returned by
+<a class="reference internal" href="services_dtu_selectall.html#mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.dtu_select_all_refresh" title="mysolenso.services.dtu.selectall.MySolensoDTUSelectAll.dtu_select_all_refresh"><code class="xref py py-meth docutils literal notranslate"><span class="pre">dtu_select_all_refresh()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Internal numeric ID of the DTU to query.</p></li>
+<li><p><strong>refresh</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>) – When <code class="docutils literal notranslate"><span class="pre">True</span></code> (default), immediately fetches the
+DTU detail record from the API.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#mysolenso.exceptions.MySolensoException" title="mysolenso.exceptions.MySolensoException"><strong>MySolensoException</strong></a> – If the requested DTU ID is not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mysolenso.services.dtu.find.MySolensoDTUFind.dtu_find_refresh">
+<span class="sig-name descname"><span class="pre">dtu_find_refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/mysolenso/services/dtu/find.html#MySolensoDTUFind.dtu_find_refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mysolenso.services.dtu.find.MySolensoDTUFind.dtu_find_refresh" title="Link to this definition"></a></dt>
+<dd><p>Force a fresh fetch of the DTU detail record from the API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mysolenso.services.dtu.find.MySolensoDTUFind.all_data">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">all_data</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a></span><a class="headerlink" href="#mysolenso.services.dtu.find.MySolensoDTUFind.all_data" title="Link to this definition"></a></dt>
+<dd><p>Raw API response for the DTU find endpoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><p>Full DTU record including firmware versions, hardware model,
+rule configuration, and supported microinverter types. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1456060</span><span class="p">,</span>
+    <span class="s2">&quot;sid&quot;</span><span class="p">:</span> <span class="mi">1553580</span><span class="p">,</span>
+    <span class="s2">&quot;classify&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;DOE JOHN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;gw_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;D0100289H&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sn&quot;</span><span class="p">:</span> <span class="s2">&quot;D0100289H&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dev_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;replace_num&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;create_by&quot;</span><span class="p">:</span> <span class="mi">293382</span><span class="p">,</span>
+    <span class="s2">&quot;create_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-06-27 17:48:02&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tz_name&quot;</span><span class="p">:</span> <span class="s2">&quot;UTC+01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;update_by&quot;</span><span class="p">:</span> <span class="mi">293382</span><span class="p">,</span>
+    <span class="s2">&quot;update_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2023-06-27 17:48:02&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vc&quot;</span><span class="p">:</span> <span class="s2">&quot;289&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;init_soft_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;V00.00.06&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;init_hard_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;H12.02.02&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;init_rf_soft_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;256&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;init_rf_hard_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;wifi_ver&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;model_info&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;repeater_num&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;mi_num&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;dev_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;balance&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;reflux&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;repeater&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;module_count&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+        <span class="s2">&quot;multiple&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;sun_spec&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;power_limit&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;module_no&quot;</span><span class="p">:</span> <span class="s2">&quot;HD-Insight&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;HD-Insight&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mi_list&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;A21&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A11&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A22&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A01&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A12&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A23&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A02&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A13&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A03&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A15&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;A05&quot;</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;sub1g&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;rule_config&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;conn_way&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+        <span class="s2">&quot;inner&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;pv&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;series&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;au&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;hp&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;lc&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;ble&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;data_interval&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;scan&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;classify&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;map&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;ut5&quot;</span><span class="p">:</span> <span class="mi">99</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;rep_set&quot;</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="s2">&quot;un&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;gen&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;fm&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="services_dtu_selectall.html" class="btn btn-neutral float-left" title="mysolenso.services.dtu.selectall - DTU Select All" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="services_micro_find.html" class="btn btn-neutral float-right" title="mysolenso.services.micro.find - Micro Find" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Franck VANHOUCKE.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
