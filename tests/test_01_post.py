@@ -1,4 +1,4 @@
-"""Tests for MySolensoPost — low-level POST helper."""
+"""Tests for MySolensoPost - low-level POST helper."""
 
 import pytest
 from unittest.mock import Mock, patch

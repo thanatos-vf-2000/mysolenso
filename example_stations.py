@@ -17,10 +17,10 @@ Usage
 
 Services demonstrated
 ---------------------
-- ``client.stationinfodevice``  — Full device tree (DTU + microinverters)
+- ``client.stationinfodevice``  - Full device tree (DTU + microinverters)
   with serial numbers, firmware, and connection status.
-- ``client.stationcountdevice`` — Device count summary by type.
-- ``client.stationak``          — Station geographic coordinates and address.
+- ``client.stationcountdevice`` - Device count summary by type.
+- ``client.stationak``          - Station geographic coordinates and address.
 """
 
 import logging

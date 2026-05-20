@@ -1,4 +1,4 @@
-"""Tests for MySolensoStationInfoDevice — station geolocation/AK data service."""
+"""Tests for MySolensoStationInfoDevice - station geolocation/AK data service."""
  
 import pytest
 from unittest.mock import MagicMock, patch

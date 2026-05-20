@@ -1,27 +1,27 @@
-"""mysolenso — Python library for the monitor.solenso.net API.
+"""mysolenso - Python library for the monitor.solenso.net API.
 
 This library provides a simple, unified interface to the **Solenso**
 photovoltaic monitoring platform. It handles authentication, user profile
 retrieval, PV station data, real-time energy counters, historical production
-data, and OEM reporting — all accessible from a single :class:`MySolenso`
+data, and OEM reporting - all accessible from a single :class:`MySolenso`
 client object.
 
 Main modules
 ------------
-- :mod:`mysolenso.mysolenso` — :class:`~mysolenso.MySolenso` facade (start here)
-- :mod:`mysolenso.auth` — :class:`~mysolenso.auth.MySolensoAuth` authentication
-- :mod:`mysolenso.services.me` — Authenticated user profile
-- :mod:`mysolenso.services.station` — Photovoltaic station list and selection
-- :mod:`mysolenso.services.stationdata` — Station detailed configuration
-- :mod:`mysolenso.services.stationcount` — Real-time energy counters
-- :mod:`mysolenso.services.powerbyday` — Intra-day grid power curve
-- :mod:`mysolenso.services.dayofyeay` — Day-of-year production history (Wh per day)
-- :mod:`mysolenso.services.reports.powerbystation` — Per-station daily power report
-- :mod:`mysolenso.services.reports.oempower` — OEM daily PV energy list report
-- :mod:`mysolenso.services.reports.oempowercount` — OEM aggregated PV/consumption totals
-- :mod:`mysolenso.exceptions` — Exception hierarchy
-- :mod:`mysolenso.const` — API endpoint URLs and network constants
-- :mod:`mysolenso.post` — Internal HTTP POST client
+- :mod:`mysolenso.mysolenso` - :class:`~mysolenso.MySolenso` facade (start here)
+- :mod:`mysolenso.auth` - :class:`~mysolenso.auth.MySolensoAuth` authentication
+- :mod:`mysolenso.services.me` - Authenticated user profile
+- :mod:`mysolenso.services.station` - Photovoltaic station list and selection
+- :mod:`mysolenso.services.stationdata` - Station detailed configuration
+- :mod:`mysolenso.services.stationcount` - Real-time energy counters
+- :mod:`mysolenso.services.powerbyday` - Intra-day grid power curve
+- :mod:`mysolenso.services.dayofyeay` - Day-of-year production history (Wh per day)
+- :mod:`mysolenso.services.reports.powerbystation` - Per-station daily power report
+- :mod:`mysolenso.services.reports.oempower` - OEM daily PV energy list report
+- :mod:`mysolenso.services.reports.oempowercount` - OEM aggregated PV/consumption totals
+- :mod:`mysolenso.exceptions` - Exception hierarchy
+- :mod:`mysolenso.const` - API endpoint URLs and network constants
+- :mod:`mysolenso.post` - Internal HTTP POST client
 
 Quick start
 -----------

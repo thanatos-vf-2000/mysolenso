@@ -1,4 +1,4 @@
-mysolenso.services.stationcount — Energy Counters
+mysolenso.services.stationcount - Energy Counters
 ==================================================
 
 .. automodule:: mysolenso.services.stationcount

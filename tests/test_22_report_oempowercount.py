@@ -1,4 +1,4 @@
-"""Tests for MySolensoOEMPowerCount — aggregated OEM PV and consumption totals.
+"""Tests for MySolensoOEMPowerCount - aggregated OEM PV and consumption totals.
 
 This module covers:
 - Construction and default date initialisation.

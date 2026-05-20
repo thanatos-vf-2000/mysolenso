@@ -89,7 +89,7 @@ class MySolensoStationCountDevice:
             self._client.set_headers(self.parent.auth.get_auth_headers_solenso())
  
             # Build the request body: station list, mode, and date range.
-            # Note: no pagination — this endpoint returns a single aggregate.
+            # Note: no pagination - this endpoint returns a single aggregate.
             self._client.set_raw_payload({
                 "body":{
                     "id": self._station_id},

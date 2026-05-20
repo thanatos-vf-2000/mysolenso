@@ -6,9 +6,9 @@ to retarget the library at a different environment (e.g. staging).
  
 Two base URLs are used:
  
-- :data:`BASE_URL_SOLENSO` — the Solenso monitoring platform (authentication,
+- :data:`BASE_URL_SOLENSO` - the Solenso monitoring platform (authentication,
   user profile, station list, station detail, energy counters, and OEM reports).
-- :data:`BASE_URL_HOYMILES` — the Hoymiles inverter data API (intra-day
+- :data:`BASE_URL_HOYMILES` - the Hoymiles inverter data API (intra-day
   power curve and day-of-year production totals).
  
 Attributes

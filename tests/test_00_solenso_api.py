@@ -1,4 +1,4 @@
-"""Tests for MySolensoAuth — authentication, headers, and session lifecycle."""
+"""Tests for MySolensoAuth - authentication, headers, and session lifecycle."""
 
 import pytest
 from unittest.mock import Mock, patch

@@ -6,36 +6,36 @@ to import and instantiate this class.
  
 Sub-modules initialised at construction
 ---------------------------------------
-1. :class:`~mysolenso.auth.MySolensoAuth` — authentication and token management.
-2. :class:`~mysolenso.services.me.MySolensoMe` — authenticated user profile.
-3. :class:`~mysolenso.services.station.MySolensoStation` — PV station list and
+1. :class:`~mysolenso.auth.MySolensoAuth` - authentication and token management.
+2. :class:`~mysolenso.services.me.MySolensoMe` - authenticated user profile.
+3. :class:`~mysolenso.services.station.MySolensoStation` - PV station list and
    active station selection.
-4. :class:`~mysolenso.services.stationdata.MySolensoStationData` — detailed
+4. :class:`~mysolenso.services.stationdata.MySolensoStationData` - detailed
    configuration of the active station.
-5. :class:`~mysolenso.services.stationcount.MySolensoStationCount` — real-time
+5. :class:`~mysolenso.services.stationcount.MySolensoStationCount` - real-time
    and cumulative energy counters.
-6. :class:`~mysolenso.services.powerbyday.MySolensoPowerByDay` — intra-day
+6. :class:`~mysolenso.services.powerbyday.MySolensoPowerByDay` - intra-day
    grid power curve for today.
-7. :class:`~mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay` — full
+7. :class:`~mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay` - full
    day-of-year production history (Wh per day since commissioning).
 8. :class:`~mysolenso.services.reports.powerbystation.MySolensoPowerByStation`
-   — per-station power data in 15-minute intervals for a single day.
-9. :class:`~mysolenso.services.reports.oempower.MySolensoOEMPower` — OEM daily
+   - per-station power data in 15-minute intervals for a single day.
+9. :class:`~mysolenso.services.reports.oempower.MySolensoOEMPower` - OEM daily
    PV energy list report (one record per day, paginated).
 10. :class:`~mysolenso.services.reports.oempowercount.MySolensoOEMPowerCount`
-    — OEM aggregated PV and consumption totals over a date range.
+    - OEM aggregated PV and consumption totals over a date range.
 11. :class:`~mysolenso.services.stations.stationinfodev.MySolensoStationInfoDevice`
-    — Full device tree for the active station (DTU + microinverters).
+    - Full device tree for the active station (DTU + microinverters).
 12. :class:`~mysolenso.services.stations.countdevice.MySolensoStationCountDevice`
-    — Device count summary (DTU, microinverters, repeaters, meters, etc.).
+    - Device count summary (DTU, microinverters, repeaters, meters, etc.).
 13. :class:`~mysolenso.services.stations.ak.MySolensoStationAK`
-    — Geographic and address information for the active station.
+    - Geographic and address information for the active station.
 14. :class:`~mysolenso.services.dtu.selectall.MySolensoDTUSelectAll`
-    — DTU and associated microinverter list for the active station.
+    - DTU and associated microinverter list for the active station.
 15. :class:`~mysolenso.services.dtu.find.MySolensoDTUFind`
-    — Detailed record for a single DTU.
+    - Detailed record for a single DTU.
 16. :class:`~mysolenso.services.micro.find.MySolensoMicroFind`
-    — Detailed record for a single microinverter.
+    - Detailed record for a single microinverter.
  
 Example
 -------
@@ -145,7 +145,7 @@ class MySolenso:
         stationdata (MySolensoStationData): Detailed technical configuration of
             the active station: timezone, installed capacity, pricing, inverters.
         stationcount (MySolensoStationCount): Real-time and cumulative energy
-            counters — today/month/year/lifetime yield, current power, CO₂ offset.
+            counters - today/month/year/lifetime yield, current power, CO₂ offset.
         powerbyday (MySolensoPowerByDay): Intra-day grid power curve. Returns a
             ``{HH:MM: watts}`` mapping for the active station and a given date.
             Use :meth:`~mysolenso.services.powerbyday.MySolensoPowerByDay.set_day`
@@ -218,51 +218,51 @@ class MySolenso:
         self.password = password
         self.token    = token
  
-        # 1. Authentication — must come first; all other services depend on it.
+        # 1. Authentication - must come first; all other services depend on it.
         self.auth = MySolensoAuth(
             username=self.username,
             password=self.password,
             token=self.token,
         )
  
-        # 2. User profile — fetched immediately after authentication.
+        # 2. User profile - fetched immediately after authentication.
         self.me = MySolensoMe(self)
  
-        # 3. Station list — determines which station is active.
+        # 3. Station list - determines which station is active.
         self.station = MySolensoStation(self)
  
-        # 4. Station detail — technical configuration of the active station.
+        # 4. Station detail - technical configuration of the active station.
         self.stationdata = MySolensoStationData(self)
  
-        # 5. Energy counters — real-time and cumulative production figures.
+        # 5. Energy counters - real-time and cumulative production figures.
         self.stationcount = MySolensoStationCount(self)
  
-        # 6. Intra-day power curve — today's grid power in 15-min intervals.
+        # 6. Intra-day power curve - today's grid power in 15-min intervals.
         self.powerbyday = MySolensoPowerByDay(self)
  
-        # 7. Day-of-year history — daily Wh totals since commissioning.
+        # 7. Day-of-year history - daily Wh totals since commissioning.
         self.countbydayofyear = MySolensoCountByDayOfYeay(self)
  
-        # 8. Per-station power report — 15-min power data for a single day.
+        # 8. Per-station power report - 15-min power data for a single day.
         self.powerbystation = MySolensoPowerByStation(self)
  
-        # 9. OEM daily list report — one JSON record per day (paginated).
+        # 9. OEM daily list report - one JSON record per day (paginated).
         self.oempower = MySolensoOEMPower(self)
  
-        # 10. OEM aggregated totals — single-call PV + consumption summary.
+        # 10. OEM aggregated totals - single-call PV + consumption summary.
         self.oempowercount = MySolensoOEMPowerCount(self)
         
-        # 11. Station device tree — hierarchical DTU + microinverter list with status.
+        # 11. Station device tree - hierarchical DTU + microinverter list with status.
         self.stationinfodevice = MySolensoStationInfoDevice(self)
-        # 12. Device count summary — counts by type (DTU, MI, repeater, meter, etc.).
+        # 12. Device count summary - counts by type (DTU, MI, repeater, meter, etc.).
         self.stationcountdevice = MySolensoStationCountDevice(self)
-        # 13. Station geographic info — longitude, latitude, and address.
+        # 13. Station geographic info - longitude, latitude, and address.
         self.stationak = MySolensoStationAK(self)
         
-        # 14. DTU list — retrieves the primary DTU and its associated microinverters.
+        # 14. DTU list - retrieves the primary DTU and its associated microinverters.
         self.dtuselectall = MySolensoDTUSelectAll(self)
-        # 15. DTU detail — full record for a single DTU (firmware, rules, model).
+        # 15. DTU detail - full record for a single DTU (firmware, rules, model).
         self.dtufind = MySolensoDTUFind(self)
         
-        # 16. Microinverter detail — full record for a single microinverter.
+        # 16. Microinverter detail - full record for a single microinverter.
         self.microfind = MySolensoMicroFind(self)

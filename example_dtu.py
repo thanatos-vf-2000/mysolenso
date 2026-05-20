@@ -18,9 +18,9 @@ Usage
 
 Services demonstrated
 ---------------------
-- ``client.dtuselectall``     — DTU serial number and list of attached microinverters.
-- ``client.stationcountdevice`` — Total device counts for the active station.
-- ``client.dtufind``          — Full detail record for a specific DTU.
+- ``client.dtuselectall``     - DTU serial number and list of attached microinverters.
+- ``client.stationcountdevice`` - Total device counts for the active station.
+- ``client.dtufind``          - Full detail record for a specific DTU.
 """
 
 import logging

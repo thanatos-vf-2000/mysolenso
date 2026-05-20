@@ -1,4 +1,4 @@
-"""Tests for MySolensoMe — user profile service."""
+"""Tests for MySolensoMe - user profile service."""
 
 import pytest
 from unittest.mock import MagicMock, patch

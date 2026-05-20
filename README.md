@@ -9,7 +9,7 @@
 
 Python library for the [Solenso](https://monitor.solenso.net/platform/) photovoltaic monitoring platform.
 
-The library handles authentication, user profile retrieval, PV station data, real-time energy counters, historical daily production, and OEM reporting — all from a single `MySolenso` client object.
+The library handles authentication, user profile retrieval, PV station data, real-time energy counters, historical daily production, and OEM reporting - all from a single `MySolenso` client object.
 
 > **Note:** The project is independent of Solenso. You must use your **encrypted** password or a token, not your plain-text password. Use [pwdsolenso](https://github.com/thanatos-vf-2000/pwdsolenso) to obtain the encrypted credential.
 
@@ -24,14 +24,14 @@ The library handles authentication, user profile retrieval, PV station data, rea
   - [Authentication](#authentication)
   - [Quick start](#quick-start)
   - [Services](#services)
-    - [`me` — User profile](#me--user-profile)
-    - [`station` — Station list](#station--station-list)
-    - [`stationdata` — Station configuration](#stationdata--station-configuration)
-    - [`stationcount` — Real-time counters](#stationcount--real-time-counters)
-    - [`powerbyday` — Intra-day power curve](#powerbyday--intra-day-power-curve)
-    - [`day_of_year` — Daily production history](#day_of_year--daily-production-history)
-    - [`oem_power` — OEM daily report (list)](#oem_power--oem-daily-report-list)
-    - [`oem_power_count` — OEM aggregated totals](#oem_power_count--oem-aggregated-totals)
+    - [`me` - User profile](#me---user-profile)
+    - [`station` - Station list](#station---station-list)
+    - [`stationdata` - Station configuration](#stationdata---station-configuration)
+    - [`stationcount` - Real-time counters](#stationcount---real-time-counters)
+    - [`powerbyday` - Intra-day power curve](#powerbyday---intra-day-power-curve)
+    - [`day_of_year` - Daily production history](#day_of_year---daily-production-history)
+    - [`oem_power` - OEM daily report (list)](#oem_power---oem-daily-report-list)
+    - [`oem_power_count` - OEM aggregated totals](#oem_power_count---oem-aggregated-totals)
   - [Error handling](#error-handling)
   - [Running the tests](#running-the-tests)
   - [Example scripts](#example-scripts)
@@ -77,10 +77,10 @@ You need two pieces of information:
 ```python
 from mysolenso import MySolenso
 
-# Option A — with encrypted password
+# Option A - with encrypted password
 client = MySolenso(username="jdoe", password="encrypted_pass")
 
-# Option B — with a token
+# Option B - with a token
 client = MySolenso(username="jdoe", token="your_api_token")
 ```
 
@@ -118,14 +118,14 @@ print(client.oem_power_count.total_pv)   # e.g. "415.72"
 
 All services are instantiated automatically by `MySolenso` and are accessible as attributes on the client object.
 
-### `me` — User profile
+### `me` - User profile
 
 ```python
 print(client.me.name)       # account display name
 print(client.me.email)      # account e-mail
 ```
 
-### `station` — Station list
+### `station` - Station list
 
 ```python
 # List all stations linked to the account
@@ -136,7 +136,7 @@ for s in client.station.stations:
 client.station.set_station(station_id=43)
 ```
 
-### `stationdata` — Station configuration
+### `stationdata` - Station configuration
 
 Detailed technical configuration of the active station (inverter model, capacity, timezone, etc.).
 
@@ -145,7 +145,7 @@ info = client.stationdata.station_data
 print(info["capacity"])
 ```
 
-### `stationcount` — Real-time counters
+### `stationcount` - Real-time counters
 
 Real-time and cumulative energy counters for the active station.
 
@@ -155,7 +155,7 @@ print(client.stationcount.total_eq)    # all-time total (kWh)
 print(client.stationcount.co2)         # CO₂ offset (kg)
 ```
 
-### `powerbyday` — Intra-day power curve
+### `powerbyday` - Intra-day power curve
 
 Grid power measurements (Watts) sampled in 15-minute intervals throughout a single day.
 
@@ -175,7 +175,7 @@ print(client.powerbyday.get_data["values"])
 client.powerbyday.get_power_refresh()
 ```
 
-### `day_of_year` — Daily production history
+### `day_of_year` - Daily production history
 
 Complete daily PV energy production (Wh) since the station was commissioned.
 
@@ -191,7 +191,7 @@ print(history.get(str(date.today()), "N/A"))
 client.day_of_year.set_station_id(43)
 ```
 
-### `oem_power` — OEM daily report (list)
+### `oem_power` - OEM daily report (list)
 
 Daily PV energy production records from the Solenso OEM endpoint, one record per day.
 
@@ -213,7 +213,7 @@ client.oem_power.oem_pv_refresh()
 
 Each record contains: `sid`, `name`, `tz_name`, `date`, `pv_eq`, `consumption_eq`, `meter_c_eq`, `meter_location`, `capacitor`, `create_at`, `p2g`, `lfg`, `eq_hour`.
 
-### `oem_power_count` — OEM aggregated totals
+### `oem_power_count` - OEM aggregated totals
 
 Aggregated PV and consumption energy totals for the active station over a date range (single API call, no pagination).
 
@@ -254,7 +254,7 @@ except MySolensoException as e:
 
 | Exception | When raised |
 |-----------|-------------|
-| `MySolensoException` | Base class — catches everything. |
+| `MySolensoException` | Base class - catches everything. |
 | `MySolensoConnectionException` | Invalid arguments (empty username, missing credentials) or network issue before the request. |
 | `MySolensoAuthenticationException` | API returned an error status, unexpected message, or token was absent from the response. |
 

@@ -1,4 +1,4 @@
-"""Tests for MySolensoStationCountDevice — retrieving device count summary data for a station."""
+"""Tests for MySolensoStationCountDevice - retrieving device count summary data for a station."""
  
 import pytest
 from unittest.mock import MagicMock, patch

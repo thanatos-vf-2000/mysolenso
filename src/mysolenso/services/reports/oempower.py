@@ -255,9 +255,9 @@ class MySolensoOEMPower:
         endpoint with the current station ID and date range. The
         response is expected to be a JSON object with:
 
-        - ``list``  *(list[dict])* — one record per day, each containing
+        - ``list``  *(list[dict])* - one record per day, each containing
           ``sid``, ``name``, ``date``, ``pv_eq``, ``consumption_eq``, etc.
-        - ``total`` *(int)* — total number of records matching the query.
+        - ``total`` *(int)* - total number of records matching the query.
 
         Raises:
             MySolensoException:
@@ -341,20 +341,20 @@ class MySolensoOEMPower:
 
         Each element is a dictionary with the following keys:
 
-        - ``sid`` *(int)* — station identifier.
-        - ``name`` *(str)* — station owner's display name.
-        - ``tz_name`` *(str)* — IANA timezone name of the station.
-        - ``date`` *(str)* — record date in ``YYYY-MM-DD`` format.
-        - ``pv_eq`` *(str)* — daily PV energy production in kWh.
-        - ``consumption_eq`` *(str)* — daily consumption energy in kWh,
+        - ``sid`` *(int)* - station identifier.
+        - ``name`` *(str)* - station owner's display name.
+        - ``tz_name`` *(str)* - IANA timezone name of the station.
+        - ``date`` *(str)* - record date in ``YYYY-MM-DD`` format.
+        - ``pv_eq`` *(str)* - daily PV energy production in kWh.
+        - ``consumption_eq`` *(str)* - daily consumption energy in kWh,
           or ``"-"`` when no consumption meter is installed.
-        - ``meter_c_eq`` *(str)* — meter energy value.
-        - ``meter_location`` *(int)* — meter location type.
-        - ``capacitor`` *(int)* — capacitor presence flag.
-        - ``create_at`` *(str | None)* — record creation timestamp.
-        - ``p2g`` *(Any | None)* — peer-to-grid value (may be ``null``).
-        - ``lfg`` *(Any | None)* — load-following generation (may be ``null``).
-        - ``eq_hour`` *(int)* — equivalent production hours.
+        - ``meter_c_eq`` *(str)* - meter energy value.
+        - ``meter_location`` *(int)* - meter location type.
+        - ``capacitor`` *(int)* - capacitor presence flag.
+        - ``create_at`` *(str | None)* - record creation timestamp.
+        - ``p2g`` *(Any | None)* - peer-to-grid value (may be ``null``).
+        - ``lfg`` *(Any | None)* - load-following generation (may be ``null``).
+        - ``eq_hour`` *(int)* - equivalent production hours.
 
         Returns:
             list[dict]: Complete raw record list for the active station
@@ -383,8 +383,8 @@ class MySolensoOEMPower:
         Returns:
             list[dict]: Each element has exactly two keys:
 
-            - ``"date"`` *(str)* — date in ``YYYY-MM-DD`` format.
-            - ``"power"`` *(str)* — PV energy in kWh as a string
+            - ``"date"`` *(str)* - date in ``YYYY-MM-DD`` format.
+            - ``"power"`` *(str)* - PV energy in kWh as a string
               (preserves the original API string representation).
 
         Raises:

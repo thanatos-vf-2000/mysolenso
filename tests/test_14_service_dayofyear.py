@@ -1,4 +1,4 @@
-"""Tests for MySolensoCountByDayOfYeay — daily PV energy production by date.
+"""Tests for MySolensoCountByDayOfYeay - daily PV energy production by date.
 
 This module covers:
 - Construction and initialisation behaviour.
@@ -15,7 +15,7 @@ from unittest.mock import MagicMock, patch
 from mysolenso.services.dayofyeay import MySolensoCountByDayOfYeay
 from mysolenso.exceptions import MySolensoException
 
-# Patch target — MySolensoPost lives inside dayofyeay module scope.
+# Patch target - MySolensoPost lives inside dayofyeay module scope.
 PATCH_PATH = "mysolenso.services.dayofyeay.MySolensoPost"
 
 
@@ -153,7 +153,7 @@ def test_get_data_single_entry():
 
 
 # ---------------------------------------------------------------------------
-# Error handling — malformed responses
+# Error handling - malformed responses
 # ---------------------------------------------------------------------------
 
 def test_no_dates_in_response_raises():
@@ -252,7 +252,7 @@ def test_set_station_id_reload_failure_raises():
 def test_extra_floats_are_ignored():
     """When there are more float values than dates, the extras are silently ignored."""
     dates = ["2026-04-01", "2026-04-02"]
-    # 4 floats but only 2 dates — zip stops at 2
+    # 4 floats but only 2 dates - zip stops at 2
     values = [100.0, 200.0, 300.0, 400.0]
     response = _make_proto_response(dates, values)
     doy = _make_doy(response)

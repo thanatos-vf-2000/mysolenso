@@ -65,7 +65,7 @@ class MySolensoStationAK:
         self._station_id = self.parent.station.station_id
         self._station_ak = self.parent.station.ak
 
-        # Placeholders — populated by _get_station_ak().
+        # Placeholders - populated by _get_station_ak().
         self._all_data: dict = {}
         self._id: int | None = None
         self._longitude: str | None = None

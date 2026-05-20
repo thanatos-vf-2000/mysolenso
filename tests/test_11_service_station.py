@@ -1,4 +1,4 @@
-"""Tests for MySolensoStation — PV station list and selection."""
+"""Tests for MySolensoStation - PV station list and selection."""
 
 import pytest
 from unittest.mock import MagicMock, patch

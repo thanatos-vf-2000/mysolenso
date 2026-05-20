@@ -1,4 +1,4 @@
-"""Tests for MySolensoPowerByDay — intra-day grid power curve.
+"""Tests for MySolensoPowerByDay - intra-day grid power curve.
 
 This module covers:
 - Construction and default date selection (today / yesterday before 01:00).
@@ -46,7 +46,7 @@ def _make_proto_response(
         float_bytes += struct.pack("<f", v)
 
     # 3-byte header: tag (0x12) + 2-byte "length" placeholder (not really used
-    # by the parser — it reads until the \\x1a\\x0a delimiter instead)
+    # by the parser - it reads until the \\x1a\\x0a delimiter instead)
     header = b"\x12\x00\x00"
 
     binary_section = b"grid_power" + header + float_bytes
@@ -181,7 +181,7 @@ def test_get_data_values_count():
 
 
 # ---------------------------------------------------------------------------
-# Error handling — malformed responses
+# Error handling - malformed responses
 # ---------------------------------------------------------------------------
 
 def test_missing_grid_power_marker_raises():

@@ -1,4 +1,4 @@
-mysolenso.services.dayofyeay — Day-of-Year Production History
+mysolenso.services.dayofyeay - Day-of-Year Production History
 ==============================================================
 
 .. automodule:: mysolenso.services.dayofyeay

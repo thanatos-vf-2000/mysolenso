@@ -1,4 +1,4 @@
-"""Tests for MySolensoMicroFind — single microinverter detail service."""
+"""Tests for MySolensoMicroFind - single microinverter detail service."""
  
 import pytest
 from unittest.mock import MagicMock, patch

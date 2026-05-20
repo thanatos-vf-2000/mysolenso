@@ -20,8 +20,8 @@ Usage
 
 Services demonstrated
 ---------------------
-- ``client.dtuselectall`` — Retrieve the list of microinverter IDs from the DTU.
-- ``client.microfind``    — Fetch the full detail record for a single microinverter.
+- ``client.dtuselectall`` - Retrieve the list of microinverter IDs from the DTU.
+- ``client.microfind``    - Fetch the full detail record for a single microinverter.
 """
 
 import logging

@@ -1,4 +1,4 @@
-"""Tests for MySolensoDTUSelectAll — DTU and microinverter list service."""
+"""Tests for MySolensoDTUSelectAll - DTU and microinverter list service."""
  
 import pytest
 from unittest.mock import MagicMock, patch
@@ -82,7 +82,7 @@ def test_init_stores_station_id():
  
  
 # ---------------------------------------------------------------------------
-# Properties — DTU
+# Properties - DTU
 # ---------------------------------------------------------------------------
  
 def test_dtu_id():
@@ -111,7 +111,7 @@ def test_all_data():
  
  
 # ---------------------------------------------------------------------------
-# Properties — microinverters
+# Properties - microinverters
 # ---------------------------------------------------------------------------
  
 def test_list_micros_info_length():

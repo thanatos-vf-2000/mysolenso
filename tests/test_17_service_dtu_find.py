@@ -1,4 +1,4 @@
-"""Tests for MySolensoDTUFind — single DTU detail service."""
+"""Tests for MySolensoDTUFind - single DTU detail service."""
  
 import pytest
 from unittest.mock import MagicMock, patch
@@ -150,7 +150,7 @@ def test_get_dtu_find_raises_when_dtu_id_none():
     """_get_dtu_find raises MySolensoException if _dtu_id is None."""
     parent = _make_parent()
     obj = MySolensoDTUFind(parent)
-    # _dtu_id is None by default — calling the private method directly
+    # _dtu_id is None by default - calling the private method directly
     with pytest.raises(MySolensoException):
         obj._get_dtu_find()
  

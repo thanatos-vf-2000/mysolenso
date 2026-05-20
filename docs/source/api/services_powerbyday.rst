@@ -1,4 +1,4 @@
-mysolenso.services.powerbyday — Intra-day Power Curve
+mysolenso.services.powerbyday - Intra-day Power Curve
 ======================================================
 
 .. automodule:: mysolenso.services.powerbyday

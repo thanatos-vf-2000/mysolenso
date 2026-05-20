@@ -205,7 +205,7 @@ class MySolensoStation:
         return self._all_data[_idx].get(name, None)
 
     # ------------------------------------------------------------------
-    # Public properties — station list
+    # Public properties - station list
     # ------------------------------------------------------------------
 
     @property
@@ -321,7 +321,7 @@ class MySolensoStation:
         return stations
 
     # ------------------------------------------------------------------
-    # Public properties — active station
+    # Public properties - active station
     # ------------------------------------------------------------------
 
     @property

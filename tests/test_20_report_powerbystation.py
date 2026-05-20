@@ -1,4 +1,4 @@
-"""Tests for MySolensoPowerByStation — per-station daily power aggregation."""
+"""Tests for MySolensoPowerByStation - per-station daily power aggregation."""
  
 import pytest
 from unittest.mock import MagicMock, patch
@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 from mysolenso.services.reports.powerbystation import MySolensoPowerByStation
 from mysolenso.exceptions import MySolensoException
  
-# Correct patch path — module lives under services.reports, not services
+# Correct patch path - module lives under services.reports, not services
 PATCH_PATH = "mysolenso.services.reports.powerbystation.MySolensoPost"
  
  
@@ -102,7 +102,7 @@ def _make_powerbystation(
     Instantiate MySolensoPowerByStation with a mocked POST.
  
     The API returns a list; _get_power_by_station takes response[0].
-    Pass api_data as a dict (one record) — the helper wraps it in a list.
+    Pass api_data as a dict (one record) - the helper wraps it in a list.
     """
     parent = _make_parent(station_id)
     with patch(PATCH_PATH) as MockPost:
@@ -135,7 +135,7 @@ def test_construction_does_not_fetch():
  
  
 # ---------------------------------------------------------------------------
-# all_data — requires explicit refresh call first
+# all_data - requires explicit refresh call first
 # ---------------------------------------------------------------------------
  
 def test_all_data_raises_before_refresh():
