@@ -1,4 +1,4 @@
-mysolenso.exceptions — Exceptions
+mysolenso.exceptions - Exceptions
 ===================================
 
 .. automodule:: mysolenso.exceptions

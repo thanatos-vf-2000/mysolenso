@@ -1,4 +1,4 @@
-mysolenso — Main Facade
+mysolenso - Main Facade
 ========================
 
 .. automodule:: mysolenso.mysolenso

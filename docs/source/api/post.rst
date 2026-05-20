@@ -1,4 +1,4 @@
-mysolenso.post — HTTP Client
+mysolenso.post - HTTP Client
 =============================
 
 .. automodule:: mysolenso.post

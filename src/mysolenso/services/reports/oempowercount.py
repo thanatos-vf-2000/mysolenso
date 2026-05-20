@@ -8,8 +8,8 @@ Unlike :class:`~mysolenso.services.reports.oempower.MySolensoOEMPower`,
 which returns one record *per day*, this service returns a single
 aggregated summary for the entire requested date range:
 
-- ``total_pv_eq`` — total PV energy produced (kWh, as a string).
-- ``total_consumption_eq`` — total consumption energy (kWh, or ``"0"``
+- ``total_pv_eq`` - total PV energy produced (kWh, as a string).
+- ``total_consumption_eq`` - total consumption energy (kWh, or ``"0"``
   when no consumption meter is present).
 
 By default the service queries **today** (or yesterday before 01:00).
@@ -254,8 +254,8 @@ class MySolensoOEMPowerCount:
         current station ID and date range. The response is expected to be
         a JSON object containing:
 
-        - ``total_pv_eq`` *(str)* — total PV energy in kWh for the period.
-        - ``total_consumption_eq`` *(str)* — total consumption energy in kWh
+        - ``total_pv_eq`` *(str)* - total PV energy in kWh for the period.
+        - ``total_consumption_eq`` *(str)* - total consumption energy in kWh
           (``"0"`` when no consumption meter is installed).
 
         The raw response dict is stored in ``_all_data``. The two totals
@@ -272,7 +272,7 @@ class MySolensoOEMPowerCount:
             self._client.set_headers(self.parent.auth.get_auth_headers_solenso())
 
             # Build the request body: station list, mode, and date range.
-            # Note: no pagination — this endpoint returns a single aggregate.
+            # Note: no pagination - this endpoint returns a single aggregate.
             self._client.set_raw_payload({
                 "WAITING_PROMISE": False,
                 "body": {
@@ -345,8 +345,8 @@ class MySolensoOEMPowerCount:
             dict: Aggregated energy totals for the active station and
             date range, typically containing:
 
-            - ``"total_pv_eq"`` *(str)* — total PV energy in kWh.
-            - ``"total_consumption_eq"`` *(str)* — total consumption in kWh.
+            - ``"total_pv_eq"`` *(str)* - total PV energy in kWh.
+            - ``"total_consumption_eq"`` *(str)* - total consumption in kWh.
 
         Example:
             ::

@@ -92,9 +92,9 @@ class MySolensoCountByDayOfYeay:
 
         The response is a mixed text/binary payload:
 
-        1. **Text section** — one ``YYYY-MM-DD`` date per line, covering
+        1. **Text section** - one ``YYYY-MM-DD`` date per line, covering
            every day from the station's first production to today.
-        2. **Binary section** — a protobuf message containing a ``pv_eq``
+        2. **Binary section** - a protobuf message containing a ``pv_eq``
            field (field 2, wire type 2) encoding a packed array of
            little-endian ``float32`` values, one per date.
 
@@ -105,7 +105,7 @@ class MySolensoCountByDayOfYeay:
         - The protobuf field tag (``0x12``) and varint length are decoded to
           find the exact start and byte-length of the float array.
         - ``struct.unpack`` reads exactly ``length // 4`` float32 values in
-          one aligned pass — **no byte-by-byte scanning, no value filtering**.
+          one aligned pass - **no byte-by-byte scanning, no value filtering**.
         - Dates and values are zipped into a dictionary; unmatched trailing
           values (protobuf padding zeros) are silently ignored.
 

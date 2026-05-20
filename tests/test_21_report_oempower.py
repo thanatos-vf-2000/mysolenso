@@ -1,4 +1,4 @@
-"""Tests for MySolensoOEMPower — OEM daily PV energy list report.
+"""Tests for MySolensoOEMPower - OEM daily PV energy list report.
 
 This module covers:
 - Construction and default date initialisation.

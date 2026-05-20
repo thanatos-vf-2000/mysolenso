@@ -1,4 +1,4 @@
-mysolenso.const — Constants
+mysolenso.const - Constants
 =============================
 
 .. automodule:: mysolenso.const

@@ -4,14 +4,23 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mysolenso"
-version = "1.1.0"
+version = "1.2.0"
 authors = [
   { name="Franck VANHOUCKE", email="vanhoucke.franck@free.fr" },
 ]
+maintainers = [
+  { name="Franck VANHOUCKE", email="vanhoucke.franck@free.fr" },
+]
+
 description = "Library to interface Solenso site monitor.solenso.net."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Home Automation",
+    "Development Status :: 5 - Production/Stable",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
@@ -20,14 +29,22 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: 3.15",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Natural Language :: English",
 ]
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 dependencies = [
   "requests>=2.31.0"
 ]
+keywords = ["solenso", "station", "DTU", "sun"]
+
+
 
 [project.urls]
 Homepage = "https://github.com/thanatos-vf-2000/mysolenso"
-Issues = "https://github.com/thanatos-vf-2000/mysolenso"
+Repository = "https://github.com/thanatos-vf-2000/mysolenso"
+Issues = "https://github.com/thanatos-vf-2000/mysolenso/issues"
 Documents = "https://thanatos-vf-2000.github.io/mysolenso/"
+Changelog = "https://github.com/thanatos-vf-2000/mysolenso/blob/master/CHANGELOG.md"

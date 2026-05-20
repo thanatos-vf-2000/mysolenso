@@ -1,6 +1,20 @@
 # CHANGELOG
 
 <!-- version list -->
+## v1.2.0 (2026-05-20)
+- Update data for publication into pypi.org,
+- Add Class MySolensoStationInfoDevice,
+- Add Class MySolensoStationCountDevice,
+- Add Class MySolensoStationAK,
+- Add Class MySolensoDTUSelectAll,
+- Add Class MySolensoDTUFind,
+- Add Class MySolensoMicroFind,
+- Add example_stations.py,
+- Add example_dtu.py,
+- Add example_micro.py
+- Add pytest: test_01_post.py, test_16_service_dtu_selectall.py, test_17_service_dtu_find.py, test_18_service_micro_find.py, test_23_station_ak.py, test_24_station_countdevice and test_25_station_stationinfodev.py,
+- Update documentation.
+
 ## v1.1.0 (2026-05-17)
 - Add Class MySolensoPowerByStation,
 - Add Class MySolensoOEMPower,

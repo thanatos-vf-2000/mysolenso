@@ -1,4 +1,4 @@
-mysolenso — Documentation
+mysolenso - Documentation
 ==========================
 
 Version: |release|

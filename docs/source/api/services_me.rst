@@ -1,4 +1,4 @@
-mysolenso.services.me — User Profile
+mysolenso.services.me - User Profile
 ======================================
 
 .. automodule:: mysolenso.services.me

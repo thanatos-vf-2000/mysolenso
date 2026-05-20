@@ -7,7 +7,7 @@ data for a single station over a given date range.
 Unlike :mod:`~mysolenso.services.powerbyday`, which uses the Hoymiles API
 and returns an intra-day power curve (``HH:MM`` samples), this service
 uses the Solenso API and returns a single aggregated record per station
-per day — useful for day-level energy dashboards.
+per day - useful for day-level energy dashboards.
  
 By default the service loads data for **today** (or yesterday if the local
 hour is before 01:00, to avoid an empty dataset at midnight). Use
@@ -65,7 +65,7 @@ class MySolensoPowerByStation:
  
     Note:
         Unlike :class:`~mysolenso.services.powerbyday.MySolensoPowerByDay`,
-        this class does **not** automatically fetch data at construction —
+        this class does **not** automatically fetch data at construction -
         call :meth:`get_power_station_refresh` or :meth:`set_day` to trigger
         the first request.
  

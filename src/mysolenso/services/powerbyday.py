@@ -106,9 +106,9 @@ class MySolensoPowerByDay:
 
         The response is a binary protobuf payload containing:
 
-        - **Time labels** — ``HH:MM`` strings, one per measurement interval.
-        - **Date label** — a ``YYYY-MM-DD`` string confirming the queried day.
-        - **grid_power field** — a packed ``repeated float32`` array
+        - **Time labels** - ``HH:MM`` strings, one per measurement interval.
+        - **Date label** - a ``YYYY-MM-DD`` string confirming the queried day.
+        - **grid_power field** - a packed ``repeated float32`` array
           (little-endian) prefixed by a 3-byte protobuf header
           (``grid_power`` marker + ``0x12`` tag + 2-byte length varint).
 
@@ -305,10 +305,10 @@ class MySolensoPowerByDay:
         
         Returns a dictionary with three keys:
 
-        - ``"metric"`` *(str)* — always ``"grid_power"``.
-        - ``"date"``   *(str | None)* — queried date in ``YYYY-MM-DD``
+        - ``"metric"`` *(str)* - always ``"grid_power"``.
+        - ``"date"``   *(str | None)* - queried date in ``YYYY-MM-DD``
           format as confirmed by the API, or ``None`` if absent.
-        - ``"values"`` *(Dict[str, float])* — ``{HH:MM: watts}`` mapping
+        - ``"values"`` *(Dict[str, float])* - ``{HH:MM: watts}`` mapping
           of sampled grid power readings throughout the day.
 
         Returns:
