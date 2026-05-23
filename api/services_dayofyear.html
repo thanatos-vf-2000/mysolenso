@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.services.dayofyeay - Day-of-Year Production History &mdash; mysolenso 1.2.0 documentation</title>
+  <title>mysolenso.services.dayofyeay - Day-of-Year Production History &mdash; mysolenso 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=6efca38a"></script>
+      <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
@@ -79,6 +79,10 @@
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtuselectall"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtuselectall</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtufind"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtufind</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.microfind"><code class="docutils literal notranslate"><span class="pre">MySolenso.microfind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationlayout"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationlayout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationarray"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationarray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.powerplaybackbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerplaybackbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationdatamodule"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdatamodule</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -363,15 +367,26 @@
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_INFO_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_INFO_DEVICE</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_COUNT_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT_DEVICE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_LAYOUT"><code class="docutils literal notranslate"><span class="pre">API_STATION_LAYOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_ARRAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_ARRAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_DATA_MODULE_DAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_DATA_MODULE_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_SELECT_ALL"><code class="docutils literal notranslate"><span class="pre">API_DTU_SELECT_ALL</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_FIND"><code class="docutils literal notranslate"><span class="pre">API_DTU_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_MICRO_FIND"><code class="docutils literal notranslate"><span class="pre">API_MICRO_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_PLAYBACK_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_PLAYBACK_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DOWN_MODULE_DAY_DATA"><code class="docutils literal notranslate"><span class="pre">API_DOWN_MODULE_DAY_DATA</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://monitor.solenso.net/platform/">Solenso monitor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.solenso.fr/">Solenso</a></li>
 </ul>
 
         </div>
@@ -502,7 +517,7 @@ new station. Set to <code class="docutils literal notranslate"><span class="pre"
 <dd><p>Daily energy production indexed by date.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
-<p>{‘2026-04-01’: 4825.0, ‘2026-04-02’: 10020.0, ‘2026-04-03’: 11647.0, ‘2026-04-04’: 16508.0, ‘2026-04-05’: 13898.0, ‘2026-04-06’: 25402.0, ‘2026-04-07’: 25699.0, ‘2026-04-08’: 25338.0, ‘2026-04-09’: 21791.0, ‘2026-04-10’: 22282.0, ‘2026-04-11’: 6802.0, ‘2026-04-12’: 16980.0, ‘2026-04-13’: 20415.0, ‘2026-04-14’: 26688.0, ‘2026-04-15’: 18080.0, ‘2026-04-16’: 23780.0, ‘2026-04-17’: 24516.0, ‘2026-04-18’: 17712.0, ‘2026-04-19’: 23548.0, ‘2026-04-20’: 22471.0, ‘2026-04-21’: 24273.0, ‘2026-04-22’: 26415.0, ‘2026-04-23’: 28823.0, ‘2026-04-24’: 28643.0, ‘2026-04-25’: 27013.0, ‘2026-04-26’: 26410.0, ‘2026-04-27’: 22913.0, ‘2026-04-28’: 23101.0, ‘2026-04-29’: 25910.0, ‘2026-04-30’: 29276.0, ‘2026-05-01’: 23831.0, ‘2026-05-02’: 25386.0, ‘2026-05-03’: 13307.0, ‘2026-05-04’: 10231.0, ‘2026-05-05’: 7342.0, ‘2026-05-06’: 16156.0, ‘2026-05-07’: 21370.0, ‘2026-05-08’: 28599.0, ‘2026-05-09’: 29313.0, ‘2026-05-10’: 11381.0, ‘2026-05-11’: 14577.0, ‘2026-05-12’: 25201.0, ‘2026-05-13’: 14353.0, ‘2026-05-14’: 17647.0, ‘2026-05-15’: 0.0}</p>
+<p>{‘2026-04-01’: 4825.0, ‘2026-04-02’: 10020.0, ‘2026-04-03’: 11647.0, ‘2026-04-04’: 16508.0, ‘2026-04-05’: 13898.0, ‘2026-04-06’: 25402.0, ‘2026-04-07’: 25699.0, ‘2026-04-08’: 25338.0, ‘2026-04-09’: 21791.0, ‘2026-04-10’: 22282.0, ‘2026-04-11’: 6802.0, ‘2026-04-12’: 16980.0, ‘2026-04-13’: 20415.0, ‘2026-04-14’: 26688.0, ‘2026-04-15’: 18080.0, ‘2026-04-16’: 23780.0, ‘2026-04-17’: 24516.0, ‘2026-04-18’: 17712.0, ‘2026-04-19’: 23548.0, ‘2026-04-20’: 22471.0, ‘2026-04-21’: 24273.0, ‘2026-04-22’: 26415.0, ‘2026-04-23’: 28823.0, ‘2026-04-24’: 28643.0, ‘2026-04-25’: 27013.0, ‘2026-04-26’: 26410.0, ‘2026-04-27’: 22913.0, ‘2026-04-28’: 23101.0, ‘2026-04-29’: 25910.0, ‘2026-04-30’: 29276.0, ‘2026-05-01’: 23831.0, ‘2026-05-02’: 25386.0, ‘2026-05-03’: 13307.0, ‘2026-05-04’: 10231.0, ‘2026-05-05’: 7342.0, ‘2026-05-06’: 16156.0, ‘2026-05-07’: 21370.0, ‘2026-05-08’: 28599.0, ‘2026-05-09’: 29313.0, ‘2026-05-10’: 11381.0, ‘2026-05-11’: 14577.0, ‘2026-05-12’: 25201.0, ‘2026-05-13’: 14353.0, ‘2026-05-14’: 17647.0, ‘2026-05-22’: 0.0}</p>
 </div>
 <p>Returns a dictionary where:</p>
 <ul class="simple">
@@ -522,7 +537,7 @@ station, covering every day since commissioning up to today.</p>
 <div class="admonition-example admonition">
 <p class="admonition-title">Example</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">day_of_year</span><span class="o">.</span><span class="n">get_data</span>
-<span class="c1"># {&quot;2025-06-01&quot;: 28612.5, &quot;2025-06-02&quot;: 31072.0, ..., &quot;2026-05-15&quot;: 0.0}</span>
+<span class="c1"># {&quot;2025-06-01&quot;: 28612.5, &quot;2025-06-02&quot;: 31072.0, ..., &quot;2026-05-22&quot;: 0.0}</span>
 
 <span class="c1"># Today&#39;s production (may be 0 if not yet updated)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>

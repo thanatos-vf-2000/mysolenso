@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso - Main Facade &mdash; mysolenso 1.2.0 documentation</title>
+  <title>mysolenso - Main Facade &mdash; mysolenso 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=6efca38a"></script>
+      <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
@@ -79,6 +79,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#mysolenso.mysolenso.MySolenso.dtuselectall"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtuselectall</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mysolenso.mysolenso.MySolenso.dtufind"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtufind</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mysolenso.mysolenso.MySolenso.microfind"><code class="docutils literal notranslate"><span class="pre">MySolenso.microfind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.mysolenso.MySolenso.stationlayout"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationlayout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.mysolenso.MySolenso.stationarray"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationarray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.mysolenso.MySolenso.powerplaybackbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerplaybackbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mysolenso.mysolenso.MySolenso.stationdatamodule"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdatamodule</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -363,15 +367,26 @@
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_INFO_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_INFO_DEVICE</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_COUNT_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT_DEVICE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_LAYOUT"><code class="docutils literal notranslate"><span class="pre">API_STATION_LAYOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_ARRAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_ARRAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_DATA_MODULE_DAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_DATA_MODULE_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_SELECT_ALL"><code class="docutils literal notranslate"><span class="pre">API_DTU_SELECT_ALL</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_FIND"><code class="docutils literal notranslate"><span class="pre">API_DTU_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_MICRO_FIND"><code class="docutils literal notranslate"><span class="pre">API_MICRO_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_PLAYBACK_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_PLAYBACK_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DOWN_MODULE_DAY_DATA"><code class="docutils literal notranslate"><span class="pre">API_DOWN_MODULE_DAY_DATA</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://monitor.solenso.net/platform/">Solenso monitor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.solenso.fr/">Solenso</a></li>
 </ul>
 
         </div>
@@ -752,6 +767,62 @@ with the microinverter id before accessing <code class="xref py py-attr docutils
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="services_micro_find.html#mysolenso.services.micro.find.MySolensoMicroFind" title="mysolenso.services.micro.find.MySolensoMicroFind">MySolensoMicroFind</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mysolenso.mysolenso.MySolenso.stationlayout">
+<span class="sig-name descname"><span class="pre">stationlayout</span></span><a class="headerlink" href="#mysolenso.mysolenso.MySolenso.stationlayout" title="Link to this definition"></a></dt>
+<dd><p>Physical panel placement data for
+the active station. Returns a list of DTU/microinverter records with
+grid coordinates (x, y). Use <code class="xref py py-attr docutils literal notranslate"><span class="pre">list_dtu</span></code> to enumerate DTUs and
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_mi_info_by_dtu()</span></code> to retrieve panels per DTU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>MySolensoStationLayout</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mysolenso.mysolenso.MySolenso.stationarray">
+<span class="sig-name descname"><span class="pre">stationarray</span></span><a class="headerlink" href="#mysolenso.mysolenso.MySolenso.stationarray" title="Link to this definition"></a></dt>
+<dd><p>Panel array configuration for the
+active station. Exposes <code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">angle_tilt</span></code>,
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">orientation</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">row</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">column</span></code>, and related geometry
+fields describing the solar array setup.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>MySolensoStationArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mysolenso.mysolenso.MySolenso.powerplaybackbyday">
+<span class="sig-name descname"><span class="pre">powerplaybackbyday</span></span><a class="headerlink" href="#mysolenso.mysolenso.MySolenso.powerplaybackbyday" title="Link to this definition"></a></dt>
+<dd><p>Intra-day power playback
+curve (Hoymiles). Returns a <code class="docutils literal notranslate"><span class="pre">{HH:MM:</span> <span class="pre">watts}</span></code> mapping for the active
+station and a given date. Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_day()</span></code> to query a specific date
+and <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_power_refresh()</span></code> to force a reload.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>MySolensoPowerPlayBackByDay</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mysolenso.mysolenso.MySolenso.stationdatamodule">
+<span class="sig-name descname"><span class="pre">stationdatamodule</span></span><a class="headerlink" href="#mysolenso.mysolenso.MySolenso.stationdatamodule" title="Link to this definition"></a></dt>
+<dd><p>Daily module data download
+descriptor for the active station. Exposes <code class="xref py py-attr docutils literal notranslate"><span class="pre">sid</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">date</span></code>,
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">url</span></code>, and <code class="xref py py-attr docutils literal notranslate"><span class="pre">full_url</span></code> pointing to the Hoymiles binary data
+file for the configured day.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>MySolensoStationDataModuleDay</p>
 </dd>
 </dl>
 </dd></dl>

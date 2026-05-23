@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick Start &mdash; mysolenso 1.3.0 documentation</title>
+  <title>Changelog &mdash; mysolenso 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -19,8 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="API Reference" href="api/index.html" />
-    <link rel="prev" title="mysolenso - Documentation" href="index.html" /> 
+    <link rel="prev" title="mysolenso.const - Constants" href="api/const.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,16 +42,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#connect-with-a-password">Connect with a password</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#connect-with-an-existing-token">Connect with an existing token</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#real-time-energy-counters">Real-time energy counters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#intra-day-power-curve">Intra-day power curve</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#day-of-year-production-history">Day-of-year production history</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#switch-the-active-station">Switch the active station</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#connect-with-a-password">Connect with a password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#connect-with-an-existing-token">Connect with an existing token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#real-time-energy-counters">Real-time energy counters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#intra-day-power-curve">Intra-day power curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#day-of-year-production-history">Day-of-year production history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#switch-the-active-station">Switch the active station</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a><ul>
@@ -383,8 +382,8 @@
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Project</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://monitor.solenso.net/platform/">Solenso monitor</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://www.solenso.fr/">Solenso</a></li>
 </ul>
@@ -403,9 +402,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Quick Start</li>
+      <li class="breadcrumb-item active">Changelog</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -413,119 +412,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h1>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>mysolenso
-</pre></div>
-</div>
-</section>
-<section id="connect-with-a-password">
-<h2>Connect with a password<a class="headerlink" href="#connect-with-a-password" title="Link to this heading"></a></h2>
-<p>To recover your encrypted password, please use the project
-<a class="reference external" href="https://github.com/thanatos-vf-2000/pwdsolenso">pwdsolenso</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mysolenso</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolenso</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span>
-    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;jdoe&quot;</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;encrypted_pass&quot;</span><span class="p">,</span>  <span class="c1"># server-side encrypted password</span>
-<span class="p">)</span>
-
-<span class="c1"># User profile</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">me</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
-
-<span class="c1"># Active station (first one by default)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_total</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">install_power</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="connect-with-an-existing-token">
-<h2>Connect with an existing token<a class="headerlink" href="#connect-with-an-existing-token" title="Link to this heading"></a></h2>
-<p>To recover an token, please use the project
-<a class="reference external" href="https://github.com/thanatos-vf-2000/pwdsolenso">pwdsolenso</a></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mysolenso</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolenso</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;jdoe&quot;</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="s2">&quot;eyJ...&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="real-time-energy-counters">
-<h2>Real-time energy counters<a class="headerlink" href="#real-time-energy-counters" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">stationcount</span><span class="o">.</span><span class="n">today_eq</span><span class="p">)</span>    <span class="c1"># kWh produced today</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">stationcount</span><span class="o">.</span><span class="n">total_eq</span><span class="p">)</span>    <span class="c1"># kWh lifetime production</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">stationcount</span><span class="o">.</span><span class="n">real_power</span><span class="p">)</span>  <span class="c1"># W current output</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">stationcount</span><span class="o">.</span><span class="n">co2_emission_reduction</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="intra-day-power-curve">
-<h2>Intra-day power curve<a class="headerlink" href="#intra-day-power-curve" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">get_data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>               <span class="c1"># &quot;2026-05-15&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="s2">&quot;10:00&quot;</span><span class="p">])</span>    <span class="c1"># 2048.75  (W at 10:00)</span>
-
-<span class="c1"># Query a specific date</span>
-<span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">set_day</span><span class="p">(</span><span class="s2">&quot;2025-12-25&quot;</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">powerbyday</span><span class="o">.</span><span class="n">get_data</span>
-</pre></div>
-</div>
-</section>
-<section id="day-of-year-production-history">
-<h2>Day-of-year production history<a class="headerlink" href="#day-of-year-production-history" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">countbydayofyear</span><span class="o">.</span><span class="n">get_data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;2026-01-01&quot;</span><span class="p">])</span>   <span class="c1"># Wh produced on that day</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;2026-05-15&quot;</span><span class="p">])</span>   <span class="c1"># 0.0 if not yet updated today</span>
-</pre></div>
-</div>
-</section>
-<section id="error-handling">
-<h2>Error handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mysolenso</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySolenso</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">mysolenso.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">MySolensoAuthenticationException</span><span class="p">,</span>
-    <span class="n">MySolensoConnectionException</span><span class="p">,</span>
-    <span class="n">MySolensoException</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">client</span> <span class="o">=</span> <span class="n">MySolenso</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;wrong&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">MySolensoAuthenticationException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid credentials: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">MySolensoConnectionException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing parameters: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">except</span> <span class="n">MySolensoException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;General error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="switch-the-active-station">
-<h2>Switch the active station<a class="headerlink" href="#switch-the-active-station" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># List all stations</span>
-<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">stations</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;ak&quot;</span><span class="p">])</span>
-
-<span class="c1"># Select the second station (1-based index)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">set_station</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-
-<span class="c1"># Reload counters and history for the new station</span>
-<span class="n">client</span><span class="o">.</span><span class="n">stationcount</span><span class="o">.</span><span class="n">set_station_count</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">countbydayofyear</span><span class="o">.</span><span class="n">set_station_id</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">station_id</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
+  <section id="changelog">
+<span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
+<p>See <a class="reference external" href="https://github.com/thanatos-vf-2000/mysolenso/blob/master/CHANGELOG.md">CHANGELOG.md</a>
+on GitHub for the full release history.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="mysolenso - Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="api/index.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="api/const.html" class="btn btn-neutral float-left" title="mysolenso.const - Constants" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.services.stations.stationinfodev - Station Info Device &mdash; mysolenso 1.2.0 documentation</title>
+  <title>mysolenso.services.stations.stationinfodev - Station Info Device &mdash; mysolenso 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=6efca38a"></script>
+      <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
@@ -79,6 +79,10 @@
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtuselectall"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtuselectall</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtufind"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtufind</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.microfind"><code class="docutils literal notranslate"><span class="pre">MySolenso.microfind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationlayout"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationlayout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationarray"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationarray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.powerplaybackbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerplaybackbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationdatamodule"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdatamodule</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -363,15 +367,26 @@
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_INFO_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_INFO_DEVICE</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_COUNT_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT_DEVICE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_LAYOUT"><code class="docutils literal notranslate"><span class="pre">API_STATION_LAYOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_ARRAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_ARRAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_DATA_MODULE_DAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_DATA_MODULE_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_SELECT_ALL"><code class="docutils literal notranslate"><span class="pre">API_DTU_SELECT_ALL</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_FIND"><code class="docutils literal notranslate"><span class="pre">API_DTU_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_MICRO_FIND"><code class="docutils literal notranslate"><span class="pre">API_MICRO_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_PLAYBACK_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_PLAYBACK_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DOWN_MODULE_DAY_DATA"><code class="docutils literal notranslate"><span class="pre">API_DOWN_MODULE_DAY_DATA</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://monitor.solenso.net/platform/">Solenso monitor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.solenso.fr/">Solenso</a></li>
 </ul>
 
         </div>
@@ -466,7 +481,7 @@ the device tree for the new station.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><dl>
-<dt>{</dt><dd><p>“sn”: “D0100289H”,
+<dt>{</dt><dd><p>“sn”: “D0900999H”,
 “warn_data”: {</p>
 <blockquote>
 <div><p>”_rw”: “”,
@@ -474,9 +489,9 @@ the device tree for the new station.</p></li>
 “warn”: false</p>
 </div></blockquote>
 <p>},
-“id”: 1456060,
+“id”: 1238090,
 “vc”: “289”,
-“dtu_sn”: “D0100289H”,
+“dtu_sn”: “D0900999H”,
 “type”: 1,
 “version”: 3,
 “replace_num”: 0,
@@ -487,16 +502,16 @@ the device tree for the new station.</p></li>
 “children”: [</p>
 <blockquote>
 <div><dl>
-<dt>{</dt><dd><p>“sn”: “A11001X4A”,
+<dt>{</dt><dd><p>“sn”: “A900016B5”,
 “warn_data”: {</p>
 <blockquote>
 <div><p>”warn”: false,
 “connect”: true</p>
 </div></blockquote>
 <p>},
-“id”: 7454520,
+“id”: 9988950,
 “vc”: “2L2”,
-“dtu_sn”: “D0100289H”,
+“dtu_sn”: “D0900999H”,
 “type”: 3,
 “version”: 3,
 “replace_num”: 0,
@@ -524,16 +539,16 @@ the device tree for the new station.</p></li>
 <p>},
 {</p>
 <blockquote>
-<div><p>”sn”: “A110016VJ”,
+<div><p>”sn”: “A900016B4”,
 “warn_data”: {</p>
 <blockquote>
 <div><p>”warn”: false,
 “connect”: true</p>
 </div></blockquote>
 <p>},
-“id”: 6654200,
+“id”: 9988940,
 “vc”: “22L”,
-“dtu_sn”: “D0100289H”,
+“dtu_sn”: “D0900999H”,
 “type”: 3,
 “version”: 3,
 “replace_num”: 0,
@@ -560,16 +575,16 @@ the device tree for the new station.</p></li>
 <p>},
 {</p>
 <blockquote>
-<div><p>”sn”: “A110016L3”,
+<div><p>”sn”: “A900016B3”,
 “warn_data”: {</p>
 <blockquote>
 <div><p>”warn”: false,
 “connect”: true</p>
 </div></blockquote>
 <p>},
-“id”: 6654210,
+“id”: 9988910,
 “vc”: “212”,
-“dtu_sn”: “D0100289H”,
+“dtu_sn”: “D0900999H”,
 “type”: 3,
 “version”: 3,
 “replace_num”: 0,
@@ -596,16 +611,16 @@ the device tree for the new station.</p></li>
 <p>},
 {</p>
 <blockquote>
-<div><p>”sn”: “A110016GV”,
+<div><p>”sn”: “A900016B2”,
 “warn_data”: {</p>
 <blockquote>
 <div><p>”warn”: false,
 “connect”: true</p>
 </div></blockquote>
 <p>},
-“id”: 6654230,
+“id”: 9988930,
 “vc”: “23D”,
-“dtu_sn”: “D0100289H”,
+“dtu_sn”: “D0900999H”,
 “type”: 3,
 “version”: 3,
 “replace_num”: 0,
@@ -632,16 +647,16 @@ the device tree for the new station.</p></li>
 <p>},
 {</p>
 <blockquote>
-<div><p>”sn”: “A110016B1”,
+<div><p>”sn”: “A900016B1”,
 “warn_data”: {</p>
 <blockquote>
 <div><p>”warn”: false,
 “connect”: true</p>
 </div></blockquote>
 <p>},
-“id”: 6654220,
+“id”: 9988920,
 “vc”: “2BD”,
-“dtu_sn”: “D0100289H”,
+“dtu_sn”: “D0900999H”,
 “type”: 3,
 “version”: 3,
 “replace_num”: 0,

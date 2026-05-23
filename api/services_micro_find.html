@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.services.micro.find - Micro Find &mdash; mysolenso 1.2.0 documentation</title>
+  <title>mysolenso.services.micro.find - Micro Find &mdash; mysolenso 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=6efca38a"></script>
+      <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
@@ -79,6 +79,10 @@
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtuselectall"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtuselectall</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtufind"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtufind</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.microfind"><code class="docutils literal notranslate"><span class="pre">MySolenso.microfind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationlayout"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationlayout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationarray"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationarray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.powerplaybackbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerplaybackbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationdatamodule"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdatamodule</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -363,15 +367,26 @@
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_INFO_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_INFO_DEVICE</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_COUNT_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT_DEVICE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_LAYOUT"><code class="docutils literal notranslate"><span class="pre">API_STATION_LAYOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_ARRAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_ARRAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_STATION_DATA_MODULE_DAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_DATA_MODULE_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_SELECT_ALL"><code class="docutils literal notranslate"><span class="pre">API_DTU_SELECT_ALL</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DTU_FIND"><code class="docutils literal notranslate"><span class="pre">API_DTU_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_MICRO_FIND"><code class="docutils literal notranslate"><span class="pre">API_MICRO_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_POWER_PLAYBACK_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_PLAYBACK_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="const.html#mysolenso.const.API_DOWN_MODULE_DAY_DATA"><code class="docutils literal notranslate"><span class="pre">API_DOWN_MODULE_DAY_DATA</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://monitor.solenso.net/platform/">Solenso monitor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.solenso.fr/">Solenso</a></li>
 </ul>
 
         </div>
@@ -486,10 +501,10 @@ microinverter detail record from the API.</p></li>
 versions, hardware model, port configuration, parent DTU reference,
 and connection/warning status. Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;sn&quot;</span><span class="p">:</span> <span class="s2">&quot;A11001X4A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sn&quot;</span><span class="p">:</span> <span class="s2">&quot;A900016B5&quot;</span><span class="p">,</span>
     <span class="s2">&quot;warn_data&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;warn&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;connect&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7454520</span><span class="p">,</span>
-    <span class="s2">&quot;sid&quot;</span><span class="p">:</span> <span class="mi">1553580</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">9988950</span><span class="p">,</span>
+    <span class="s2">&quot;sid&quot;</span><span class="p">:</span> <span class="mi">9999999</span><span class="p">,</span>
     <span class="s2">&quot;station_name&quot;</span><span class="p">:</span> <span class="s2">&quot;DOE JOHN&quot;</span><span class="p">,</span>
     <span class="s2">&quot;dev_type&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="s2">&quot;tz_name&quot;</span><span class="p">:</span> <span class="s2">&quot;UTC+01&quot;</span><span class="p">,</span>
@@ -497,8 +512,8 @@ and connection/warning status. Example:</p>
     <span class="s2">&quot;init_soft_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;V01.00.04&quot;</span><span class="p">,</span>
     <span class="s2">&quot;init_hard_no&quot;</span><span class="p">:</span> <span class="s2">&quot;Sol-H1000H&quot;</span><span class="p">,</span>
     <span class="s2">&quot;init_hard_ver&quot;</span><span class="p">:</span> <span class="s2">&quot;H00.04.00&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;dtu_id&quot;</span><span class="p">:</span> <span class="mi">1456060</span><span class="p">,</span>
-    <span class="s2">&quot;dtu_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;D0100289H&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dtu_id&quot;</span><span class="p">:</span> <span class="mi">1238090</span><span class="p">,</span>
+    <span class="s2">&quot;dtu_sn&quot;</span><span class="p">:</span> <span class="s2">&quot;D0900999H&quot;</span><span class="p">,</span>
     <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;phase&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;series&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="o">...</span><span class="p">},</span>
     <span class="o">...</span>
 <span class="p">}</span>

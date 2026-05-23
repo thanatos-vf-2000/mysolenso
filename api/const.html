@@ -6,19 +6,20 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.const - Constants &mdash; mysolenso 1.2.0 documentation</title>
+  <title>mysolenso.const - Constants &mdash; mysolenso 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=6efca38a"></script>
+      <script src="../_static/documentation_options.js?v=1f29e9d3"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changelog" href="../changelog.html" />
     <link rel="prev" title="mysolenso.exceptions - Exceptions" href="exceptions.html" /> 
 </head>
 
@@ -78,6 +79,10 @@
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtuselectall"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtuselectall</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.dtufind"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtufind</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.microfind"><code class="docutils literal notranslate"><span class="pre">MySolenso.microfind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationlayout"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationlayout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationarray"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationarray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.powerplaybackbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerplaybackbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mysolenso.html#mysolenso.mysolenso.MySolenso.stationdatamodule"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdatamodule</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -362,15 +367,26 @@
 <li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_STATION_INFO_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_INFO_DEVICE</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_STATION_COUNT_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT_DEVICE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_STATION_LAYOUT"><code class="docutils literal notranslate"><span class="pre">API_STATION_LAYOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_STATION_ARRAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_ARRAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_STATION_DATA_MODULE_DAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_DATA_MODULE_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_DTU_SELECT_ALL"><code class="docutils literal notranslate"><span class="pre">API_DTU_SELECT_ALL</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_DTU_FIND"><code class="docutils literal notranslate"><span class="pre">API_DTU_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_MICRO_FIND"><code class="docutils literal notranslate"><span class="pre">API_MICRO_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_POWER_PLAYBACK_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_PLAYBACK_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mysolenso.const.API_DOWN_MODULE_DAY_DATA"><code class="docutils literal notranslate"><span class="pre">API_DOWN_MODULE_DAY_DATA</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://monitor.solenso.net/platform/">Solenso monitor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.solenso.fr/">Solenso</a></li>
 </ul>
 
         </div>
@@ -605,6 +621,45 @@ meters, BMS units, and so on.</p>
 </dd></dl>
 
 <dl class="py data">
+<dt class="sig sig-object py" id="mysolenso.const.API_STATION_LAYOUT">
+<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_LAYOUT</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/pvm/layout_select_all'</span></span><a class="headerlink" href="#mysolenso.const.API_STATION_LAYOUT" title="Link to this definition"></a></dt>
+<dd><p>POST endpoint to retrieve the physical layout of all inverter panels for a station.</p>
+<p>Request body: <code class="docutils literal notranslate"><span class="pre">{&quot;body&quot;:</span> <span class="pre">{&quot;id&quot;:</span> <span class="pre">&lt;station_id&gt;},</span> <span class="pre">&quot;WAITING_PROMISE&quot;:</span> <span class="pre">true}</span></code>.
+Returns a list of panel placement records, each containing DTU id/sn, microinverter
+id/sn, port number, and grid coordinates (x, y) that describe the panel’s position
+in the installation layout.</p>
+<p>Used by <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoStationLayout</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mysolenso.const.API_STATION_ARRAY">
+<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_ARRAY</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/pvm/array_select_all'</span></span><a class="headerlink" href="#mysolenso.const.API_STATION_ARRAY" title="Link to this definition"></a></dt>
+<dd><p>POST endpoint to retrieve the panel array configuration for a station.</p>
+<p>Request body: <code class="docutils literal notranslate"><span class="pre">{&quot;body&quot;:</span> <span class="pre">{&quot;id&quot;:</span> <span class="pre">&lt;station_id&gt;},</span> <span class="pre">&quot;WAITING_PROMISE&quot;:</span> <span class="pre">true}</span></code>.
+Returns a JSON array whose first element contains the array’s name, tilt angle,
+orientation, row/column dimensions, pattern code, layout tilt, and minimum grid
+offsets (e_min_x, e_min_y).</p>
+<p>Used by <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoStationArray</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mysolenso.const.API_STATION_DATA_MODULE_DAY">
+<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_STATION_DATA_MODULE_DAY</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/pvm-data/data_select_module_day_data'</span></span><a class="headerlink" href="#mysolenso.const.API_STATION_DATA_MODULE_DAY" title="Link to this definition"></a></dt>
+<dd><p>POST endpoint to retrieve the daily module data download descriptor for a station.</p>
+<p>Request body:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sid&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">station_id</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;YYYY-MM-DD&quot;</span><span class="p">,</span> <span class="s2">&quot;day_num&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+    <span class="s2">&quot;WAITING_PROMISE&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Returns a JSON array whose first element contains the station id (<code class="docutils literal notranslate"><span class="pre">sid</span></code>), the
+queried date, the relative download URL (<code class="docutils literal notranslate"><span class="pre">url</span></code>), and the HTTP method required
+to fetch the binary module data.</p>
+<p>Used by <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoStationDataModuleDay</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
 <dt class="sig sig-object py" id="mysolenso.const.API_DTU_SELECT_ALL">
 <span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_DTU_SELECT_ALL</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://monitor.solenso.net/platform/api/gateway/pvm/dtu_select_all'</span></span><a class="headerlink" href="#mysolenso.const.API_DTU_SELECT_ALL" title="Link to this definition"></a></dt>
 <dd><p>POST endpoint to retrieve the DTU and all associated microinverters for a station.</p>
@@ -656,6 +711,26 @@ since the station was commissioned.</p>
 <p>Used by <a class="reference internal" href="services_dayofyear.html#mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay" title="mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay"><code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoCountByDayOfYeay</span></code></a>.</p>
 </dd></dl>
 
+<dl class="py data">
+<dt class="sig sig-object py" id="mysolenso.const.API_POWER_PLAYBACK_BY_DAY">
+<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_POWER_PLAYBACK_BY_DAY</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://neapi.hoymiles.com/pvm-data/api/0/station/data/count_playback_power_by_day'</span></span><a class="headerlink" href="#mysolenso.const.API_POWER_PLAYBACK_BY_DAY" title="Link to this definition"></a></dt>
+<dd><p>POST endpoint for the intra-day power playback curve of a station (Hoymiles).</p>
+<p>Request body: <code class="docutils literal notranslate"><span class="pre">{&quot;sid&quot;:</span> <span class="pre">&lt;station_id&gt;,</span> <span class="pre">&quot;date&quot;:</span> <span class="pre">&quot;YYYY-MM-DD&quot;}</span></code>.
+Returns a binary protobuf response containing <code class="docutils literal notranslate"><span class="pre">HH:MM</span></code> time labels and a packed
+<code class="docutils literal notranslate"><span class="pre">float32</span></code> array of instantaneous power values (Watts) sampled throughout the day.</p>
+<p>Used by <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoPowerPlayBackByDay</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="mysolenso.const.API_DOWN_MODULE_DAY_DATA">
+<span class="sig-prename descclassname"><span class="pre">mysolenso.const.</span></span><span class="sig-name descname"><span class="pre">API_DOWN_MODULE_DAY_DATA</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://neapi.hoymiles.com/pvm-data/api/0/module/data/down_module_day_data'</span></span><a class="headerlink" href="#mysolenso.const.API_DOWN_MODULE_DAY_DATA" title="Link to this definition"></a></dt>
+<dd><p>POST endpoint to download raw daily module data (Hoymiles).</p>
+<p>Returns the binary data file for all microinverter modules associated with a
+station for the requested day. The download URL and HTTP method for this endpoint
+are first obtained via <a class="reference internal" href="#mysolenso.const.API_STATION_DATA_MODULE_DAY" title="mysolenso.const.API_STATION_DATA_MODULE_DAY"><code class="xref py py-data docutils literal notranslate"><span class="pre">API_STATION_DATA_MODULE_DAY</span></code></a>.</p>
+<p>Used by <code class="xref py py-class docutils literal notranslate"><span class="pre">MySolensoStationDataModuleDay</span></code>.</p>
+</dd></dl>
+
 </section>
 
 
@@ -663,6 +738,7 @@ since the station was commissioned.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="exceptions.html" class="btn btn-neutral float-left" title="mysolenso.exceptions - Exceptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

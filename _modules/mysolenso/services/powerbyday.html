@@ -5,14 +5,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mysolenso.services.powerbyday &mdash; mysolenso 1.2.0 documentation</title>
+  <title>mysolenso.services.powerbyday &mdash; mysolenso 1.3.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../_static/documentation_options.js?v=6efca38a"></script>
+      <script src="../../../_static/documentation_options.js?v=1f29e9d3"></script>
       <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -76,6 +76,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.dtuselectall"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtuselectall</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.dtufind"><code class="docutils literal notranslate"><span class="pre">MySolenso.dtufind</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.microfind"><code class="docutils literal notranslate"><span class="pre">MySolenso.microfind</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationlayout"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationlayout</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationarray"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationarray</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.powerplaybackbyday"><code class="docutils literal notranslate"><span class="pre">MySolenso.powerplaybackbyday</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/mysolenso.html#mysolenso.mysolenso.MySolenso.stationdatamodule"><code class="docutils literal notranslate"><span class="pre">MySolenso.stationdatamodule</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -360,15 +364,26 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_OEM_COUNT"><code class="docutils literal notranslate"><span class="pre">API_OEM_COUNT</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_STATION_INFO_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_INFO_DEVICE</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_STATION_COUNT_DEVICE"><code class="docutils literal notranslate"><span class="pre">API_STATION_COUNT_DEVICE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_STATION_LAYOUT"><code class="docutils literal notranslate"><span class="pre">API_STATION_LAYOUT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_STATION_ARRAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_ARRAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_STATION_DATA_MODULE_DAY"><code class="docutils literal notranslate"><span class="pre">API_STATION_DATA_MODULE_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_DTU_SELECT_ALL"><code class="docutils literal notranslate"><span class="pre">API_DTU_SELECT_ALL</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_DTU_FIND"><code class="docutils literal notranslate"><span class="pre">API_DTU_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_MICRO_FIND"><code class="docutils literal notranslate"><span class="pre">API_MICRO_FIND</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_POWER_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_BY_DAY</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_POWER_DAY_OF_YEAR"><code class="docutils literal notranslate"><span class="pre">API_POWER_DAY_OF_YEAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_POWER_PLAYBACK_BY_DAY"><code class="docutils literal notranslate"><span class="pre">API_POWER_PLAYBACK_BY_DAY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/const.html#mysolenso.const.API_DOWN_MODULE_DAY_DATA"><code class="docutils literal notranslate"><span class="pre">API_DOWN_MODULE_DAY_DATA</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://monitor.solenso.net/platform/">Solenso monitor</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.solenso.fr/">Solenso</a></li>
 </ul>
 
         </div>
@@ -416,7 +431,7 @@
 <span class="sd">        client = MySolenso(username=&quot;user&quot;, token=&quot;tok&quot;)</span>
 
 <span class="sd">        result = client.powerbyday.get_data</span>
-<span class="sd">        print(result[&quot;date&quot;])              # &quot;2026-05-15&quot;</span>
+<span class="sd">        print(result[&quot;date&quot;])              # &quot;2026-05-22&quot;</span>
 <span class="sd">        print(result[&quot;metric&quot;])            # &quot;grid_power&quot;</span>
 <span class="sd">        print(result[&quot;values&quot;][&quot;08:30&quot;])   # e.g. 1523.5  (W)</span>
 
@@ -473,7 +488,7 @@
 <span class="sd">            client = MySolenso(username=&quot;admin&quot;, token=&quot;tok&quot;)</span>
 <span class="sd">            pb = client.powerbyday</span>
 
-<span class="sd">            print(pb.get_data[&quot;date&quot;])              # &quot;2026-05-15&quot;</span>
+<span class="sd">            print(pb.get_data[&quot;date&quot;])              # &quot;2026-05-22&quot;</span>
 <span class="sd">            print(pb.get_data[&quot;metric&quot;])            # &quot;grid_power&quot;</span>
 <span class="sd">            print(pb.get_data[&quot;values&quot;][&quot;10:00&quot;])   # 2048.75  (W)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -650,7 +665,7 @@
 <span class="sd">        Example:</span>
 <span class="sd">            ::</span>
 
-<span class="sd">                client.powerbyday.set_day(&quot;2025-12-25&quot;)</span>
+<span class="sd">                client.powerbyday.set_day(&quot;2026-05-22&quot;)</span>
 <span class="sd">                print(client.powerbyday.get_data[&quot;values&quot;])</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
@@ -708,7 +723,7 @@
 <span class="sd">        Example:</span>
 <span class="sd">        {</span>
 <span class="sd">            &#39;metric&#39;: &#39;grid_power&#39;,</span>
-<span class="sd">            &#39;date&#39;: &#39;2025-05-12&#39;,</span>
+<span class="sd">            &#39;date&#39;: &#39;2026-05-22&#39;,</span>
 <span class="sd">            &#39;values&#39;: {&#39;00:00&#39;: 0.0, &#39;01:00&#39;: 0.0, &#39;02:00&#39;: 0.0, &#39;03:00&#39;: 0.0, &#39;04:00&#39;: 0.0, &#39;05:00&#39;: 0.0, &#39;06:00&#39;: 0.0, &#39;06:30&#39;: 42.6, &#39;06:45&#39;: 71.6, &#39;07:00&#39;: 108.3, &#39;07:15&#39;: 114.9, &#39;07:30&#39;: 199.4, &#39;07:45&#39;: 161.2, &#39;08:00&#39;: 139.6, &#39;08:15&#39;: 257.2, &#39;08:30&#39;: 501.9, &#39;08:45&#39;: 743.0, &#39;09:00&#39;: 784.7, &#39;09:15&#39;: 881.3, &#39;09:30&#39;: 1259.3, &#39;09:45&#39;: 929.3, &#39;10:00&#39;: 1225.9, &#39;10:15&#39;: 1416.0, &#39;10:30&#39;: 1535.7, &#39;10:45&#39;: 1131.0, &#39;11:00&#39;: 1917.1, &#39;11:15&#39;: 2750.5, &#39;11:30&#39;: 1542.4, &#39;11:45&#39;: 1220.3, &#39;12:00&#39;: 2245.9, &#39;12:15&#39;: 3135.0, &#39;12:30&#39;: 2582.1, &#39;12:45&#39;: 1930.6, &#39;13:00&#39;: 4368.4, &#39;13:15&#39;: 3474.5, &#39;13:30&#39;: 1516.8, &#39;13:45&#39;: 2436.1, &#39;14:00&#39;: 3371.3, &#39;14:15&#39;: 1513.3, &#39;14:30&#39;: 1891.5, &#39;14:45&#39;: 1967.2, &#39;15:00&#39;: 1906.7, &#39;15:15&#39;: 2066.9, &#39;15:30&#39;: 1863.2, &#39;15:45&#39;: 4957.9, &#39;16:00&#39;: 4360.8, &#39;16:15&#39;: 4118.8, &#39;16:30&#39;: 3748.1, &#39;16:45&#39;: 926.6, &#39;17:00&#39;: 1326.0, &#39;17:15&#39;: 1702.5, &#39;17:30&#39;: 1394.9, &#39;17:45&#39;: 1063.7, &#39;18:00&#39;: 645.2, &#39;18:15&#39;: 2089.5, &#39;18:30&#39;: 241.0, &#39;18:45&#39;: 549.7, &#39;19:00&#39;: 686.4, &#39;19:15&#39;: 583.5, &#39;19:30&#39;: 567.7, &#39;19:45&#39;: 434.7, &#39;20:00&#39;: 436.8, &#39;20:15&#39;: 426.4, &#39;20:30&#39;: 389.6, &#39;20:45&#39;: 177.9, &#39;21:00&#39;: 56.4, &#39;21:15&#39;: 20.8, &#39;22:15&#39;: 0.0, &#39;23:15&#39;: 0.0}</span>
 <span class="sd">        }</span>
 <span class="sd">        </span>
@@ -730,7 +745,7 @@
 <span class="sd">                data = client.powerbyday.get_data</span>
 <span class="sd">                # {</span>
 <span class="sd">                #   &quot;metric&quot;: &quot;grid_power&quot;,</span>
-<span class="sd">                #   &quot;date&quot;:   &quot;2026-05-15&quot;,</span>
+<span class="sd">                #   &quot;date&quot;:   &quot;2026-05-22&quot;,</span>
 <span class="sd">                #   &quot;values&quot;: {&quot;08:00&quot;: 512.0, &quot;08:30&quot;: 1024.5, ...}</span>
 <span class="sd">                # }</span>
 <span class="sd">                print(data[&quot;values&quot;].get(&quot;12:00&quot;, 0))</span>
