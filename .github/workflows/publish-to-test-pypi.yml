@@ -6,7 +6,9 @@ on:
       - master  # ou 'master' selon ton projet
     tags:
       - '*'
-
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  
 permissions:
   contents: read
   id-token: write  # requis pour Trusted Publishing

@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - master  # ou 'master' selon ton projet
-      
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: write      # push, release
   actions: read        # lire les actions

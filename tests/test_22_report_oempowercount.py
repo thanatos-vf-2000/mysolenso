@@ -76,7 +76,7 @@ def test_construction_default_day_today():
     from datetime import datetime
     parent = _make_parent()
     with patch("mysolenso.services.reports.oempowercount.datetime") as mock_dt:
-        mock_dt.now.return_value = datetime(2026, 5, 15, 10, 0, 0)
+        mock_dt.now.return_value = datetime(2026, 5, 22, 10, 0, 0)
         count = MySolensoOEMPowerCount(parent)
     assert count._day_min == "2026-05-22"
     assert count._day_max == "2026-05-22"

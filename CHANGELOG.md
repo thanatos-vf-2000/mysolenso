@@ -1,6 +1,9 @@
 # CHANGELOG
 
 <!-- version list -->
+## v1.3.1 (2026-05-23)
+- Correction pytest: test 15, 21 and 22 change day,
+- Force node24 for yaml (FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true).
 
 ## v1.3.0 (2026-05-23)
 - Add Class MySolensoStationLayout,

@@ -101,7 +101,7 @@ def test_construction_default_day_range_today():
     from datetime import datetime
     parent = _make_parent()
     with patch("mysolenso.services.reports.oempower.datetime") as mock_dt:
-        fake_now = datetime(2026, 5, 15, 10, 0, 0)
+        fake_now = datetime(2026, 5, 22, 10, 0, 0)
         mock_dt.now.return_value = fake_now
         oem = MySolensoOEMPower(parent)
     assert oem._day_min == "2026-05-22"
