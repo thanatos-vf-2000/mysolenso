@@ -109,7 +109,7 @@ def test_construction_default_day_is_today():
     with patch(PATCH_PATH) as MockPost:
         MockPost.return_value.poststr.return_value = SAMPLE_RESPONSE
         with patch("mysolenso.services.powerbyday.datetime") as mock_dt:
-            mock_dt.now.return_value = datetime(2026, 5, 15, 10, 0, 0)
+            mock_dt.now.return_value = datetime(2026, 5, 22, 10, 0, 0)
             mock_dt.strptime = datetime.strptime
             pbd = MySolensoPowerByDay(parent)
     assert pbd._day == "2026-05-22"
