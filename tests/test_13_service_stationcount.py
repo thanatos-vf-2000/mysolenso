@@ -20,8 +20,8 @@ STATION_DETAIL = {
                 "real_power": "0",
                 "co2_emission_reduction": "14641919.069",
                 "plant_tree": "800",
-                "data_time": "2026-05-14 21:20:06",
-                "last_data_time": "2026-05-14 21:20:06",
+                "data_time": "2026-05-22 21:20:06",
+                "last_data_time": "2026-05-22 21:20:06",
                 "capacitor": "5",
                 "is_balance": 0,
                 "is_reflux": 0,
@@ -90,12 +90,12 @@ def test_stationcount_plant_tree():
 
 def test_stationcount_data_time():
     sd = _make_stationcount(STATION_DETAIL)
-    assert sd.data_time == "2026-05-14 21:20:06"
+    assert sd.data_time == "2026-05-22 21:20:06"
 
 
 def test_stationcount_last_data_time():
     sd = _make_stationcount(STATION_DETAIL)
-    assert sd.last_data_time == "2026-05-14 21:20:06"
+    assert sd.last_data_time == "2026-05-22 21:20:06"
 
 
 def test_stationcount_capacitor():

@@ -18,7 +18,7 @@ FULL_RESPONSE = [{
                     "connect": True,
                     "warn": False
                 },
-                "id": 1456060,
+                "id": 1238090,
                 "vc": "289",
                 "dtu_sn": "AABBCCDD",
                 "type": 1,
@@ -35,7 +35,7 @@ FULL_RESPONSE = [{
                             "warn": False,
                             "connect": True
                         },
-                        "id": 7454520,
+                        "id": 9988950,
                         "vc": "2L2",
                         "dtu_sn": "AABBCCDD",
                         "type": 3,
@@ -63,7 +63,7 @@ FULL_RESPONSE = [{
                             "warn": False,
                             "connect": True
                         },
-                        "id": 6654200,
+                        "id": 9988940,
                         "vc": "22L",
                         "dtu_sn": "AABBCCDD",
                         "type": 3,
@@ -91,7 +91,7 @@ FULL_RESPONSE = [{
                             "warn": False,
                             "connect": True
                         },
-                        "id": 6654210,
+                        "id": 9988910,
                         "vc": "212",
                         "dtu_sn": "AABBCCDD",
                         "type": 3,

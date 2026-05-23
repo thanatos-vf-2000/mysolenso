@@ -11,13 +11,13 @@ from mysolenso.exceptions import MySolensoException
 # Sample data
 # ---------------------------------------------------------------------------
  
-DTU_ID = 1456060
+DTU_ID = 1238090
  
 FULL_RESPONSE = {
     "id": DTU_ID,
-    "sid": 1553580,
+    "sid": 9999999,
     "station_name": "DOE JOHN",
-    "sn": "D0100289H",
+    "sn": "D0900999H",
     "dev_type": 1,
     "tz_name": "UTC+01",
     "vc": "289",
@@ -134,7 +134,7 @@ def test_all_data_station_name():
  
 def test_all_data_sn():
     obj = _make_dtu_find()
-    assert obj.all_data["sn"] == "D0100289H"
+    assert obj.all_data["sn"] == "D0900999H"
  
  
 def test_all_data_mi_num():

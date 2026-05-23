@@ -199,7 +199,7 @@ class MySolensoPowerPlayBackByDay:
         Example:
             ::
 
-                client.powerbyday.set_day("2025-12-25")
+                client.powerbyday.set_day("2026-05-22")
                 print(client.powerbyday.get_data["values"])
         """
         try:

@@ -21,7 +21,7 @@ STATION_DETAIL = {
     "money_unit":        "EUR",
     "electricity_price": 0.174,
     "timezone":          {"name": "Europe/Paris", "offset": 1},
-    "local_time":        "2026-05-15 10:32:00",
+    "local_time":        "2026-05-22 10:32:00",
     "group":     {
                     "id": 123456,
                     "name": "Install Solenso",
@@ -101,7 +101,7 @@ def test_stationdata_timezone():
 
 def test_stationdata_local_time():
     sd = _make_stationdata(STATION_DETAIL)
-    assert sd.local_time == "2026-05-15 10:32:00"
+    assert sd.local_time == "2026-05-22 10:32:00"
 
 
 def test_stationdata_install_power():

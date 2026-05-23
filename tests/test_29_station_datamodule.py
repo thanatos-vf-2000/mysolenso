@@ -14,7 +14,7 @@ from mysolenso.exceptions import MySolensoException
 
 DATAMODULE_RESPONSE = [
     {
-        "sid": 1553580,
+        "sid": 9999999,
         "date": "2026-05-12",
         "url": "/api/0/module/data/down_module_day_data",
         "method": "POST",
@@ -83,7 +83,7 @@ class TestMySolensoStationDataModuleDayProperties:
         assert obj.all_data == DATAMODULE_RESPONSE[0]
 
     def test_sid(self):
-        assert _make_datamodule().sid == 1553580
+        assert _make_datamodule().sid == 9999999
 
     def test_url(self):
         assert _make_datamodule().url == "/api/0/module/data/down_module_day_data"

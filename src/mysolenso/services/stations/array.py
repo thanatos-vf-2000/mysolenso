@@ -186,7 +186,7 @@ class MySolensoStationArray:
             dict: Device count summary. Example::
 
             {
-                "id": 268104,
+                "id": 270901,
                 "name": "DOE JOHN,
                 "angle_tilt": 20,
                 "orientation": 0,

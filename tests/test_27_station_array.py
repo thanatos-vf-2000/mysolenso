@@ -13,7 +13,7 @@ from mysolenso.exceptions import MySolensoException
 
 ARRAY_RESPONSE = [
     {
-        "id": 268104,
+        "id": 270901,
         "name": "DOE JOHN",
         "angle_tilt": 20,
         "orientation": 0,
@@ -82,7 +82,7 @@ class TestMySolensoStationArrayProperties:
         assert obj.all_data == ARRAY_RESPONSE[0]
 
     def test_id(self):
-        assert _make_array().id == 268104
+        assert _make_array().id == 270901
 
     def test_name(self):
         assert _make_array().name == "DOE JOHN"

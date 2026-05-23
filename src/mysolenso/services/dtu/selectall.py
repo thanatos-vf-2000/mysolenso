@@ -177,8 +177,8 @@ class MySolensoDTUSelectAll:
  
                 {
                     "dtu": {
-                        "id": 1456060,
-                        "sn": "D0100289H",
+                        "id": 1238090,
+                        "sn": "D0900999H",
                         "dev_type": 1,
                         "vc": "289"
                     },
@@ -192,8 +192,8 @@ class MySolensoDTUSelectAll:
                             "inv_type": null,
                             "micros": [
                                 {
-                                    "sn": "A110016B1",
-                                    "id": 6654220,
+                                    "sn": "A900016B1",
+                                    "id": 9988920,
                                     "vc": "2BD",
                                     "dev_type": 3,
                                     "port_array": [
@@ -202,8 +202,8 @@ class MySolensoDTUSelectAll:
                                     ]
                                 },
                                 {
-                                    "sn": "A110016GV",
-                                    "id": 6654230,
+                                    "sn": "A900016B2",
+                                    "id": 9988930,
                                     "vc": "23D",
                                     "dev_type": 3,
                                     "port_array": [
@@ -212,8 +212,8 @@ class MySolensoDTUSelectAll:
                                     ]
                                 },
                                 {
-                                    "sn": "A110016L3",
-                                    "id": 6654210,
+                                    "sn": "A900016B3",
+                                    "id": 9988910,
                                     "vc": "212",
                                     "dev_type": 3,
                                     "port_array": [
@@ -222,8 +222,8 @@ class MySolensoDTUSelectAll:
                                     ]
                                 },
                                 {
-                                    "sn": "A110016VJ",
-                                    "id": 6654200,
+                                    "sn": "A900016B4",
+                                    "id": 9988940,
                                     "vc": "22L",
                                     "dev_type": 3,
                                     "port_array": [
@@ -232,8 +232,8 @@ class MySolensoDTUSelectAll:
                                     ]
                                 },
                                 {
-                                    "sn": "A11001X4A",
-                                    "id": 7454520,
+                                    "sn": "A900016B5",
+                                    "id": 9988950,
                                     "vc": "2L2",
                                     "dev_type": 3,
                                     "port_array": [
@@ -255,7 +255,7 @@ class MySolensoDTUSelectAll:
  
     @property
     def dtu_sn(self) -> str:
-        """Serial number of the primary DTU (e.g. ``"D0100289H"``)."""
+        """Serial number of the primary DTU (e.g. ``"D0900999H"``)."""
         return self._dtu_sn
  
     @property
@@ -277,7 +277,7 @@ class MySolensoDTUSelectAll:
             ``dev_type``, and ``port_array`` for one microinverter. Example::
  
                 [
-                    {"sn": "A110016B1", "id": 6654220, "vc": "2BD",
+                    {"sn": "A900016B1", "id": 9988920, "vc": "2BD",
                      "dev_type": 3, "port_array": [1, 2]},
                     ...
                 ]
@@ -292,8 +292,8 @@ class MySolensoDTUSelectAll:
             list[dict]: Each item contains only ``sn`` and ``id``. Example::
  
                 [
-                    {"sn": "A110016B1", "id": 6654220},
-                    {"sn": "A110016GV", "id": 6654230},
+                    {"sn": "A900016B1", "id": 9988920},
+                    {"sn": "A900016B2", "id": 9988930},
                     ...
                 ]
  

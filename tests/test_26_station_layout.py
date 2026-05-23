@@ -14,36 +14,36 @@ from mysolenso.exceptions import MySolensoException
 LAYOUT_RESPONSE = [
     {
         "id": 8967073,
-        "aid": 268104,
-        "dtu_id": 1456060,
-        "dtu_sn": "D0100289H",
+        "aid": 270901,
+        "dtu_id": 1238090,
+        "dtu_sn": "D0900999H",
         "dev_type": 3,
-        "mi_id": 6654220,
-        "mi_sn": "A110016B1",
+        "mi_id": 9988920,
+        "mi_sn": "A900016B1",
         "port": 1,
         "x": 0,
         "y": 0,
     },
     {
         "id": 8967074,
-        "aid": 268104,
-        "dtu_id": 1456060,
-        "dtu_sn": "D0100289H",
+        "aid": 270901,
+        "dtu_id": 1238090,
+        "dtu_sn": "D0900999H",
         "dev_type": 3,
-        "mi_id": 6654220,
-        "mi_sn": "A110016B1",
+        "mi_id": 9988920,
+        "mi_sn": "A900016B1",
         "port": 2,
         "x": 0,
         "y": 1,
     },
     {
         "id": 8967075,
-        "aid": 268104,
-        "dtu_id": 1456060,
-        "dtu_sn": "D0100289H",
+        "aid": 270901,
+        "dtu_id": 1238090,
+        "dtu_sn": "D0900999H",
         "dev_type": 3,
-        "mi_id": 6654230,
-        "mi_sn": "A110016GV",
+        "mi_id": 9988930,
+        "mi_sn": "A900016B2",
         "port": 1,
         "x": 0,
         "y": 2,
@@ -110,13 +110,13 @@ class TestMySolensoStationLayoutProperties:
         obj = _make_layout()
         dtus = obj.list_dtu
         assert len(dtus) == 1
-        assert dtus[0]["dtu_id"] == 1456060
-        assert dtus[0]["dtu_sn"] == "D0100289H"
+        assert dtus[0]["dtu_id"] == 1238090
+        assert dtus[0]["dtu_sn"] == "D0900999H"
 
     def test_list_dtu_ids_returns_unique_ids(self):
         obj = _make_layout()
         ids = obj.list_dtu_ids()
-        assert ids == [1456060]
+        assert ids == [1238090]
 
     def test_list_dtu_raises_when_empty(self):
         """list_dtu raises ValueError when _all_data is empty."""
@@ -128,7 +128,7 @@ class TestMySolensoStationLayoutProperties:
     def test_get_mi_info_by_dtu_returns_sorted_list(self):
         """get_mi_info_by_dtu returns panels sorted by (x, y)."""
         obj = _make_layout()
-        panels = obj.get_mi_info_by_dtu(dtu_id=1456060)
+        panels = obj.get_mi_info_by_dtu(dtu_id=1238090)
         assert len(panels) == 3
         ys = [p["y"] for p in panels]
         assert ys == sorted(ys)
@@ -136,7 +136,7 @@ class TestMySolensoStationLayoutProperties:
     def test_get_mi_info_by_dtu_panel_keys(self):
         """Each panel record contains the expected keys."""
         obj = _make_layout()
-        panel = obj.get_mi_info_by_dtu(dtu_id=1456060)[0]
+        panel = obj.get_mi_info_by_dtu(dtu_id=1238090)[0]
         assert set(panel.keys()) == {"id", "sn", "port", "x", "y"}
 
     def test_get_mi_info_by_dtu_unknown_id_returns_empty(self):

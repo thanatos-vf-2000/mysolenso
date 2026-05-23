@@ -305,7 +305,7 @@ print(client.dtufind.all_data)
 Full record for a single microinverter including serial number, firmware, port configuration, and warning status.
 
 ```python
-client.microfind.set_micro(micro_id=6654220)
+client.microfind.set_micro(micro_id=6699010)
 print(client.microfind.all_data)
 ```
 
@@ -463,6 +463,45 @@ PYTHONPATH=./src/ python3 examples/example.py --username <USER> --password <PASS
 
 See [`example.py`](./examples/example.py) for a full walkthrough of the basic services.
 
+Result:
+
+```text
+INFO:__main__:Start MySolensoAuth password...
+===================================
+Connected          : True
+Token              : 3.KtqvJHpN7BxR4mLFWpDsaYtrwQZuocgjHe8n52vFxl9zUdCgPiwrETakJzCSGXoVRmLf7NQYdy6TKPXAbnJrWe.0
+Headers - hoymiles : {'Authorization': '3.KtqvJHpN7BxR4mLFWpDsaYtrwQZuocgjHe8n52vFxl9zUdCgPiwrETakJzCSGXoVRmLf7NQYdy6TKPXAbnJrWe.0'}
+Headers - solenso  : {'Cookie': 'solenso_token_language=fr_fr; solenso_token=3.KtqvJHpN7BxR4mLFWpDsaYtrwQZuocgjHe8n52vFxl9zUdCgPiwrETakJzCSGXoVRmLf7NQYdy6TKPXAbnJrWe.0'}
+===================================
+INFO:__main__:End MySolensoAuth.
+INFO:__main__:Start MySolenso...
+===================================
+Connected          : True
+Token              : 3.KtqvJHpN7BxR4mLFWpDsaYtrwQZuocgjHe8n52vFxl9zUdCgPiwrETakJzCSGXoVRmLf7NQYdy6TKPXAbnJrWe.0
+Headers - hoymiles : {'Authorization': '3.KtqvJHpN7BxR4mLFWpDsaYtrwQZuocgjHe8n52vFxl9zUdCgPiwrETakJzCSGXoVRmLf7NQYdy6TKPXAbnJrWe.0'}
+Headers - solenso  : {'Cookie': 'solenso_token_language=fr_fr; solenso_token=3.KtqvJHpN7BxR4mLFWpDsaYtrwQZuocgjHe8n52vFxl9zUdCgPiwrETakJzCSGXoVRmLf7NQYdy6TKPXAbnJrWe.0'}
+===================================
+me - username : JDOE
+me - name     : John Doe
+===================================
+station - id : 1234567
+station - ak : aP9kGrfAzvTe41dR2R1kjfWlldns
+===================================
+stationdata - id                : 1234567
+stationdata - money_unit        : EUR
+stationdata - electricity_price : 0.25
+===================================
+stationcount - capacitor : 5
+stationcount - today_eq : 13035.0
+stationcount - month_eq : 418054
+===================================
+powerbyday - get_data : {'metric': 'grid_power', 'date': '2026-05-23', 'values': {'00:00': 0.0, '01:00': 0.0, '02:00': 0.0, '03:00': 0.0, '04:00': 0.0, '05:00': 0.0, '06:00': 25.6, '06:15': 60.3, ..., '13:45': 3622.8, '14:00': 3659.0}}
+powerbyday - get_data : {'metric': 'grid_power', 'date': '2026-05-22', 'values': {'06:30': 80.0, '06:45': 106.6, ..., '12:00': 2915.9, '12:15': 3043.3, ..., '16:45': 3356.9, '17:00': 3072.1, '17:15': 2769.6, '17:30': 2632.1, '17:45': 2644.4, '18:00': 2507.4, '18:15': 2377.5, '18:30': 2258.7, '18:45': 1813.6, ..., '23:30': 0.0}}
+===================================
+countbydayofyear - get_data : {'2025-06-01': 25928.0, '2025-06-02': 28562.0, ...,'2026-05-22': 30212.0, '2026-05-23': 0.0}
+INFO:__main__:End MySolenso.
+```
+
 ---
 
 ### Report example
@@ -472,6 +511,37 @@ PYTHONPATH=./src/ python3 examples/example_reports.py --username <USER> --passwo
 ```
 
 See [`example_reports.py`](./examples/example_reports.py) for OEM report usage.
+
+Result:
+
+```text
+INFO:__main__:Start MySolenso...
+===================================
+Power by Station
+name          : DOE JONH
+06:00     :     26
+06:15     :     60
+06:30     :    105
+06:45     :    143
+07:00     :    165
+07:15     :    204
+07:30     :    258
+07:45     :    296
+08:00     :    381
+08:15     :    389
+===================================
+OEM Power
+2026-04-11     :        6.8 KwH
+2026-04-12     :      16.98 KwH
+2026-04-13     :      20.42 KwH
+2026-04-14     :      26.69 KwH
+2026-04-15     :      18.08 KwH
+===================================
+OEM Power Count
+Total pv         :      88.97 KwH
+Total consumption:          0 KwH
+INFO:__main__:End MySolenso.
+```
 
 ---
 
@@ -483,6 +553,33 @@ PYTHONPATH=./src/ python3 examples/example_stations.py --username <USER> --passw
 
 See [`example_stations.py`](./examples/example_stations.py) for station device tree, device count, and geographic info usage.
 
+Result:
+
+```text
+INFO:__main__:Starting MySolenso...
+===================================
+Station Info Device
+SN Master          : D0900099H
+DTU list:
+SN:       A99001X1A
+SN:       A99001X1B
+SN:       A99001X1C
+SN:       A99001X1D
+SN:       A99001X1E
+DTU info:
+SN:       A99001X1A - DTU   D0900099H - MODEL      Sol-H1000H
+SN:       A99001X1B - DTU   D0900099H - MODEL      Sol-H1000H
+SN:       A99001X1C - DTU   D0900099H - MODEL      Sol-H1000H
+SN:       A99001X1D - DTU   D0900099H - MODEL      Sol-H1000H
+SN:       A99001X1E - DTU   D0900099H - MODEL      Sol-H1000H
+Station Count Device
+station_num: 1
+===================================
+Station AK: aP9kGrfAzvTe41dR2R1kjfWlldns
+address: 95 Moon Road, 99999 Galaxy, World
+INFO:__main__:MySolenso finished.
+```
+
 ---
 
 ### DTU example
@@ -492,6 +589,27 @@ PYTHONPATH=./src/ python3 examples/example_dtu.py --username <USER> --password <
 ```
 
 See [`example_dtu.py`](./examples/example_dtu.py) for DTU select-all and single-DTU detail usage.
+
+Result:
+
+```text
+INFO:__main__:Starting MySolenso...
+===================================
+DTU Select All
+SN Master          : D0900099H
+Micros list:
+SN:       A99001X1E - vc:   2BD - ID:    6699010
+SN:       A99001X1D - vc:   23D - ID:    6699020
+SN:       A99001X1C - vc:   212 - ID:    6699030
+SN:       A99001X1B - vc:   22L - ID:    6699040
+SN:       A99001X1A - vc:   2L2 - ID:    6699050
+Station Count Device
+station_num: 1
+===================================
+DTU find
+station_name:     DOE JONH
+INFO:__main__:MySolenso finished.
+```
 
 ---
 
@@ -503,6 +621,17 @@ PYTHONPATH=./src/ python3 examples/example_micro.py --username <USER> --password
 
 See [`example_micro.py`](./examples/example_micro.py) for single microinverter detail usage.
 
+Result:
+
+```text
+INFO:__main__:Starting MySolenso...
+===================================
+Micro Find
+ID: 6699050
+station_name:     DOE JONH
+INFO:__main__:MySolenso finished.
+```
+
 ---
 
 ### Layout example
@@ -513,6 +642,29 @@ PYTHONPATH=./src/ python3 examples/example_layout.py --username <USER> --passwor
 
 See [`example_layout.py`](./examples/example_layout.py) for station panel layout and array configuration usage.
 
+Result:
+
+```text
+INFO:__main__:Starting MySolenso...
+===================================
+Station Layout
+SN Master          : D0900099H
+DTU 1456060 - D0900099H
+- ID 6699010 SN A99001X1E: port 1 [x: 0 - y: 0]
+- ID 6699010 SN A99001X1E: port 2 [x: 0 - y: 1]
+- ID 6699020 SN A99001X1D: port 1 [x: 0 - y: 2]
+- ID 6699020 SN A99001X1D: port 2 [x: 0 - y: 3]
+- ID 6699030 SN A99001X1C: port 1 [x: 0 - y: 4]
+- ID 6699030 SN A99001X1C: port 2 [x: 0 - y: 5]
+- ID 6699040 SN A99001X1B: port 1 [x: 0 - y: 8]
+- ID 6699040 SN A99001X1B: port 2 [x: 0 - y: 9]
+===================================
+Station Array
+Name:  DOE JONH
+angle_tilt:  20
+INFO:__main__:MySolenso finished.
+```
+
 ---
 
 ### Power by day example
@@ -522,6 +674,31 @@ PYTHONPATH=./src/ python3 examples/example_powerbyday.py --username <USER> --pas
 ```
 
 See [`example_powerbyday.py`](./examples/example_powerbyday.py) for power playback curve and daily module data descriptor usage.
+
+Result:
+
+```text
+INFO:__main__:Starting MySolenso...
+===================================
+Station Data module
+URL:  https://monitor.solenso.net/platform//api/0/module/data/down_module_day_data
+===================================
+Station Power by day
+Day : 2026-05-23
+2026-05-23 00:00 -> 0.0
+...
+2026-05-23 06:00 -> 26.6
+2026-05-23 06:15 -> 63.4
+2026-05-23 06:30 -> 110.3
+2026-05-23 06:45 -> 151.1
+2026-05-23 07:00 -> 173.7
+...
+2026-05-23 09:45 -> 1260.7
+...
+2026-05-23 14:15 -> 3883.3
+...
+INFO:__main__:MySolenso finished.
+```
 
 ---
 

@@ -169,7 +169,7 @@ async def main() -> None:
         print("stationcount - month_eq :", client.stationcount.month_eq)
         print("===================================")
         print("powerbyday - get_data :", client.powerbyday.get_data)
-        client.powerbyday.set_day("2025-05-12")
+        client.powerbyday.set_day("2026-05-22")
         print("powerbyday - get_data :", client.powerbyday.get_data)
         print("===================================")
         print("countbydayofyear - get_data :", client.countbydayofyear.get_data)

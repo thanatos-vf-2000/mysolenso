@@ -2,7 +2,7 @@
 
 <!-- version list -->
 
-## v1.2.0.c (2026-05-23)
+## v1.3.0 (2026-05-23)
 - Add Class MySolensoStationLayout,
 - Add Class MySolensoStationArray,
 - Add Class MySolensoPowerPlayBackByDay,

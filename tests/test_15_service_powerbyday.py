@@ -28,7 +28,7 @@ PATCH_PATH = "mysolenso.services.powerbyday.MySolensoPost"
 def _make_proto_response(
     times: list[str],
     values: list[float],
-    date: str = "2026-05-15",
+    date: str = "2026-05-22",
 ) -> bytes:
     """Build a minimal binary response that mimics the real API payload.
 
@@ -79,7 +79,7 @@ def _make_pbd(response: bytes, station_id: int = 42) -> MySolensoPowerByDay:
 
 SAMPLE_TIMES = ["08:00", "08:30", "09:00"]
 SAMPLE_VALUES = [512.0, 1024.0, 2048.0]
-SAMPLE_DATE = "2026-05-15"
+SAMPLE_DATE = "2026-05-22"
 SAMPLE_RESPONSE = _make_proto_response(SAMPLE_TIMES, SAMPLE_VALUES, SAMPLE_DATE)
 
 
@@ -112,7 +112,7 @@ def test_construction_default_day_is_today():
             mock_dt.now.return_value = datetime(2026, 5, 15, 10, 0, 0)
             mock_dt.strptime = datetime.strptime
             pbd = MySolensoPowerByDay(parent)
-    assert pbd._day == "2026-05-15"
+    assert pbd._day == "2026-05-22"
 
 
 def test_construction_midnight_uses_yesterday():
@@ -186,7 +186,7 @@ def test_get_data_values_count():
 
 def test_missing_grid_power_marker_raises():
     """MySolensoException raised when 'grid_power' marker is absent."""
-    bad_response = b"08:00 08:30 \x1a\x0a2026-05-15"
+    bad_response = b"08:00 08:30 \x1a\x0a2026-05-22"
     parent = _make_parent()
     with patch(PATCH_PATH) as MockPost:
         MockPost.return_value.poststr.return_value = bad_response
@@ -248,8 +248,8 @@ def test_set_day_valid():
 def test_set_day_no_refresh():
     """set_day(refresh=False) updates _day without an API call."""
     pbd = _make_pbd(SAMPLE_RESPONSE)
-    pbd.set_day("2025-12-25", refresh=False)
-    assert pbd._day == "2025-12-25"
+    pbd.set_day("2026-05-22", refresh=False)
+    assert pbd._day == "2026-05-22"
 
 
 def test_set_day_wrong_format_raises():
@@ -296,7 +296,7 @@ def test_get_power_refresh_reloads_data():
     pbd = _make_pbd(SAMPLE_RESPONSE)
     new_times = ["10:00", "10:30"]
     new_values = [3000.0, 4000.0]
-    new_response = _make_proto_response(new_times, new_values, "2026-05-15")
+    new_response = _make_proto_response(new_times, new_values, "2026-05-22")
 
     with patch(PATCH_PATH) as MockPost:
         MockPost.return_value.poststr.return_value = new_response

@@ -78,7 +78,7 @@ class MySolensoPowerByStation:
             pb.get_power_station_refresh()
             print(pb.all_data)
  
-            pb.set_day("2025-12-25")
+            pb.set_day("2026-05-22")
             print(pb.all_data)
     """
  
@@ -158,7 +158,7 @@ class MySolensoPowerByStation:
         Example:
             ::
  
-                client.powerbaystation.set_day("2025-12-25")
+                client.powerbaystation.set_day("2026-05-22")
                 print(client.powerbaystation.all_data)
         """
         try:

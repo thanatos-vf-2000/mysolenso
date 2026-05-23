@@ -234,7 +234,7 @@ class MySolensoStationDataModuleDay:
             dict: Example::
 
                 {
-                    "sid": 1553580,
+                    "sid": 9999999,
                     "date": "2026-05-12",
                     "url": "/api/0/module/data/down_module_day_data",
                     "method": "POST"
