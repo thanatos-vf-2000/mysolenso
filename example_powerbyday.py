@@ -28,11 +28,11 @@ VAR: dict[str, Any] = {}
 
 
 async def main() -> None:
-    """Entry point: parse CLI arguments, connect to Solenso, and display DTU data."""
+    """Entry point: parse CLI arguments, connect to Solenso, and display power playback and module data."""
     logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
     parser = argparse.ArgumentParser(
-        description="Demonstrate DTU and microinverter retrieval via MySolenso."
+        description="Demonstrate power playback and station data module retrieval via MySolenso."
     )
     parser.add_argument(
         "--username",
@@ -74,8 +74,8 @@ async def main() -> None:
             token=token,
         )
 
-        # --- DTU Select All -------------------------------------------------
-        # Fetch the DTU record and the full list of attached microinverters.
+        # --- Station Data Module -------------------------------------------
+        # Fetch the download descriptor (URL + method) for today's module data.
         print("===================================")
         print("Station Data module")
         client.stationdatamodule.station_data_module_day_refresh()

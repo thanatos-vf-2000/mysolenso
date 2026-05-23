@@ -28,11 +28,11 @@ VAR: dict[str, Any] = {}
 
 
 async def main() -> None:
-    """Entry point: parse CLI arguments, connect to Solenso, and display DTU data."""
+    """Entry point: parse CLI arguments, connect to Solenso, and display station layout and array data."""
     logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
     parser = argparse.ArgumentParser(
-        description="Demonstrate DTU and microinverter retrieval via MySolenso."
+        description="Demonstrate station layout and array retrieval via MySolenso."
     )
     parser.add_argument(
         "--username",
@@ -75,7 +75,7 @@ async def main() -> None:
         )
 
         # --- DTU Select All -------------------------------------------------
-        # Fetch the DTU record and the full list of attached microinverters.
+        # Fetch the DTU master serial number used as header in the layout output.
         client.dtuselectall.dtu_select_all_refresh()
         _dtu_list_micros = client.dtuselectall.list_micros_info
 
@@ -84,7 +84,7 @@ async def main() -> None:
         print("SN Master          :", client.dtuselectall.dtu_sn)
 
         
-        # Retrieve Layout information.
+        # Retrieve the physical panel placement for every microinverter.
         client.stationlayout.station_layout_refresh()
         
         for dtu in client.stationlayout.list_dtu:

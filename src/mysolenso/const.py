@@ -218,14 +218,47 @@ Used by :class:`~mysolenso.services.stations.countdevice.MySolensoStationCountDe
 API_STATION_LAYOUT: str = (
     BASE_URL_SOLENSO + "api/gateway/pvm/layout_select_all"
 )
+"""POST endpoint to retrieve the physical layout of all inverter panels for a station.
+
+Request body: ``{"body": {"id": <station_id>}, "WAITING_PROMISE": true}``.
+Returns a list of panel placement records, each containing DTU id/sn, microinverter
+id/sn, port number, and grid coordinates (x, y) that describe the panel's position
+in the installation layout.
+
+Used by :class:`~mysolenso.services.stations.layout.MySolensoStationLayout`.
+"""
 
 API_STATION_ARRAY: str = (
     BASE_URL_SOLENSO + "api/gateway/pvm/array_select_all"
 )
+"""POST endpoint to retrieve the panel array configuration for a station.
+
+Request body: ``{"body": {"id": <station_id>}, "WAITING_PROMISE": true}``.
+Returns a JSON array whose first element contains the array's name, tilt angle,
+orientation, row/column dimensions, pattern code, layout tilt, and minimum grid
+offsets (e_min_x, e_min_y).
+
+Used by :class:`~mysolenso.services.stations.array.MySolensoStationArray`.
+"""
 
 API_STATION_DATA_MODULE_DAY: str = (
     BASE_URL_SOLENSO + "api/gateway/pvm-data/data_select_module_day_data"
 )
+"""POST endpoint to retrieve the daily module data download descriptor for a station.
+
+Request body::
+
+    {
+        "body": {"sid": <station_id>, "date": "YYYY-MM-DD", "day_num": 1},
+        "WAITING_PROMISE": true
+    }
+
+Returns a JSON array whose first element contains the station id (``sid``), the
+queried date, the relative download URL (``url``), and the HTTP method required
+to fetch the binary module data.
+
+Used by :class:`~mysolenso.services.stations.datamodule.MySolensoStationDataModuleDay`.
+"""
 
 
 API_DTU_SELECT_ALL: str = (
@@ -295,7 +328,23 @@ Used by :class:`~mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay`.
 API_POWER_PLAYBACK_BY_DAY: str = (
     BASE_URL_HOYMILES + "0/station/data/count_playback_power_by_day"
 )
+"""POST endpoint for the intra-day power playback curve of a station (Hoymiles).
+
+Request body: ``{"sid": <station_id>, "date": "YYYY-MM-DD"}``.
+Returns a binary protobuf response containing ``HH:MM`` time labels and a packed
+``float32`` array of instantaneous power values (Watts) sampled throughout the day.
+
+Used by :class:`~mysolenso.services.stations.powerbyday.MySolensoPowerPlayBackByDay`.
+"""
 
 API_DOWN_MODULE_DAY_DATA: str = (
     BASE_URL_HOYMILES + "0/module/data/down_module_day_data"
 )
+"""POST endpoint to download raw daily module data (Hoymiles).
+
+Returns the binary data file for all microinverter modules associated with a
+station for the requested day. The download URL and HTTP method for this endpoint
+are first obtained via :data:`API_STATION_DATA_MODULE_DAY`.
+
+Used by :class:`~mysolenso.services.stations.datamodule.MySolensoStationDataModuleDay`.
+"""

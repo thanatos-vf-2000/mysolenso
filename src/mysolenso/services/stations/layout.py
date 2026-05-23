@@ -1,3 +1,11 @@
+"""Station panel layout service for MySolenso.
+
+This module provides :class:`MySolensoStationLayout`, which retrieves the physical
+placement of every microinverter panel for the active station.  Each record
+returned by the API describes one panel port and includes the DTU it is attached
+to, the microinverter serial number, and the (x, y) grid coordinates of the panel
+in the installation diagram.
+"""
 from __future__ import annotations
  
 import logging
@@ -11,8 +19,31 @@ _LOG = logging.getLogger(__name__)
  
  
 class MySolensoStationLayout:
- 
+    """Retrieve the physical panel layout for the active Solenso station.
+
+    Wraps the :data:`~mysolenso.const.API_STATION_LAYOUT` endpoint and exposes
+    panel placement records grouped by DTU.  Call :meth:`station_layout_refresh`
+    before accessing any property for the first time.
+
+    Args:
+        parent: The :class:`~mysolenso.mysolenso.MySolenso` facade instance that
+            holds the active session (``parent.auth``) and station context
+            (``parent.station``).
+
+    Raises:
+        MySolensoException: If no station has been selected on the parent
+            (``parent.station.station_id`` is ``None``).
+    """
+
     def __init__(self, parent) -> None:
+        """Initialise the layout service and validate the station context.
+
+        Args:
+            parent: The :class:`~mysolenso.mysolenso.MySolenso` facade instance.
+
+        Raises:
+            MySolensoException: If ``parent.station.station_id`` is ``None``.
+        """
         self.parent = parent
  
         # Validate that a station has already been selected by the parent.
@@ -63,7 +94,14 @@ class MySolensoStationLayout:
     # ------------------------------------------------------------------
  
     def _get_station_layout(self) -> None:
- 
+        """Fetch the panel layout from the API and cache the result.
+
+        Sends a POST request to :data:`~mysolenso.const.API_STATION_LAYOUT` and
+        stores the raw response list in ``self._all_data``.
+
+        Raises:
+            MySolensoException: On an empty/null response or any network/parse error.
+        """
         try:
             self._client = MySolensoPost()
             self._client.set_headers(self.parent.auth.get_auth_headers_solenso())
@@ -217,7 +255,15 @@ class MySolensoStationLayout:
  
     @property
     def list_dtu(self) -> list[dict]:
-        
+        """Return a deduplicated list of DTUs referenced in the layout.
+
+        Returns:
+            list[dict]: Each entry has the keys ``dtu_id`` (int) and
+            ``dtu_sn`` (str). Duplicate DTU ids are collapsed to a single entry.
+
+        Raises:
+            ValueError: If :attr:`all_data` has not been populated yet.
+        """
         data_list = self._all_data
  
         # Guard against an uninitialised or empty data store.
@@ -230,7 +276,7 @@ class MySolensoStationLayout:
         for item in data_list:
             dtu_id = item["dtu_id"]
 
-            # Ignore les doublons
+            # Skip duplicate DTU ids.
             if dtu_id in seen_dtu_ids:
                 continue
 
@@ -244,7 +290,14 @@ class MySolensoStationLayout:
         return result
     
     def list_dtu_ids(self) -> list[int]:
+        """Return a list of unique DTU ids found in the layout data.
 
+        Returns:
+            list[int]: Unique DTU ids. Order is not guaranteed.
+
+        Raises:
+            ValueError: If :attr:`all_data` has not been populated yet.
+        """
         if not self._all_data:
             raise ValueError("all_data is missing or empty")
 
@@ -252,7 +305,16 @@ class MySolensoStationLayout:
     
     @property
     def list_micro_all(self) -> list[dict]:
-        
+        """Return a deduplicated list of microinverters referenced in the layout.
+
+        Returns:
+            list[dict]: Each entry has the keys ``id`` (int), ``sn`` (str), and
+            ``port_dtu`` (int). Duplicate microinverter ids are collapsed to a
+            single entry.
+
+        Raises:
+            ValueError: If :attr:`all_data` has not been populated yet.
+        """
         data_list = self._all_data
  
         # Guard against an uninitialised or empty data store.
@@ -265,7 +327,7 @@ class MySolensoStationLayout:
         for item in data_list:
             micro_id = item["dtu_id"]
 
-            # Ignore les doublons
+            # Skip duplicate microinverter ids.
             if micro_id in seen_micro_ids:
                 continue
 
@@ -280,7 +342,19 @@ class MySolensoStationLayout:
         return result
     
     def get_mi_info_by_dtu(self, dtu_id: int) -> list[dict]:
+        """Return all panel records attached to a given DTU, sorted by position.
 
+        Args:
+            dtu_id (int): The DTU id to filter on.
+
+        Returns:
+            list[dict]: Panel records for the requested DTU, each containing
+            ``id``, ``sn``, ``port``, ``x``, and ``y``. The list is sorted
+            by ``(x, y)`` ascending.
+
+        Raises:
+            ValueError: If :attr:`all_data` has not been populated yet.
+        """
         data_list = self._all_data
 
         if not data_list:

@@ -186,6 +186,22 @@ class MySolenso:
         microfind (MySolensoMicroFind): Detailed record for a single microinverter.
             Call :meth:`~mysolenso.services.micro.find.MySolensoMicroFind.set_micro`
             with the microinverter id before accessing :attr:`all_data`.
+        stationlayout (MySolensoStationLayout): Physical panel placement data for
+            the active station. Returns a list of DTU/microinverter records with
+            grid coordinates (x, y). Use :attr:`list_dtu` to enumerate DTUs and
+            :meth:`get_mi_info_by_dtu` to retrieve panels per DTU.
+        stationarray (MySolensoStationArray): Panel array configuration for the
+            active station. Exposes :attr:`name`, :attr:`angle_tilt`,
+            :attr:`orientation`, :attr:`row`, :attr:`column`, and related geometry
+            fields describing the solar array setup.
+        powerplaybackbyday (MySolensoPowerPlayBackByDay): Intra-day power playback
+            curve (Hoymiles). Returns a ``{HH:MM: watts}`` mapping for the active
+            station and a given date. Use :meth:`set_day` to query a specific date
+            and :meth:`get_power_refresh` to force a reload.
+        stationdatamodule (MySolensoStationDataModuleDay): Daily module data download
+            descriptor for the active station. Exposes :attr:`sid`, :attr:`date`,
+            :attr:`url`, and :attr:`full_url` pointing to the Hoymiles binary data
+            file for the configured day.
  
     Example:
         ::
@@ -271,7 +287,11 @@ class MySolenso:
         # 16. Microinverter detail - full record for a single microinverter.
         self.microfind = MySolensoMicroFind(self)
         
+        # 17. Station panel layout - DTU/microinverter placement with grid coordinates.
         self.stationlayout = MySolensoStationLayout(self)
+        # 18. Panel array configuration - tilt angle, orientation, row/column geometry.
         self.stationarray = MySolensoStationArray(self)
+        # 19. Power playback curve - intra-day Watts sampled from Hoymiles.
         self.powerplaybackbyday = MySolensoPowerPlayBackByDay(self)
+        # 20. Module data descriptor - URL and method for downloading raw daily module data.
         self.stationdatamodule = MySolensoStationDataModuleDay(self)

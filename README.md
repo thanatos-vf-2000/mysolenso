@@ -291,9 +291,13 @@ Test files:
 | `tests/test_20_report_powerbystation.py` | Per-station power report |
 | `tests/test_21_report_oempower.py` | OEM daily list report |
 | `tests/test_22_report_oempowercount.py` | OEM aggregated totals |
-| `tests/test_23_station_ak.py` | station geolocation/AK data service |
-| `tests/test_24_station_countdevice.py` | retrieving device count summary data for a station |
-| `tests/test_25_station_stationinfodev.py` | station geolocation/AK data service |
+| `tests/test_23_station_ak.py` | Station geolocation/AK data service |
+| `tests/test_24_station_countdevice.py` | Retrieving device count summary data for a station |
+| `tests/test_25_station_stationinfodev.py` | Station geolocation/AK data service |
+| `tests/test_26_station_layout.py` | Physical panel placement service |
+| `tests/test_27_station_array.py` | Solar panel array configuration service |
+| `tests/test_28_station_powerbyday.py` | Intra-day power playback service |
+| `tests/test_29_station_datamodule.py` | Daily module data download descriptor service |
 
 ---
 

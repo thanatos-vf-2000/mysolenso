@@ -1,3 +1,9 @@
+"""Station panel array configuration service for MySolenso.
+
+This module provides :class:`MySolensoStationArray`, which retrieves the solar
+panel array geometry for the active station: tilt angle, orientation, row/column
+count, pattern code, and minimum grid offsets.
+"""
 from __future__ import annotations
  
 import logging
@@ -11,8 +17,30 @@ _LOG = logging.getLogger(__name__)
  
  
 class MySolensoStationArray:
+    """Retrieve the solar panel array configuration for the active Solenso station.
+
+    Wraps the :data:`~mysolenso.const.API_STATION_ARRAY` endpoint and exposes the
+    array geometry via typed properties.  Call :meth:`station_array_refresh` before
+    accessing any property for the first time.
+
+    Args:
+        parent: The :class:`~mysolenso.mysolenso.MySolenso` facade instance that
+            holds the active session (``parent.auth``) and station context
+            (``parent.station``).
+
+    Raises:
+        MySolensoException: If no station has been selected on the parent.
+    """
  
     def __init__(self, parent) -> None:
+        """Initialise the array service and validate the station context.
+
+        Args:
+            parent: The :class:`~mysolenso.mysolenso.MySolenso` facade instance.
+
+        Raises:
+            MySolensoException: If ``parent.station.station_id`` is ``None``.
+        """
         self.parent = parent
  
         # Validate that a station has already been selected by the parent.
@@ -63,7 +91,15 @@ class MySolensoStationArray:
     # ------------------------------------------------------------------
  
     def _get_station_array(self) -> None:
- 
+        """Fetch the array configuration from the API and cache the result.
+
+        Sends a POST request to :data:`~mysolenso.const.API_STATION_ARRAY`, stores
+        the first element of the response list in ``self._all_data``, and populates
+        each typed private attribute from the cleaned response values.
+
+        Raises:
+            MySolensoException: On an empty/null response or any network/parse error.
+        """
         try:
             self._client = MySolensoPost()
             self._client.set_headers(self.parent.auth.get_auth_headers_solenso())
@@ -167,40 +203,50 @@ class MySolensoStationArray:
  
     @property
     def id(self) -> int:
+        """Array record identifier returned by the API."""
         return self._id
     
     @property
     def name(self) -> str:
+        """Display name of the array (typically the station owner's name)."""
         return self._name
     
     @property
     def angle_tilt(self) -> int:
+        """Panel tilt angle in degrees relative to horizontal."""
         return self._angle_tilt
     
     @property
     def orientation(self) -> int:
+        """Panel orientation code (azimuth direction)."""
         return self._orientation
     
     @property
     def row(self) -> int:
+        """Number of panel rows in the array grid."""
         return self._row
     
     @property
     def column(self) -> int:
+        """Number of panel columns in the array grid."""
         return self._column
     
     @property
     def pattern(self) -> int:
-        return self.pattern
+        """Layout pattern code describing the panel arrangement style."""
+        return self._pattern
     
     @property
     def layout_tilt(self) -> int:
+        """Layout tilt code (orientation of the grid itself)."""
         return self._layout_tilt
     
     @property
     def e_min_x(self) -> int:
+        """Minimum x-axis grid offset for the array boundary."""
         return self._e_min_x
     
     @property
     def e_min_y(self) -> int:
+        """Minimum y-axis grid offset for the array boundary."""
         return self._e_min_y

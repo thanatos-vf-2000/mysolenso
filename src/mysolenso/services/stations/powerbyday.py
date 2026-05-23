@@ -1,3 +1,10 @@
+"""Intra-day power playback service for MySolenso (Hoymiles station endpoint).
+
+This module provides :class:`MySolensoPowerPlayBackByDay`, which fetches the
+intra-day power playback curve from the Hoymiles API for the active station.
+The response is a binary protobuf payload; this service parses it into a
+plain ``{HH:MM: float}`` dictionary of instantaneous Watt readings.
+"""
 from __future__ import annotations
 
 import logging
@@ -14,8 +21,29 @@ _LOG = logging.getLogger(__name__)
 
 
 class MySolensoPowerPlayBackByDay:
+    """Fetch and parse the intra-day power playback curve for the active station.
+
+    Wraps the :data:`~mysolenso.const.API_POWER_PLAYBACK_BY_DAY` Hoymiles endpoint
+    and exposes the parsed result via :attr:`get_data`.  The default query date is
+    today (or yesterday when the current time is before 01:00 to avoid empty data).
+
+    Args:
+        parent: The :class:`~mysolenso.mysolenso.MySolenso` facade instance that
+            holds the active session and station context.
+
+    Raises:
+        MySolensoException: If no station has been selected on the parent.
+    """
     
     def __init__(self, parent) -> None:
+        """Initialise the playback service and set the default query date.
+
+        Args:
+            parent: The :class:`~mysolenso.mysolenso.MySolenso` facade instance.
+
+        Raises:
+            MySolensoException: If ``parent.station.station_id`` is ``None``.
+        """
         self.parent = parent
 
         if self.parent.station.station_id is None:
@@ -38,7 +66,16 @@ class MySolensoPowerPlayBackByDay:
     # ------------------------------------------------------------------
 
     def _get_power_playback_by_day(self) -> None:
+        """Fetch and parse the binary protobuf power playback response.
 
+        Sends a POST request to :data:`~mysolenso.const.API_POWER_PLAYBACK_BY_DAY`,
+        extracts the date string, ``HH:MM`` time labels, and packed ``float32``
+        power values from the binary payload, then stores the result in
+        ``self._result`` as ``{"date": str, "values": {HH:MM: float}}``.
+
+        Raises:
+            MySolensoException: On any network error or parse failure.
+        """
         try:
             self._client = MySolensoPost()
             self._client.set_headers(self.parent.auth.get_auth_headers_hoymiles())
@@ -210,14 +247,31 @@ class MySolensoPowerPlayBackByDay:
     # ------------------------------------------------------------------
     @property
     def day(self) -> str:
+        """Currently configured query date in ``YYYY-MM-DD`` format."""
         return  self._day
         
     @property
     def get_data(self) -> dict:
-        """
+        """Parsed power playback data for the configured station and date.
 
         Returns:
-            dict: _description_
-            {'date': '2026-05-23', 'values': {'00:00': 0.0, '01:00': 0.0, '02:00': 0.0, '03:00': 0.0, '04:00': 0.0, '05:00': 0.0, '06:00': 26.6, '06:15': 63.4, '06:30': 110.3, '06:45': 151.1, '07:00': 173.7, '07:15': 214.8, '07:30': 271.9, '07:45': 312.2, '08:00': 401.8, '08:15': 409.8, '08:30': 443.3, '08:45': 612.9, '09:00': 809.4, '09:15': 1021.3, '09:30': 1201.7, '09:45': 1260.7, '10:00': 1640.1, '10:15': 1843.1, '10:30': 1763.1, '10:45': 2126.9, '11:00': 2475.3, '11:15': 2485.1}}
+            dict: A dictionary with two keys:
+
+            - ``"date"`` (str): The date string extracted from the response
+              (``YYYY-MM-DD``), or ``None`` if it could not be found.
+            - ``"values"`` (dict[str, float]): A mapping of ``HH:MM`` time
+              labels to instantaneous power readings in Watts.
+
+            Example::
+
+                {
+                    'date': '2026-05-23',
+                    'values': {
+                        '06:00': 26.6,
+                        '06:15': 63.4,
+                        '06:30': 110.3,
+                        ...
+                    }
+                }
         """
         return self._result

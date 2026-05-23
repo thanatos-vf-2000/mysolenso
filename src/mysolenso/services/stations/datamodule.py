@@ -1,3 +1,10 @@
+"""Daily module data download descriptor service for MySolenso.
+
+This module provides :class:`MySolensoStationDataModuleDay`, which retrieves the
+download descriptor (URL and HTTP method) for the raw daily module data file of
+the active station.  The actual binary data must be fetched separately using the
+URL exposed by :attr:`~MySolensoStationDataModuleDay.full_url`.
+"""
  
 from __future__ import annotations
  
@@ -13,8 +20,31 @@ _LOG = logging.getLogger(__name__)
  
  
 class MySolensoStationDataModuleDay:
+    """Retrieve the daily module data download descriptor for the active station.
+
+    Wraps the :data:`~mysolenso.const.API_STATION_DATA_MODULE_DAY` endpoint and
+    exposes the station id, date, and download URL via typed properties.
+    Call :meth:`station_data_module_day_refresh` before accessing any property
+    for the first time.
+
+    Args:
+        parent: The :class:`~mysolenso.mysolenso.MySolenso` facade instance that
+            holds the active session (``parent.auth``) and station context
+            (``parent.station``).
+
+    Raises:
+        MySolensoException: If no station has been selected on the parent.
+    """
  
     def __init__(self, parent) -> None:
+        """Initialise the data-module service and set the default query date.
+
+        Args:
+            parent: The :class:`~mysolenso.mysolenso.MySolenso` facade instance.
+
+        Raises:
+            MySolensoException: If ``parent.station.station_id`` is ``None``.
+        """
         self.parent = parent
  
         # Validate that a station has already been selected by the parent.
@@ -67,7 +97,18 @@ class MySolensoStationDataModuleDay:
             self._get_station_data_module_day()
             
     def set_day(self, day: str, refresh: bool = True) -> None:
+        """Set the queried date and optionally reload the module descriptor.
 
+        Args:
+            day (str): Date string in ``YYYY-MM-DD`` format. Must be between
+                ``1900-01-01`` and today (inclusive).
+            refresh (bool): If ``True`` (default), immediately reloads the
+                descriptor for the new date.
+
+        Raises:
+            MySolensoException: If ``day`` is not a valid ``YYYY-MM-DD`` date,
+                is outside the allowed range, or if the API call fails.
+        """
         try:
             if len(day) != 10:
                 raise ValueError("Invalid length.")
@@ -101,7 +142,16 @@ class MySolensoStationDataModuleDay:
             raise MySolensoException(msg)
         
     def _get_station_data_module_day(self) -> None:
- 
+        """Fetch the module data descriptor from the API and cache the result.
+
+        Sends a POST request to :data:`~mysolenso.const.API_STATION_DATA_MODULE_DAY`
+        and stores the first element of the response in ``self._all_data``.
+        Individual fields (``sid``, ``date``, ``url``, ``method``) are extracted
+        and stored in private attributes.
+
+        Raises:
+            MySolensoException: On an empty/null response or any network/parse error.
+        """
         try:
             self._client = MySolensoPost()
             self._client.set_headers(self.parent.auth.get_auth_headers_solenso())
@@ -178,31 +228,36 @@ class MySolensoStationDataModuleDay:
  
     @property
     def all_data(self) -> dict:
-        """_summary_
- 
+        """Raw API response dict for the module data descriptor.
+
         Returns:
-            {
-            "sid": 1553580,
-            "date": "2026-05-12",
-            "url": "/api/0/module/data/down_module_day_data",
-            "method": "POST"
-        }
+            dict: Example::
+
+                {
+                    "sid": 1553580,
+                    "date": "2026-05-12",
+                    "url": "/api/0/module/data/down_module_day_data",
+                    "method": "POST"
+                }
         """
         return self._all_data
  
     @property
     def sid(self) -> int:
+        """Station id associated with the descriptor."""
         return self._sid
     
     @property
     def date(self) -> str:
-        return self.date
+        """Queried date in ``YYYY-MM-DD`` format as returned by the API."""
+        return self._date
     
     @property
     def url(self) -> str:
+        """Relative download URL for the daily module data binary file."""
         return self._url
     
     @property
     def full_url(self) -> str:
+        """Absolute download URL constructed from the Solenso base URL and :attr:`url`."""
         return BASE_URL_SOLENSO + self._url
-    
