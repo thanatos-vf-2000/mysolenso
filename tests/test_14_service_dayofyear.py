@@ -132,13 +132,13 @@ def test_get_data_length_matches_dates():
 
 def test_get_data_includes_zero_production():
     """Days with 0 Wh production are kept (not silently dropped)."""
-    dates = ["2026-05-14", "2026-05-15"]
+    dates = ["2026-05-14", "2026-05-22"]
     values = [17647.0, 0.0]
     response = _make_proto_response(dates, values)
     doy = _make_doy(response)
     data = doy.get_data
-    assert "2026-05-15" in data
-    assert data["2026-05-15"] == 0.0
+    assert "2026-05-22" in data
+    assert data["2026-05-22"] == 0.0
 
 
 def test_get_data_single_entry():

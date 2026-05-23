@@ -12,7 +12,7 @@ from mysolenso.exceptions import MySolensoException
 # ---------------------------------------------------------------------------
  
 FULL_RESPONSE = {
-    "id": 1553580,
+    "id": 9999999,
     "longitude": "39.10884652257048",
     "latitude": "-76.77128918829347",
     "address": "95 Moon Road, 99999 Galaxy, World",
@@ -76,7 +76,7 @@ def test_all_data():
  
 def test_id():
     obj = _make_station_ak()
-    assert obj.id == 1553580
+    assert obj.id == 9999999
  
  
 def test_longitude():

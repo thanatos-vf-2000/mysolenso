@@ -11,18 +11,18 @@ from mysolenso.exceptions import MySolensoException
 # Sample data
 # ---------------------------------------------------------------------------
  
-MICRO_ID = 7454520
+MICRO_ID = 9988950
  
 MICROS_LIST = [
-    {"sn": "A11001X4A", "id": MICRO_ID},
-    {"sn": "A110016GV", "id": 6654230},
+    {"sn": "A900016B5", "id": MICRO_ID},
+    {"sn": "A900016B2", "id": 9988930},
 ]
  
 FULL_RESPONSE = {
-    "sn": "A11001X4A",
+    "sn": "A900016B5",
     "warn_data": {"warn": False, "connect": True},
     "id": MICRO_ID,
-    "sid": 1553580,
+    "sid": 9999999,
     "station_name": "DOE JOHN",
     "dev_type": 3,
     "tz_name": "UTC+01",
@@ -30,8 +30,8 @@ FULL_RESPONSE = {
     "init_soft_ver": "V01.00.04",
     "init_hard_no": "Sol-H1000H",
     "init_hard_ver": "H00.04.00",
-    "dtu_id": 1456060,
-    "dtu_sn": "D0100289H",
+    "dtu_id": 1238090,
+    "dtu_sn": "D0900999H",
     "rule": {"port": 2, "phase": 1},
 }
  
@@ -137,7 +137,7 @@ def test_all_data():
  
 def test_all_data_sn():
     obj = _make_micro_find()
-    assert obj.all_data["sn"] == "A11001X4A"
+    assert obj.all_data["sn"] == "A900016B5"
  
  
 def test_all_data_connected():
@@ -147,7 +147,7 @@ def test_all_data_connected():
  
 def test_all_data_dtu_sn():
     obj = _make_micro_find()
-    assert obj.all_data["dtu_sn"] == "D0100289H"
+    assert obj.all_data["dtu_sn"] == "D0900999H"
  
  
 # ---------------------------------------------------------------------------

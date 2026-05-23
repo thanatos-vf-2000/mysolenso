@@ -96,7 +96,7 @@ class MySolensoStationAK:
 
         Example::
 
-            client.stationak.set_station(id=1553580, ak="abc123")
+            client.stationak.set_station(id=9999999, ak="abc123")
             print(client.stationak.address)
         """
         stations = self.parent.station.stations
@@ -230,7 +230,7 @@ class MySolensoStationAK:
             Example::
 
                 {
-                    "id": 1553580,
+                    "id": 9999999,
                     "longitude": "39.10884652257048",
                     "latitude": "-76.77128918829347",
                     "address": "95 Moon Road, 99999 Galaxy, World"

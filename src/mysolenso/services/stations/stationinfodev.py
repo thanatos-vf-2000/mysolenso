@@ -174,15 +174,15 @@ class MySolensoStationInfoDevice:
  
         Returns:
             {
-                "sn": "D0100289H",
+                "sn": "D0900999H",
                 "warn_data": {
                     "_rw": "",
                     "connect": true,
                     "warn": false
                 },
-                "id": 1456060,
+                "id": 1238090,
                 "vc": "289",
-                "dtu_sn": "D0100289H",
+                "dtu_sn": "D0900999H",
                 "type": 1,
                 "version": 3,
                 "replace_num": 0,
@@ -192,14 +192,14 @@ class MySolensoStationInfoDevice:
                 "extend_data": {},
                 "children": [
                     {
-                        "sn": "A11001X4A",
+                        "sn": "A900016B5",
                         "warn_data": {
                             "warn": false,
                             "connect": true
                         },
-                        "id": 7454520,
+                        "id": 9988950,
                         "vc": "2L2",
-                        "dtu_sn": "D0100289H",
+                        "dtu_sn": "D0900999H",
                         "type": 3,
                         "version": 3,
                         "replace_num": 0,
@@ -220,14 +220,14 @@ class MySolensoStationInfoDevice:
                         "children": []
                     },
                     {
-                        "sn": "A110016VJ",
+                        "sn": "A900016B4",
                         "warn_data": {
                             "warn": false,
                             "connect": true
                         },
-                        "id": 6654200,
+                        "id": 9988940,
                         "vc": "22L",
-                        "dtu_sn": "D0100289H",
+                        "dtu_sn": "D0900999H",
                         "type": 3,
                         "version": 3,
                         "replace_num": 0,
@@ -248,14 +248,14 @@ class MySolensoStationInfoDevice:
                         "children": []
                     },
                     {
-                        "sn": "A110016L3",
+                        "sn": "A900016B3",
                         "warn_data": {
                             "warn": false,
                             "connect": true
                         },
-                        "id": 6654210,
+                        "id": 9988910,
                         "vc": "212",
-                        "dtu_sn": "D0100289H",
+                        "dtu_sn": "D0900999H",
                         "type": 3,
                         "version": 3,
                         "replace_num": 0,
@@ -276,14 +276,14 @@ class MySolensoStationInfoDevice:
                         "children": []
                     },
                     {
-                        "sn": "A110016GV",
+                        "sn": "A900016B2",
                         "warn_data": {
                             "warn": false,
                             "connect": true
                         },
-                        "id": 6654230,
+                        "id": 9988930,
                         "vc": "23D",
-                        "dtu_sn": "D0100289H",
+                        "dtu_sn": "D0900999H",
                         "type": 3,
                         "version": 3,
                         "replace_num": 0,
@@ -304,14 +304,14 @@ class MySolensoStationInfoDevice:
                         "children": []
                     },
                     {
-                        "sn": "A110016B1",
+                        "sn": "A900016B1",
                         "warn_data": {
                             "warn": false,
                             "connect": true
                         },
-                        "id": 6654220,
+                        "id": 9988920,
                         "vc": "2BD",
-                        "dtu_sn": "D0100289H",
+                        "dtu_sn": "D0900999H",
                         "type": 3,
                         "version": 3,
                         "replace_num": 0,

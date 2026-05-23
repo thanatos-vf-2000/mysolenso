@@ -12,15 +12,15 @@ from mysolenso.exceptions import MySolensoException
 # ---------------------------------------------------------------------------
  
 MICROS = [
-    {"sn": "A110016B1", "id": 6654220, "vc": "2BD", "dev_type": 3, "port_array": [1, 2]},
-    {"sn": "A110016GV", "id": 6654230, "vc": "23D", "dev_type": 3, "port_array": [1, 2]},
+    {"sn": "A900016B1", "id": 9988920, "vc": "2BD", "dev_type": 3, "port_array": [1, 2]},
+    {"sn": "A900016B2", "id": 9988930, "vc": "23D", "dev_type": 3, "port_array": [1, 2]},
 ]
  
 FULL_RESPONSE = [
     {
         "dtu": {
-            "id": 1456060,
-            "sn": "D0100289H",
+            "id": 1238090,
+            "sn": "D0900999H",
             "dev_type": 1,
             "vc": "289",
         },
@@ -87,12 +87,12 @@ def test_init_stores_station_id():
  
 def test_dtu_id():
     obj = _make_dtu_selectall()
-    assert obj.dtu_id == 1456060
+    assert obj.dtu_id == 1238090
  
  
 def test_dtu_sn():
     obj = _make_dtu_selectall()
-    assert obj.dtu_sn == "D0100289H"
+    assert obj.dtu_sn == "D0900999H"
  
  
 def test_dtu_dev_type():
@@ -121,8 +121,8 @@ def test_list_micros_info_length():
  
 def test_list_micros_info_content():
     obj = _make_dtu_selectall()
-    assert obj.list_micros_info[0]["sn"] == "A110016B1"
-    assert obj.list_micros_info[1]["id"] == 6654230
+    assert obj.list_micros_info[0]["sn"] == "A900016B1"
+    assert obj.list_micros_info[1]["id"] == 9988930
  
  
 def test_list_micros_projection():
@@ -130,8 +130,8 @@ def test_list_micros_projection():
     obj = _make_dtu_selectall()
     micros = obj.list_micros
     assert micros == [
-        {"sn": "A110016B1", "id": 6654220},
-        {"sn": "A110016GV", "id": 6654230},
+        {"sn": "A900016B1", "id": 9988920},
+        {"sn": "A900016B2", "id": 9988930},
     ]
  
  
@@ -236,9 +236,9 @@ def test_headers_injected():
 def test_whitespace_stripped_from_sn():
     """String fields are stripped of leading/trailing whitespace."""
     response = [{
-        "dtu": {"id": 1, "sn": "  D0100289H  ", "dev_type": 1, "vc": "  289  "},
+        "dtu": {"id": 1, "sn": "  D0900999H  ", "dev_type": 1, "vc": "  289  "},
         "repeater_list": [{"id": 0, "sn": "", "dev_type": 2, "micros": MICROS}],
     }]
     obj = _make_dtu_selectall(api_response=response)
-    assert obj.dtu_sn == "D0100289H"
+    assert obj.dtu_sn == "D0900999H"
     assert obj.dtu_vc == "289"

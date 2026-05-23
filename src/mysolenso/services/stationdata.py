@@ -212,9 +212,9 @@ class MySolensoStationData:
                 "name": "DOE JOHN",
                 "type": 1,
                 "tz_id": 42,
-                "city_code": "FR13005000000000",
+                "city_code": "FR99999000000000",
                 "status": 40,
-                "create_by": 293382,
+                "create_by": 299988,
                 "create_at": "2025-11-08 10:44:51",
                 "classify": 1,
                 "tz_name": "UTC+01",
@@ -283,7 +283,7 @@ class MySolensoStationData:
                     {
                         "id": 41636,
                         "pid": 69,
-                        "code": "FR13000000000000",
+                        "code": "FR99000000000000",
                         "weather_of_cid": 0,
                         "city_name": "Galaxy",
                         "country_code": "FR",
@@ -292,7 +292,7 @@ class MySolensoStationData:
                     {
                         "id": 41641,
                         "pid": 41636,
-                        "code": "FR13005000000000",
+                        "code": "FR99999000000000",
                         "weather_of_cid": 0,
                         "city_name": "Moon",
                         "country_code": "FR",
@@ -337,7 +337,7 @@ class MySolensoStationData:
                 "inv_mode": 0,
                 "create_by_name": "SOLENSO_ADMIN",
                 "lack": 0,
-                "ak": "aP7xQnLk9vTe41dR2mHyCuJ8zsKb",
+                "ak": "aP9kGrfAzvTe41dR2R1kjfWlldns",
                 "flag_map": {
                     "gfi": 1
                 }

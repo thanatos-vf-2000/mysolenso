@@ -217,7 +217,7 @@ class MySolensoStation:
                 {
                     "id": 9999999,
                     "name": "JOHN DOE",
-                    "city_code": "FR13005000000000",
+                    "city_code": "FR99999000000000",
                     "parent_city": [
                         {
                             "id": 69,
@@ -231,7 +231,7 @@ class MySolensoStation:
                     ],
                     "status": 40,
                     "classify": 1,
-                    "create_by": 293382,
+                    "create_by": 299988,
                     "create_by_name": "JDOE",
                     "create_at": "2025-11-08 10:44:51",
                     "tz_name": "UTC+01",
@@ -259,7 +259,7 @@ class MySolensoStation:
                     "is_3rd": 0,
                     "dc": 0,
                     "cr": 0,
-                    "ak": "aP7xQnLk9vTe41dR2mHyCuJ8zsKb"
+                    "ak": "aP9kGrfAzvTe41dR2R1kjfWlldns"
                 }
             ]
          

@@ -181,10 +181,10 @@ class MySolensoMicroFind:
             and connection/warning status. Example::
  
                 {
-                    "sn": "A11001X4A",
+                    "sn": "A900016B5",
                     "warn_data": {"warn": False, "connect": True},
-                    "id": 7454520,
-                    "sid": 1553580,
+                    "id": 9988950,
+                    "sid": 9999999,
                     "station_name": "DOE JOHN",
                     "dev_type": 3,
                     "tz_name": "UTC+01",
@@ -192,8 +192,8 @@ class MySolensoMicroFind:
                     "init_soft_ver": "V01.00.04",
                     "init_hard_no": "Sol-H1000H",
                     "init_hard_ver": "H00.04.00",
-                    "dtu_id": 1456060,
-                    "dtu_sn": "D0100289H",
+                    "dtu_id": 1238090,
+                    "dtu_sn": "D0900999H",
                     "rule": {"port": 2, "phase": 1, "series": 7, ...},
                     ...
                 }

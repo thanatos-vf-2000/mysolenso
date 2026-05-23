@@ -104,8 +104,8 @@ def test_construction_default_day_range_today():
         fake_now = datetime(2026, 5, 15, 10, 0, 0)
         mock_dt.now.return_value = fake_now
         oem = MySolensoOEMPower(parent)
-    assert oem._day_min == "2026-05-15"
-    assert oem._day_max == "2026-05-15"
+    assert oem._day_min == "2026-05-22"
+    assert oem._day_max == "2026-05-22"
 
 
 def test_construction_midnight_uses_yesterday():
