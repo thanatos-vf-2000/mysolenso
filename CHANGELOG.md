@@ -2,12 +2,13 @@
 
 <!-- version list -->
 
-## v1.2.0.b (2026-05-23)
+## v1.2.0.c (2026-05-23)
 - Add Class MySolensoStationLayout,
 - Add Class MySolensoStationArray,
 - Add Class MySolensoPowerPlayBackByDay,
 - Add Class MySolensoStationDataModuleDay,
 - Add example_layout.py and example_powerbyday.py,
+- Move all example_* to directory examples,
 - Add pytest: test_26_station_layout.py, test_27_station_array.py, test_28_station_powerbyday.py and test_29_station_datamodule.py,
 - Update README.md,
 - Update documentation.

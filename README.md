@@ -458,70 +458,70 @@ Test files:
 ### Generic example
 
 ```bash
-PYTHONPATH=./src/ python3 example.py --username <USER> --password <PASSWORD_CRYPT>
+PYTHONPATH=./src/ python3 examples/example.py --username <USER> --password <PASSWORD_CRYPT>
 ```
 
-See [`example.py`](./example.py) for a full walkthrough of the basic services.
+See [`example.py`](./examples/example.py) for a full walkthrough of the basic services.
 
 ---
 
 ### Report example
 
 ```bash
-PYTHONPATH=./src/ python3 example_reports.py --username <USER> --password <PASSWORD_CRYPT>
+PYTHONPATH=./src/ python3 examples/example_reports.py --username <USER> --password <PASSWORD_CRYPT>
 ```
 
-See [`example_reports.py`](./example_reports.py) for OEM report usage.
+See [`example_reports.py`](./examples/example_reports.py) for OEM report usage.
 
 ---
 
 ### Stations example
 
 ```bash
-PYTHONPATH=./src/ python3 example_stations.py --username <USER> --password <PASSWORD_CRYPT>
+PYTHONPATH=./src/ python3 examples/example_stations.py --username <USER> --password <PASSWORD_CRYPT>
 ```
 
-See [`example_stations.py`](./example_stations.py) for station device tree, device count, and geographic info usage.
+See [`example_stations.py`](./examples/example_stations.py) for station device tree, device count, and geographic info usage.
 
 ---
 
 ### DTU example
 
 ```bash
-PYTHONPATH=./src/ python3 example_dtu.py --username <USER> --password <PASSWORD_CRYPT>
+PYTHONPATH=./src/ python3 examples/example_dtu.py --username <USER> --password <PASSWORD_CRYPT>
 ```
 
-See [`example_dtu.py`](./example_dtu.py) for DTU select-all and single-DTU detail usage.
+See [`example_dtu.py`](./examples/example_dtu.py) for DTU select-all and single-DTU detail usage.
 
 ---
 
 ### Micro example
 
 ```bash
-PYTHONPATH=./src/ python3 example_micro.py --username <USER> --password <PASSWORD_CRYPT>
+PYTHONPATH=./src/ python3 examples/example_micro.py --username <USER> --password <PASSWORD_CRYPT>
 ```
 
-See [`example_micro.py`](./example_micro.py) for single microinverter detail usage.
+See [`example_micro.py`](./examples/example_micro.py) for single microinverter detail usage.
 
 ---
 
 ### Layout example
 
 ```bash
-PYTHONPATH=./src/ python3 example_layout.py --username <USER> --password <PASSWORD_CRYPT>
+PYTHONPATH=./src/ python3 examples/example_layout.py --username <USER> --password <PASSWORD_CRYPT>
 ```
 
-See [`example_layout.py`](./example_layout.py) for station panel layout and array configuration usage.
+See [`example_layout.py`](./examples/example_layout.py) for station panel layout and array configuration usage.
 
 ---
 
 ### Power by day example
 
 ```bash
-PYTHONPATH=./src/ python3 example_powerbyday.py --username <USER> --password <PASSWORD_CRYPT>
+PYTHONPATH=./src/ python3 examples/example_powerbyday.py --username <USER> --password <PASSWORD_CRYPT>
 ```
 
-See [`example_powerbyday.py`](./example_powerbyday.py) for power playback curve and daily module data descriptor usage.
+See [`example_powerbyday.py`](./examples/example_powerbyday.py) for power playback curve and daily module data descriptor usage.
 
 ---
 
