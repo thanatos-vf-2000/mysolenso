@@ -214,7 +214,20 @@ meters, BMS units, and so on.
  
 Used by :class:`~mysolenso.services.stations.countdevice.MySolensoStationCountDevice`.
 """
- 
+
+API_STATION_LAYOUT: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm/layout_select_all"
+)
+
+API_STATION_ARRAY: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm/array_select_all"
+)
+
+API_STATION_DATA_MODULE_DAY: str = (
+    BASE_URL_SOLENSO + "api/gateway/pvm-data/data_select_module_day_data"
+)
+
+
 API_DTU_SELECT_ALL: str = (
     BASE_URL_SOLENSO + "api/gateway/pvm/dtu_select_all"
 )
@@ -278,3 +291,11 @@ since the station was commissioned.
  
 Used by :class:`~mysolenso.services.dayofyeay.MySolensoCountByDayOfYeay`.
 """
+
+API_POWER_PLAYBACK_BY_DAY: str = (
+    BASE_URL_HOYMILES + "0/station/data/count_playback_power_by_day"
+)
+
+API_DOWN_MODULE_DAY_DATA: str = (
+    BASE_URL_HOYMILES + "0/module/data/down_module_day_data"
+)

@@ -40,6 +40,8 @@ The library handles authentication, user profile retrieval, PV station data, rea
     - [Stations example](#stations-example)
     - [DTU example](#dtu-example)
     - [Micro example](#micro-example)
+    - [Layout example](#layout-example)
+    - [Power by day example](#power-by-day-example)
   - [Documentation](#documentation)
   - [Help](#help)
   - [Contributing](#contributing)
@@ -283,9 +285,15 @@ Test files:
 | `tests/test_13_service_stationcount.py` | Real-time counters |
 | `tests/test_14_service_dayofyear.py` | Daily production history |
 | `tests/test_15_service_powerbyday.py` | Intra-day power curve |
+| `tests/test_16_service_dtu_selectall.py` |  DTU and microinverter list service |
+| `tests/test_17_service_dtu_find.py` | single DTU detail service |
+| `tests/test_18_service_micro_find.py` | single microinverter detail service |
 | `tests/test_20_report_powerbystation.py` | Per-station power report |
 | `tests/test_21_report_oempower.py` | OEM daily list report |
 | `tests/test_22_report_oempowercount.py` | OEM aggregated totals |
+| `tests/test_23_station_ak.py` | station geolocation/AK data service |
+| `tests/test_24_station_countdevice.py` | retrieving device count summary data for a station |
+| `tests/test_25_station_stationinfodev.py` | station geolocation/AK data service |
 
 ---
 
@@ -336,6 +344,26 @@ PYTHONPATH=./src/ python3 example_micro.py --username <USER> --password <PASSWOR
 ```
 
 See [`example_micro.py`](./example_micro.py) for DTU report usage.
+
+---
+
+### Layout example
+
+```bash
+PYTHONPATH=./src/ python3  example_layout.py --username <USER> --password <PASSWORD_CRYPT>
+```
+
+See [` example_layout.py`](./ example_layout.py) for Layout report usage.
+
+---
+
+### Power by day example
+
+```bash
+PYTHONPATH=./src/ python3  example_powerbyday.py --username <USER> --password <PASSWORD_CRYPT>
+```
+
+See [` example_powerbyday.py`](./ example_powerbyday.py) for Layout report usage.
 
 ---
 

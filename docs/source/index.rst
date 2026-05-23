@@ -12,6 +12,14 @@ Python library for interfacing the `monitor.solenso.net` platform.
    quickstart
    api/index
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Project
+
+   changelog
+   Solenso monitor <https://monitor.solenso.net/platform/>
+   Solenso <https://www.solenso.fr/>
+
 Indices and tables
 ------------------
 

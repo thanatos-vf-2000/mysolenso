@@ -103,6 +103,10 @@ from .services.stations.ak import MySolensoStationAK
 from .services.dtu.selectall import MySolensoDTUSelectAll
 from .services.dtu.find import MySolensoDTUFind
 from .services.micro.find import MySolensoMicroFind
+from .services.stations.layout import MySolensoStationLayout
+from .services.stations.array import MySolensoStationArray
+from .services.stations.powerbyday import MySolensoPowerPlayBackByDay
+from .services.stations.datamodule import MySolensoStationDataModuleDay
  
 _LOG = logging.getLogger(__name__)
  
@@ -266,3 +270,8 @@ class MySolenso:
         
         # 16. Microinverter detail - full record for a single microinverter.
         self.microfind = MySolensoMicroFind(self)
+        
+        self.stationlayout = MySolensoStationLayout(self)
+        self.stationarray = MySolensoStationArray(self)
+        self.powerplaybackbyday = MySolensoPowerPlayBackByDay(self)
+        self.stationdatamodule = MySolensoStationDataModuleDay(self)

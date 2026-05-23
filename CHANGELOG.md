@@ -1,6 +1,16 @@
 # CHANGELOG
 
 <!-- version list -->
+
+## v1.2.0.a (2026-05-23)
+- Add Class MySolensoStationLayout,
+- Add Class MySolensoStationArray,
+- Add Class MySolensoPowerPlayBackByDay,
+- Add Class MySolensoStationDataModuleDay,
+- Add example_layout.py and example_powerbyday.py,
+- Update README.md,
+- Update documentation.
+
 ## v1.2.0 (2026-05-20)
 - Update data for publication into pypi.org,
 - Add Class MySolensoStationInfoDevice,
